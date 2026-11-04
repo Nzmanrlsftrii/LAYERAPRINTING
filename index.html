@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAYERAPRINTINGINDONESIA | Mesin 3D Printing, Filamen & Daur Ulang Plastik</title>
+<meta name="description" content="LAYERAPRINTINGINDONESIA menyediakan mesin 3D printing, filamen, ekstruder desktop, mesin pencacah, dan sistem daur ulang plastik untuk pasar Indonesia dan internasional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- CSS TAMBAHAN LOGIN & CART -->
+<style>
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: 18px;
+}
+
+.nav-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.nav-action svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-action:hover {
+  color: #efa900;
+}
+
+@media (max-width: 1100px) {
+  .nav-actions {
+    gap: 12px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-actions {
+    margin-left: auto;
+    margin-right: 14px;
+    gap: 12px;
+  }
+
+  .nav-action {
+    font-size: 12px;
+  }
+
+  .nav-action svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-actions {
+    gap: 10px;
+    margin-right: 10px;
+  }
+
+  .nav-action {
+    gap: 4px;
+    font-size: 11px;
+  }
+
+  .nav-action svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Lewati ke konten utama</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="Beranda LAYERAPRINTINGINDONESIA">
+      <img src="assets/images/Logo.png"
+           alt="LAYERAPRINTINGINDONESIA"
+           class="logo-image">
+    </a>
+
+    <nav id="menu" class="menu" aria-label="Navigasi utama">
+      <a href="produk.html">Produk</a>
+      <a href="contact.html">Hubungi Kami</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="join.html">Join Us</a>
+      <a href="blog.html">Artikel</a>
+      <a class="btn btn-primary menu-cta" href="contact.html">Minta Penawaran</a>
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href="contact.html">Minta Penawaran</a>
+
+    <!-- LOGIN DAN CART -->
+    <div class="nav-actions">
+
+      <a href="login.html" class="nav-action" aria-label="Login">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <a href="cart.html" class="nav-action" aria-label="Keranjang Belanja">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </a>
+
+    </div>
+
+    <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Mengubah Plastik Menjadi Peluang.</h1>
+      <p class="lead">Temukan peralatan 3D printing inovatif, filamen berkualitas, dan solusi daur ulang yang mendukung masa depan manufaktur yang lebih berkelanjutan.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="produk.html">Jelajahi Produk</a>
+        <a class="btn btn-outline" href="contact.html">Hubungi Tim Penjualan</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Banner produk 3D printing">
+      <img
+        src="assets/images/banner1.png"
+        alt="Mesin 3D printing, ekstruder filamen, dan mesin daur ulang plastik"
+        class="hero-banner">
+      <span class="tag">Unggulan: Sistem Daur Ulang</span>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="head center">
+      <h2>Mengapa Memilih LAYERAPRINTINGINDONESIA?</h2>
+      <p>Peralatan dan material pilihan untuk mempermudah penggunaan teknologi 3D printing dan pemanfaatan kembali plastik.</p>
+    </div>
+
+    <div class="grid g3">
+      <article class="card feat"><span class="ico" data-icon="cpu"></span><h3>Teknologi 3D Printing Modern</h3><p>Mesin printer andal untuk pembuatan prototipe, pendidikan, dan produksi skala kecil.</p></article>
+      <article class="card feat"><span class="ico" data-icon="spool"></span><h3>Filamen Berkualitas</h3><p>Pilihan material dan warna untuk kebutuhan pencetakan sehari-hari maupun teknis.</p></article>
+      <article class="card feat"><span class="ico" data-icon="recycle"></span><h3>Daur Ulang Plastik Berkelanjutan</h3><p>Peralatan untuk mengolah limbah plastik yang sesuai menjadi filamen yang dapat digunakan kembali.</p></article>
+      <article class="card feat"><span class="ico" data-icon="ruler"></span><h3>Rekayasa Presisi</h3><p>Peralatan yang dirancang untuk mendukung hasil produksi yang konsisten dan berulang.</p></article>
+      <article class="card feat"><span class="ico" data-icon="headset"></span><h3>Dukungan Teknis Andal</h3><p>Panduan untuk instalasi, pengoperasian, dan perawatan peralatan.</p></article>
+      <article class="card feat"><span class="ico" data-icon="settings"></span><h3>Solusi Manufaktur Fleksibel</h3><p>Konfigurasi peralatan untuk berbagai kebutuhan, mulai dari ruang belajar hingga bengkel produksi.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR DAUR ULANG -->
+<section class="section alt" id="solutions">
+  <div class="wrap">
+    <div class="head center">
+      <h2>Dari Limbah Menjadi Filamen Baru</h2>
+      <p>Ubah hasil cetak yang gagal, struktur penyangga, dan sisa plastik menjadi filamen yang dapat digunakan kembali melalui alur kerja yang praktis.</p>
+    </div>
+
+    <ol class="steps">
+      <li><span class="check" data-icon="check"></span><h3>Kumpulkan Limbah</h3><p>Kumpulkan hasil cetak yang gagal, struktur penyangga, dan sisa plastik yang sesuai.</p></li>
+      <li><span class="check" data-icon="check"></span><h3>Olah Material</h3><p>Cacah dan persiapkan material sebelum melalui proses ekstrusi.</p></li>
+      <li><span class="check" data-icon="check"></span><h3>Produksi Filamen Baru</h3><p>Proses plastik melalui ekstrusi, kemudian gulung menjadi filamen untuk proyek berikutnya.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PERBANDINGAN -->
+<section class="section">
+  <div class="wrap compare">
+    <div class="head">
+      <h2>Langkah Lebih Praktis dari Sisa Plastik Menjadi Filamen</h2>
+      <p>Perbandingan bersifat kualitatif. Spesifikasi dan data performa akhir akan dikonfirmasi berdasarkan produk yang tersedia.</p>
+    </div>
+
+    <div class="cmp-cols">
+      <div class="cmp old">
+        <h3>Proses Konvensional</h3>
+        <ul>
+          <li>Membeli pelet plastik baru atau filamen siap pakai</li>
+          <li>Membuang sisa material untuk diproses di tempat lain</li>
+          <li>Menggunakan mesin dan proses penanganan yang terpisah</li>
+        </ul>
+      </div>
+
+      <div class="cmp new">
+        <h3>Solusi LAYERAPRINTINGINDONESIA</h3>
+        <ul>
+          <li>Memanfaatkan kembali plastik yang masih layak digunakan</li>
+          <li>Menghubungkan proses pencacahan dan ekstrusi</li>
+          <li>Memproduksi filamen di lokasi kerja Anda</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<div id="products">
+
+<section class="section prod">
+  <div class="wrap split">
+    <img data-art="printer" loading="lazy" alt="Mesin 3D printing" width="520" height="420">
+    <div>
+      <h2>Desain Split untuk Pengisahan Filamen yang Lebih Mudah</h2>
+      <p><b>Sistem extruder dan winding dipisahkan untuk operasi, penyesuaian, dan pemeliharaan yang lebih mudah.</b></p>
+      <p>Berbeda dengan desain terintegrasi C1, LAYERAPRINTING indonesia memisahkan sistem extruder dan winding menjadi dua bagian khusus. Hal ini membuat filamen berkelok-kelok lebih mudah untuk mengamati, menyesuaikan, membersihkan, dan memelihara. Ini juga membantu pengguna memecahkan masalah proses ekstrusi dan berliku lebih mudah selama daur ulang harian.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section prod alt">
+  <div class="wrap split rev">
+    <img data-art="extruder" loading="lazy" alt="Mesin ekstruder filamen" width="520" height="420">
+    <div>
+      <h2>Potongan-potongan Limbah yang lebih besar</h2>
+      <p><b>Penghancur berkecepatan tinggi mendukung potongan limbah hingga 10 × 10 × 15 cm, mengurangi kebutuhan untuk pra-pemotongan yang berlebihan.</b></p>
+      <p>Sebelum didaur ulang, banyak pengguna perlu memotong cetakan yang gagal menjadi potongan-potongan kecil. Ini membutuhkan waktu dan membuat daur ulang terasa rumit.</p>
+      <p>Shredder LAYERAPRINTING indonesia dirancang untuk menangani potongan limbah pencetakan 3D yang lebih besar hingga 10 × 10 × 15 cm, membantu pengguna mengurangi waktu persiapan dan bergerak lebih cepat dari limbah ke bahan yang dapat digunakan kembali.</p>
+      <p>Kurang memotong, Lebih cepat merobek-robek, Daur ulang yang lebih mudah.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section prod">
+  <div class="wrap split">
+    <img data-art="shredder" loading="lazy" alt="Mesin pencacah plastik" width="520" height="420">
+    <div>
+      <h2>Desain Sekrup Limbah yang Dioptimalkan</h2>
+      <p><b>Dirancang untuk limbah pencetakan 3D yang diparut - bukan hanya pelet perawan yang sempurna.</b></p>
+      <p>Limbah pencetakan 3D yang diparut sangat berbeda dari pelet perawan. Ini tidak teratur dalam bentuk, tidak konsisten dalam ukuran, dan lebih sulit untuk memberi makan dengan lancar.</p>
+      <p>Itulah sebabnya LAYERAPRINTING indonesia menggunakan desain sekrup yang dikembangkan khusus untuk limbah cetak 3D daur ulang, membantu meningkatkan stabilitas makan, konsistensi leleh, dan keandalan ekstrusi.</p>
+      <p>Ini adalah salah satu alasan utama LAYERAPRINTING indonesia dapat mendukung daur ulang berbasis limbah 100% tanpa memerlukan pelet perawan.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- MATERIAL -->
+<section class="section alt" id="materials">
+  <div class="wrap grid g2">
+    <article class="panel">
+      <h2 class="h3">Jenis Material 3D Printing</h2>
+      <p class="note">Informasi berikut merupakan gambaran umum. Sesuaikan dengan data produk yang telah dikonfirmasi.</p>
+      <dl class="mats">
+        <div><dt>PLA</dt><dd>Mudah dicetak dan cocok untuk prototipe, model, serta kebutuhan dekoratif.</dd></div>
+        <div><dt>PETG</dt><dd>Memiliki ketangguhan yang baik dan ketahanan terhadap kelembapan untuk berbagai komponen fungsional.</dd></div>
+        <div><dt>ABS</dt><dd>Memiliki daya tahan dan ketahanan panas yang baik, dengan kebutuhan ventilasi saat pencetakan.</dd></div>
+        <div><dt>TPU</dt><dd>Material fleksibel untuk komponen seperti pelindung, pegangan, dan bagian yang lentur.</dd></div>
+      </dl>
+    </article>
+
+    <article class="panel">
+      <h2 class="h3">Koleksi Warna Filamen</h2>
+      <p class="note">Warna yang ditampilkan merupakan ilustrasi.</p>
+      <div class="spools" id="spools" aria-hidden="true"></div>
+    </article>
+  </div>
+</section>
+
+<!-- KEBERLANJUTAN -->
+<section class="section" id="about">
+  <div class="wrap split">
+    <img src="assets/images/Ilustrasi proses daur ulang plastik.png" width="520" height="420" alt="Ilustrasi proses daur ulang plastik">
+    <div>
+      <h2>Kali Ini</h2>
+      <p>Untuk mengurangi limbah dan menciptakan masa depan yang berkelanjutan, kami telah mengembangkan solusi inovatif yang mengubah limbah plastik menjadi filamen pencetakan 3D yang berharga. Sistem loop tertutup kami memastikan dampak lingkungan minimal sambil menyediakan bahan berkualitas tinggi untuk proyek Anda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WASTE RECOVERY SECTION -->
+<section class="waste-recovery">
+  <div class="waste-recovery__card">
+    <video
+      src="assets/images/waste-recovery.mp4"
+      class="waste-recovery__image"
+      aria-label="Proses daur ulang limbah material 3D printing"
+      autoplay
+      muted
+      loop
+      playsinline>
+    </video>
+    <div class="waste-recovery__overlay"></div>
+  </div>
+</section>
+
+<!-- EKONOMI SIRKULAR -->
+<section class="circular">
+  <div class="wrap">
+    <h2>Mendukung Manufaktur Berbasis Ekonomi Sirkular.</h2>
+    <p>Material bergerak melalui proses pengumpulan, pencacahan, dan ekstrusi, kemudian kembali digunakan dalam produksi. Tingkat pemulihan material bergantung pada jenis plastik dan proses yang digunakan. Data teknis akan disediakan sesuai sistem terkait.</p>
+  </div>
+</section>
+
+<section class="section prod alt">
+  <div class="wrap split rev">
+    <img src="assets/images/APAYANG.png" width="520" height="420" alt="Solusi produksi filamen">
+    <div>
+      <h2>Apa yang Kita Lakukan</h2>
+      <p>Kami berdedikasi untuk mengembangkan extruders filamen pencetakan 3D tingkat desktop yang menciptakan sistem produksi loop tertutup yang berkelanjutan. Melalui daur ulang dan penggunaan kembali, kami mengurangi limbah plastik, melindungi lingkungan, dan menyediakan pelanggan kami dengan bahan cetak yang ramah lingkungan dan hemat biaya.</p>
+      <p><u><a href="#">Bergabunglah dengan kami</a></u></p>
+    </div>
+  </div>
+</section>
+
+<section class="section prod">
+  <div class="wrap split">
+    <img src="assets/images/MASADEPAN.png" width="520" height="420" alt="Masa depan daur ulang plastik">
+    <div>
+      <h2>Misi kami :</h2>
+      <h3><br>untuk mengubah plastik dalam kehidupan kita sehari-hari menjadi filamen cetak 3D. Ini adalah hal yang sangat menarik, limbah pencetakan 3D hanyalah permulaan.</h3>
+    </div>
+  </div>
+</section>
+
+<!-- PENERAPAN -->
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="head center">
+      <h2>Solusi untuk Berbagai Kebutuhan</h2>
+    </div>
+
+    <div class="grid g3 apps">
+      <div><span class="ico" data-icon="recycle"></span><h3>Daur Ulang Plastik</h3><p>Manfaatkan kembali plastik yang sesuai menjadi filamen untuk kebutuhan internal.</p></div>
+      <div><span class="ico" data-icon="flask"></span><h3>Universitas dan Penelitian</h3><p>Mendukung eksperimen polimer daur ulang dan pengembangan formulasi material.</p></div>
+      <div><span class="ico" data-icon="book"></span><h3>Sekolah dan Pendidikan</h3><p>Mendukung pembelajaran langsung di bidang rekayasa, teknologi, dan keberlanjutan.</p></div>
+      <div><span class="ico" data-icon="users"></span><h3>Ruang Kreator</h3><p>Mendukung produksi filamen khusus dan pemanfaatan material secara lebih efisien.</p></div>
+      <div><span class="ico" data-icon="store"></span><h3>Manufaktur Usaha Kecil</h3><p>Membantu pembuatan prototipe dan komponen dalam jumlah terbatas.</p></div>
+      <div><span class="ico" data-icon="plus"></span><h3>Kebutuhan Medis dan Industri</h3><p>Mendukung pembuatan prototipe dan alat bantu industri sesuai validasi serta standar penggunaan masing-masing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFORMASI -->
+<section class="section alt" id="resources">
+  <div class="wrap">
+    <div class="head">
+      <h2>Video</h2>
+    </div>
+
+    <div class="grid g3 vids">
+      <a href="https://www.youtube.com/watch?v=J-7UKOgaRSs" class="vid" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.youtube.com/vi/J-7UKOgaRSs/hqdefault.jpg" alt="Panduan Alur Daur Ulang Plastik">
+        <span class="play" data-icon="play"></span>
+        <b>Panduan Alur Daur Ulang Plastik</b>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=Flslg7lhW2M" class="vid" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.youtube.com/vi/Flslg7lhW2M/hqdefault.jpg" alt="Cara Menyiapkan Mesin Ekstruder Filamen">
+        <span class="play" data-icon="play"></span>
+        <b>Cara Menyiapkan Mesin Ekstruder Filamen</b>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=ua0GzY1mAeo" class="vid" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.youtube.com/vi/ua0GzY1mAeo/hqdefault.jpg" alt="Memilih Filamen yang Tepat">
+        <span class="play" data-icon="play"></span>
+        <b>Memilih Filamen yang Tepat</b>
+      </a>
+    </div>
+
+    <div class="head blog-head">
+      <h2>Artikel</h2>
+    </div>
+
+    <div class="grid g3">
+      <article class="post">
+        <img src="assets/images/artikel1.png" width="400" height="240" alt="Artikel akurasi diameter filamen">
+        <div>
+          <small>Berita Industri</small>
+          <h3>Mengapa Akurasi Diameter Filamen Sangat Penting?</h3>
+          <time datetime="2026-10-01">1 Oktober 2026</time>
+          <a href="artikel1.html">Baca Selengkapnya</a>
+        </div>
+      </article>
+
+      <article class="post">
+        <img src="assets/images/artikel3.png" width="400" height="240" alt="Perbandingan material PLA PETG ABS TPU">
+        <div>
+          <small>Panduan Material</small>
+          <h3>PLA vs PETG vs ABS vs TPU: Memilih Material yang Tepat</h3>
+          <time datetime="2026-07-26">26 Juli 2026</time>
+          <a href="artikel3.html">Baca Selengkapnya</a>
+        </div>
+      </article>
+
+      <article class="post">
+        <img src="assets/images/artikel2.png" width="400" height="240" alt="Artikel produksi filamen daur ulang">
+        <div>
+          <small>Daur Ulang</small>
+          <h3>Bagaimana Produksi Filamen dengan Sistem Kontrol Tertutup Mendukung Manufaktur Berkelanjutan</h3>
+          <time datetime="2026-07-26">26 Juli 2026</time>
+          <a href="artikel2.html">Baca Selengkapnya</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="wrap foot-grid">
+
+    <div class="fbrand">
+      <a class="logo" href="#top"><span class="logo-mark"></span>LAYERAPRINTINGINDONESIA</a>
+      <p>Penyedia mesin 3D printing, filamen, dan solusi daur ulang plastik untuk kebutuhan Indonesia dan pasar internasional.</p>
+      <div class="social">
+        <a href="#" aria-label="Instagram" data-icon="insta"></a>
+        <a href="#" aria-label="YouTube" data-icon="play"></a>
+        <a href="#" aria-label="LinkedIn" data-icon="users"></a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Produk</h4>
+      <a href="#products">Mesin 3D Printing</a>
+      <a href="#products">Mesin Ekstruder</a>
+      <a href="#products">Mesin Pencacah</a>
+      <a href="#materials">Filamen</a>
+    </div>
+
+    <div>
+      <h4>Solusi</h4>
+      <a href="#solutions">Daur Ulang Plastik</a>
+      <a href="#apps">Pendidikan</a>
+      <a href="#apps">Bisnis dan Industri</a>
+    </div>
+
+    <div>
+      <h4>Perusahaan</h4>
+      <a href="#about">Tentang Kami</a>
+      <a href="#resources">Artikel</a>
+      <a href="#resources">Video</a>
+    </div>
+
+    <div>
+      <h4>Hubungi Kami</h4>
+      <span>Email: info@example.com</span>
+      <span>WhatsApp: +62 000 0000 0000</span>
+      <span>Indonesia</span>
+      <small>Informasi kontak sementara</small>
+    </div>
+
+  </div>
+
+  <div class="wrap copy">
+    © <span id="year">2026</span> LAYERAPRINTINGINDONESIA. Hak cipta dilindungi.
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

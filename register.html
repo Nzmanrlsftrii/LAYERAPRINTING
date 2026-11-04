@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account | LAYERAPRINTING</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Manrope',sans-serif;
+  background:#101010;color:#fff;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:25px;
+}
+.container{width:100%;max-width:440px}
+.logo{text-align:center;font-size:23px;font-weight:800;letter-spacing:1px;margin-bottom:35px}
+.logo span{color:#efa900}
+.card{background:#181818;border:1px solid #303030;border-radius:14px;padding:35px}
+h1{font-size:27px;margin-bottom:9px}
+.subtitle{color:#999;font-size:13px;margin-bottom:28px;line-height:1.7}
+.form-group{margin-bottom:19px}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:9px}
+input{
+  width:100%;padding:14px 15px;background:#101010;
+  border:1px solid #383838;border-radius:7px;color:#fff;
+  font-family:inherit;font-size:13px;outline:none;
+}
+input:focus{border-color:#efa900}
+.password-wrap{position:relative}
+.password-wrap input{padding-right:65px}
+.toggle{
+  position:absolute;right:13px;top:50%;transform:translateY(-50%);
+  background:none;border:0;color:#efa900;cursor:pointer;
+  font-size:11px;font-weight:700;
+}
+button.submit{
+  width:100%;padding:15px;background:#efa900;border:0;
+  border-radius:7px;color:#101010;font-family:inherit;
+  font-weight:800;cursor:pointer;margin-top:8px;transition:.2s;
+}
+button.submit:hover{background:#ffc02e}
+button.submit:disabled{opacity:.6;cursor:not-allowed}
+.message{font-size:12px;margin:14px 0 0;line-height:1.6}
+.login-link{text-align:center;color:#999;font-size:12px;margin-top:25px}
+a{color:#efa900;text-decoration:underline;font-weight:700}
+.back{display:block;text-align:center;margin-top:25px;color:#888;font-size:12px;text-decoration:none}
+@media(max-width:480px){
+  .card{padding:25px 20px}
+  h1{font-size:24px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">LAYER<span>APRINTING</span></div>
+
+  <div class="card">
+    <h1>Create Account</h1>
+
+    <p class="subtitle">
+      Buat akun untuk mendapatkan pengalaman berbelanja yang lebih mudah.
+    </p>
+
+    <form id="registerForm">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name"
+          placeholder="Masukkan nama lengkap"
+          autocomplete="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email"
+          placeholder="nama@email.com"
+          autocomplete="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input type="password" id="password"
+            placeholder="Minimal 8 karakter"
+            minlength="8" autocomplete="new-password" required>
+          <button type="button" class="toggle"
+            onclick="togglePassword('password',this)">SHOW</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-wrap">
+          <input type="password" id="confirmPassword"
+            placeholder="Ulangi password"
+            autocomplete="new-password" required>
+          <button type="button" class="toggle"
+            onclick="togglePassword('confirmPassword',this)">SHOW</button>
+        </div>
+      </div>
+
+      <button type="submit" class="submit" id="registerButton">
+        CREATE ACCOUNT
+      </button>
+
+      <p class="message" id="message" role="status"></p>
+
+    </form>
+
+    <p class="login-link">
+      Already have an account?
+      <a href="login.html">Log in</a>
+    </p>
+  </div>
+
+  <a href="index.html" class="back">← Back to Homepage</a>
+
+</div>
+
+<script>
+function togglePassword(id,button){
+  const field=document.getElementById(id);
+
+  const showing=field.type==="text";
+  field.type=showing?"password":"text";
+  button.textContent=showing?"SHOW":"HIDE";
+}
+
+document.getElementById("registerForm")
+.addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const name=document.getElementById("name")
+    .value.trim();
+
+  const email=document.getElementById("email")
+    .value.trim().toLowerCase();
+
+  const password=document.getElementById("password")
+    .value;
+
+  const confirmPassword=document.getElementById("confirmPassword")
+    .value;
+
+  const message=document.getElementById("message");
+  const button=document.getElementById("registerButton");
+
+  message.style.color="#ff7777";
+
+  if(name.length<2){
+    message.textContent="Nama lengkap minimal 2 karakter.";
+    return;
+  }
+
+  if(password.length<8){
+    message.textContent="Password harus minimal 8 karakter.";
+    return;
+  }
+
+  if(password!==confirmPassword){
+    message.textContent="Konfirmasi password tidak cocok.";
+    return;
+  }
+
+  let users=[];
+
+  try{
+    users=JSON.parse(localStorage.getItem("layera_users")||"[]");
+
+    if(!Array.isArray(users)) users=[];
+  }catch(error){
+    message.textContent="Data akun tidak dapat dibaca.";
+    return;
+  }
+
+  // Mengecek apakah email sudah digunakan
+  if(users.some(user=>user.email===email)){
+    message.textContent=
+      "Email sudah terdaftar. Silakan login.";
+    return;
+  }
+
+  // Menyimpan akun baru
+  users.push({
+    name:name,
+    email:email,
+    password:password
+  });
+
+  try{
+    localStorage.setItem(
+      "layera_users",
+      JSON.stringify(users)
+    );
+  }catch(error){
+    message.textContent=
+      "Gagal menyimpan akun. Periksa penyimpanan browser.";
+    return;
+  }
+
+  message.style.color="#efa900";
+  message.textContent=
+    "Registrasi berhasil! Mengarahkan ke halaman login...";
+
+  button.disabled=true;
+
+  // Pastikan pengguna belum login otomatis
+  sessionStorage.removeItem("layera_session");
+  localStorage.removeItem("layera_user");
+
+  setTimeout(()=>{
+    window.location.href="login.html?registered=1";
+  },1000);
+
+});
+</script>
+
+</body>
+</html>

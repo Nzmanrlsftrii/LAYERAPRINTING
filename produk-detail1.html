@@ -1,0 +1,1501 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mesin Ekstruder | LAYERAPRINTING</title>
+<meta name="description" content="Temukan mesin ekstruder, pembuat filamen 3D, dan mesin daur ulang material dari LAYERAPRINTING.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+:root {
+    --black: #090909;
+    --text: #303030;
+    --muted: #777;
+    --background: #fbf9f8;
+    --white: #fff;
+    --yellow: #ffbd16;
+    --border: #eae7e4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Inter", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 70px;
+    padding: 0 3.1%;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    background: var(--black);
+    border-bottom: 1px solid #333;
+}
+
+.brand {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand img {
+    display: block;
+    width: 145px;
+    max-height: 44px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 28px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 25px 0;
+    color: #f3f3f3;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.nav-links a::after {
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--yellow);
+    content: "";
+    transition: width .2s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 17px;
+    transition: color .2s, background .2s;
+}
+
+.nav-icon:hover {
+    color: var(--yellow);
+    background: #222;
+}
+
+.menu-toggle {
+    display: none;
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #383838;
+    border-radius: 8px;
+    background: #151515;
+    color: white;
+    cursor: pointer;
+}
+
+/* =========================
+   PRODUCT SECTION
+========================= */
+.product-section {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 43px 3.1% 64px;
+    flex: 1;
+}
+
+.page-heading {
+    margin-bottom: 38px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #888;
+    font-size: 11px;
+}
+
+.breadcrumb a {
+    transition: color .2s;
+}
+
+.breadcrumb a:hover {
+    color: #a87900;
+}
+
+.breadcrumb i {
+    font-size: 9px;
+    color: #aaa;
+}
+
+.breadcrumb span {
+    color: #454545;
+}
+
+.page-heading h1 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: clamp(38px, 4.3vw, 52px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+.page-heading p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+}
+
+.product-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    transition:
+        border-color .25s,
+        background .25s,
+        box-shadow .25s,
+        transform .25s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border);
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .045);
+}
+
+.product-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1.12 / 1;
+    overflow: hidden;
+    background: #f0efed;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.035);
+}
+
+.product-info {
+    padding: 15px 0 18px;
+    transition: padding .25s;
+}
+
+.product-card:hover .product-info {
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.product-name {
+    margin-bottom: 8px;
+    color: #303030;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.product-price {
+    color: #242424;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.product-price span {
+    font-weight: 400;
+}
+
+.product-description {
+    max-height: 0;
+    overflow: hidden;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: 0;
+    transition: max-height .3s, opacity .3s, margin .3s;
+}
+
+.product-card:hover .product-description {
+    max-height: 80px;
+    margin-top: 8px;
+    opacity: 1;
+}
+
+.product-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: #383838;
+    font-size: 11px;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+.product-action i {
+    font-size: 10px;
+    transition: transform .2s;
+}
+
+.product-action:hover {
+    color: #a87900;
+}
+
+.product-action:hover i {
+    transform: translateX(4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    padding: 42px 3.1% 0;
+    background: var(--black);
+    color: #fff;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr .9fr 1.8fr;
+    gap: 55px;
+    padding-bottom: 40px;
+}
+
+.footer-brand {
+    min-width: 0;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.footer-logo img {
+    display: block;
+    width: 145px;
+    max-height: 45px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.footer-description {
+    max-width: 275px;
+    margin-bottom: 22px;
+    color: #a7a7a7;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #303030;
+    border-radius: 50%;
+    color: #eee;
+    font-size: 14px;
+    transition: color .2s, background .2s, border-color .2s;
+}
+
+.social-links a:hover {
+    border-color: var(--yellow);
+    background: var(--yellow);
+    color: #111;
+}
+
+.footer h2 {
+    margin: 0 0 22px;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-menu a {
+    color: #c5c5c5;
+    font-size: 12px;
+    transition: color .2s;
+}
+
+.footer-menu a:hover,
+.footer-bottom a:hover {
+    color: var(--yellow);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+    min-width: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+.contact-item > i {
+    width: 16px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    color: var(--yellow);
+    font-size: 13px;
+    text-align: center;
+}
+
+.contact-item div {
+    min-width: 0;
+}
+
+.contact-item span {
+    display: block;
+    margin-bottom: 7px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.contact-item a,
+.contact-item p {
+    color: #f0f0f0;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.footer-bottom {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #2b2b2b;
+    color: #929292;
+    font-size: 11px;
+}
+
+.footer-bottom a {
+    transition: color .2s;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1050px) {
+    .navbar {
+        gap: 22px;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .brand img {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+    }
+
+    .product-section {
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .footer {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .footer-main {
+        gap: 30px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 760px) {
+    .navbar {
+        min-height: 66px;
+        padding: 0 20px;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 125px;
+        max-height: 40px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 2px;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100dvh - 66px);
+        padding: 8px 22px 18px;
+        overflow-y: auto;
+        background: #0c0c0c;
+        border-bottom: 1px solid #333;
+        box-shadow: 0 15px 24px rgba(0, 0, 0, .15);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-7px);
+        transition: opacity .2s, transform .2s, visibility .2s;
+    }
+
+    .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 14px 2px;
+        border-bottom: 1px solid #252525;
+        font-size: 13px;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .product-section {
+        padding: 34px 22px 48px;
+    }
+
+    .page-heading {
+        margin-bottom: 27px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 15px;
+    }
+
+    .page-heading h1 {
+        font-size: 39px;
+        letter-spacing: -1.5px;
+    }
+
+    .page-heading p {
+        max-width: 430px;
+        font-size: 12px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 14px;
+    }
+
+    .product-name {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .product-info {
+        padding-top: 12px;
+    }
+
+    .product-card:hover .product-info {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .product-description {
+        max-height: none;
+        font-size: 11px;
+        opacity: 1;
+    }
+
+    .product-action {
+        font-size: 10px;
+    }
+
+    .footer {
+        padding: 35px 22px 0;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 22px;
+        padding-bottom: 30px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+
+    .footer h2 {
+        font-size: 17px;
+    }
+
+    .footer-menu {
+        gap: 14px;
+    }
+
+    .footer-menu a,
+    .contact-item a,
+    .contact-item p {
+        font-size: 11px;
+    }
+}
+
+/* =========================
+   HP KECIL
+========================= */
+@media (max-width: 420px) {
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .brand img {
+        width: 108px;
+    }
+
+    .nav-icon {
+        width: 29px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .product-section {
+        padding: 29px 15px 40px;
+    }
+
+    .page-heading h1 {
+        font-size: 35px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .product-image {
+        aspect-ratio: 1.18 / 1;
+    }
+
+    .product-name {
+        font-size: 13px;
+    }
+
+    .product-info {
+        padding-top: 11px;
+    }
+
+    .footer {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .footer-main {
+        gap: 27px 15px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 9px;
+        padding: 18px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* =========================
+   PENYESUAIAN DESAIN LAYERAPRINTING
+========================= */
+
+:root {
+    --black: #111111;
+    --text: #292929;
+    --muted: #777777;
+    --background: #f8f7f4;
+    --white: #ffffff;
+    --yellow: #ffbd16;
+    --border: #e9e7e1;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+/* NAVBAR TERANG */
+.navbar {
+    min-height: 76px;
+    padding: 0 5%;
+    gap: 32px;
+    background: rgba(250, 249, 247, .97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+}
+
+.brand img {
+    width: 148px;
+    max-height: 46px;
+}
+
+.nav-links {
+    gap: clamp(13px, 1.8vw, 26px);
+}
+
+.nav-links a {
+    padding: 28px 0;
+    color: #292929;
+    font-size: 13px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a87900;
+}
+
+.nav-links a::after {
+    bottom: 18px;
+    background: var(--yellow);
+}
+
+.nav-icon {
+    color: #171717;
+}
+
+.nav-icon:hover {
+    background: #f0ead9;
+    color: #a87900;
+}
+
+.menu-toggle {
+    border-color: var(--border);
+    background: #fff;
+    color: #171717;
+}
+
+/* AREA PRODUK */
+.product-section {
+    width: 100%;
+    max-width: 1600px;
+    padding: 65px 5% 75px;
+}
+
+/* JUDUL DAN DESKRIPSI SEJAJAR */
+.page-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 35px;
+    margin-bottom: 36px;
+}
+
+.breadcrumb {
+    display: none;
+}
+
+.page-heading h1 {
+    margin-bottom: 10px;
+    color: #111;
+    font-size: clamp(40px, 4.5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -2.5px;
+    line-height: 1.12;
+}
+
+.page-heading p {
+    max-width: 430px;
+    padding-bottom: 5px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* GRID PRODUK */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px;
+}
+
+/* KARTU PRODUK MINIMALIS */
+.product-card {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background: transparent;
+    box-shadow: none;
+    transition: border-color .25s, background .25s;
+}
+
+.product-card:hover {
+    transform: none;
+    border-color: #eeece6;
+    background: #fff;
+    box-shadow: none;
+}
+
+/* FOTO PRODUK */
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.025);
+}
+
+/* INFORMASI PRODUK */
+.product-info,
+.product-card:hover .product-info {
+    padding: 16px 14px 20px;
+}
+
+.product-name {
+    margin-bottom: 7px;
+    color: #292929;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.product-price {
+    color: #292929;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.product-description {
+    max-height: none;
+    margin-top: 7px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: 1;
+}
+
+.product-action {
+    margin-top: 13px;
+    color: #8b6800;
+    font-size: 11px;
+}
+
+.product-action:hover {
+    color: #111;
+}
+
+/* FOOTER TETAP HITAM */
+.footer {
+    padding: 48px 5% 0;
+    background: #101010;
+    color: #fff;
+}
+
+.footer-main {
+    grid-template-columns: 1.05fr .8fr 1.4fr;
+    gap: 60px;
+}
+
+.footer-logo img {
+    width: 150px;
+    max-height: 48px;
+}
+
+/* TABLET */
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 0 3%;
+        gap: 18px;
+    }
+
+    .brand img {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .product-section {
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .product-grid {
+        gap: 16px;
+    }
+
+    .footer {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .footer-main {
+        gap: 32px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 760px) {
+    .navbar {
+        min-height: 66px;
+        padding: 0 18px;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 128px;
+        max-height: 40px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 3px;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 34px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100dvh - 66px);
+        padding: 8px 20px 18px;
+        overflow-y: auto;
+        background: #faf9f7;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 24px rgba(0, 0, 0, .07);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity .22s, transform .22s, visibility .22s;
+    }
+
+    .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 13px 2px;
+        border-bottom: 1px solid #eeece7;
+        font-size: 13px;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 27px;
+    }
+
+    .page-heading h1 {
+        font-size: 40px;
+        letter-spacing: -1.8px;
+    }
+
+    .page-heading p {
+        max-width: 440px;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .product-section {
+        padding: 43px 22px 55px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 14px;
+    }
+
+    .product-card {
+        border-radius: 12px;
+    }
+
+    .product-info,
+    .product-card:hover .product-info {
+        padding: 12px 4px 16px;
+    }
+
+    .product-name {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .product-description {
+        font-size: 11px;
+    }
+
+    .footer {
+        padding: 37px 23px 0;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 22px;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* HP KECIL */
+@media (max-width: 420px) {
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .brand img {
+        width: 108px;
+    }
+
+    .product-section {
+        padding: 35px 15px 45px;
+    }
+
+    .page-heading h1 {
+        font-size: 35px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .product-image {
+        aspect-ratio: 1.15 / 1;
+    }
+
+    .product-name {
+        font-size: 13px;
+    }
+
+    .footer {
+        padding-right: 19px;
+        padding-left: 19px;
+    }
+
+    .footer-main {
+        gap: 29px 15px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+
+    <a href="index.html" class="brand" aria-label="Beranda LAYERAPRINTING">
+        <img src="assets/images/Logo.png" alt="LAYERAPRINTING">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" class="active" aria-current="page">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="join.html">Bergabung dengan Kami</a>
+        <a href="blog.html">Artikel</a>
+    </nav>
+
+    <div class="nav-actions">
+            <a href="account.html" class="nav-icon" aria-label="Akun">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </a>    
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Buka navigasi"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+<!-- DAFTAR PRODUK EKSTRUDER -->
+<main class="product-section">
+
+    <section class="page-heading">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="produk.html">Produk</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Mesin Ekstruder</span>
+        </nav>
+
+        <h1>Extruder</h1>
+        <p>Mesin ekstruder dan pembuat filamen untuk kebutuhan pencetakan 3D.</p>
+    </section>
+
+    <section class="product-grid" aria-label="Daftar mesin ekstruder">
+
+        <!-- PRODUK 1 -->
+        <article class="product-card">
+
+            <a
+                href="hargaekstruder1.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tanyakan produk 3DPANY-BLE dan Plastic Crusher melalui WhatsApp">
+
+                <div class="product-image">
+                    <img
+                        src="assets/images/ekstruder1.png"
+                        alt="Mesin 3DPANY-BLE dan Plastic Crusher"
+                        loading="eager">
+                </div>
+            </a>
+
+            <div class="product-info">
+                <h2 class="product-name">3DPANY-BLE + Plastic Crusher</h2>
+
+                <p class="product-price">
+                    <span>Rp</span> 12.745.000,00
+                </p>
+
+                <p class="product-description">
+                    Mesin pembuat filamen yang dilengkapi sistem penghancur plastik.
+                </p>
+
+                <a
+                    class="product-action"
+                    href="https://wa.me/8618837101422?text=Halo%20LAYERAPRINTING%2C%20saya%20ingin%20menanyakan%20produk%203DPANY-BLE%20%2B%20Plastic%20Crusher."
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Tanyakan Produk
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+        <!-- PRODUK 2 -->
+        <article class="product-card">
+
+            <a
+                href="hargaekstruder2.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tanyakan produk C1 Filament Extruder dan Recycler melalui WhatsApp">
+
+                <div class="product-image">
+                    <img
+                        src="assets/images/ekstruder2.png"
+                        alt="C1 Filament Extruder dan Recycler"
+                        loading="lazy">
+                </div>
+            </a>
+
+            <div class="product-info">
+                <h2 class="product-name">C1 Filament Extruder &amp; Recycler</h2>
+
+                <p class="product-price">
+                    <span>Rp</span> 16.629.000,00
+                </p>
+
+                <p class="product-description">
+                    Mesin ekstruder untuk pembuatan filamen dengan konsep daur ulang material.
+                </p>
+
+                <a
+                    class="product-action"
+                    href="https://wa.me/8618837101422?text=Halo%20LAYERAPRINTING%2C%20saya%20ingin%20menanyakan%20produk%20C1%20Filament%20Extruder%20%26%20Recycler."
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Tanyakan Produk
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="Beranda LAYERAPRINTING">
+                <img src="assets/images/Logo.png" alt="LAYERAPRINTING">
+            </a>
+
+            <p class="footer-description">
+                Solusi material dan teknologi pencetakan 3D
+                untuk mendukung kebutuhan industri dan manufaktur.
+            </p>
+
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h2>MENU</h2>
+
+            <nav class="footer-menu" aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="contact.html">Hubungi Kami</a>
+                <a href="about.html">Tentang Kami</a>
+                <a href="join.html">Bergabung dengan Kami</a>
+                <a href="blog.html">Artikel</a>
+                <a href="track-order.html">Lacak Pesanan</a>
+            </nav>
+        </div>
+
+        <div class="footer-contact">
+            <h2>HUBUNGI KAMI</h2>
+
+            <div class="contact-item">
+                <i class="fa-regular fa-envelope"></i>
+                <div>
+                    <span>Email Perusahaan</span>
+                    <a href="mailto:LAYERAPRINTING@gmail.com">
+                        LAYERAPRINTING@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <span>Layanan Teknis</span>
+                    <a href="mailto:weil94170@gmail.com">
+                        weil94170@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                    <span>WhatsApp</span>
+                    <a
+                        href="https://wa.me/8618837101422"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        +86-18837101422
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <span>Telepon</span>
+                    <a href="tel:+8618538509168">
+                        +86-18538509168
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 LAYERAPRINTING Indonesia. Hak cipta dilindungi.</p>
+        <a href="policies.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const menuIcon = menuToggle.querySelector("i");
+
+    function closeMenu() {
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka navigasi");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Tutup navigasi" : "Buka navigasi"
+        );
+
+        menuIcon.classList.toggle("fa-bars", !isOpen);
+        menuIcon.classList.toggle("fa-xmark", isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 760) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+            menuToggle.focus();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

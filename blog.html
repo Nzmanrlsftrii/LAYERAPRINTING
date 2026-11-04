@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Artikel | LAYERAPRINTING Indonesia</title>
+    <meta name="description" content="Jelajahi artikel tentang filamen pencetakan 3D, teknologi manufaktur, pemilihan material, dan produksi berkelanjutan.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+/* =========================
+   GLOBAL
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", Arial, sans-serif;
+    background: #ffffff;
+    color: #292929;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   NAVBAR — SAMA DENGAN JOIN US
+========================= */
+.navbar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    width: 100%;
+    height: 76px;
+    min-height: 76px;
+    padding: 0 36px;
+    background: #faf9f8;
+    border-bottom: 1px solid #e9e6df;
+}
+
+/* LOGO */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.brand-logo {
+    display: block;
+    width: 145px;
+    height: 42px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* MENU NAVIGASI */
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: clamp(12px, 1.35vw, 21px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    color: #171717;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #98700d;
+}
+
+.nav-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+    height: 2px;
+    background: #e9ad19;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+/* IKON NAVIGASI */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 13px;
+    margin-left: 5px;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #171717;
+    font-size: 17px;
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav-icon:hover {
+    color: #98700d;
+    background: #f3ecd9;
+}
+
+/* TOMBOL MENU MOBILE */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e9e6df;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #242520;
+    cursor: pointer;
+}
+
+/* LAPTOP */
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 0 22px;
+        gap: 15px;
+    }
+
+    .brand-logo {
+        width: 125px;
+        height: 36px;
+    }
+
+    .nav-links {
+        gap: 11px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 7px;
+    }
+}
+
+/* =========================
+   KONTEN ARTIKEL
+========================= */
+.blog-main {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 25px 75px;
+    flex: 1;
+}
+
+.blog-header {
+    margin-bottom: 28px;
+}
+
+.blog-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
+    color: #98700d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.blog-eyebrow::before {
+    width: 25px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #e9ad19;
+    content: "";
+}
+
+.blog-heading {
+    margin: 0;
+    color: #242520;
+    font-size: clamp(31px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+}
+
+.blog-description {
+    max-width: 610px;
+    margin-top: 14px;
+    color: #686961;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.heading-line {
+    width: 40px;
+    height: 2px;
+    margin-top: 20px;
+    background: #e9ad19;
+}
+
+/* =========================
+   GRID ARTIKEL
+========================= */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 28px;
+    align-items: stretch;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #ffffff;
+}
+
+.blog-image-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.62 / 1;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+.blog-image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+}
+
+.blog-image-link:hover img {
+    transform: scale(1.04);
+}
+
+/* KONTEN KARTU */
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding-top: 16px;
+}
+
+.blog-category {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #98700d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* JUDUL ARTIKEL */
+.blog-card h2 {
+    margin-bottom: 10px;
+    color: #292929;
+    font-size: clamp(17px, 1.7vw, 21px);
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: -.4px;
+}
+
+.blog-card h2 a {
+    transition: color .2s ease;
+}
+
+.blog-card h2 a:hover {
+    color: #98700d;
+}
+
+/* TANGGAL */
+.blog-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 11px;
+    color: #888888;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.blog-date i {
+    color: #98700d;
+    font-size: 11px;
+}
+
+/* DESKRIPSI ARTIKEL */
+.blog-excerpt {
+    color: #62635d;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* TOMBOL BACA */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    color: #292929;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color .2s ease;
+}
+
+.read-more i {
+    font-size: 10px;
+    transition: transform .2s ease;
+}
+
+.read-more:hover {
+    color: #98700d;
+}
+
+.read-more:hover i {
+    transform: translateX(4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    min-height: 76px;
+    margin-top: auto;
+    padding: 22px max(4%, calc((100% - 1120px) / 2));
+    background: #151613;
+    color: #aaa99f;
+}
+
+.footer p,
+.footer a {
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.footer a {
+    transition: color .2s ease;
+}
+
+.footer a:hover {
+    color: #e9ad19;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
+    .blog-main {
+        max-width: 760px;
+        padding: 40px 24px 60px;
+    }
+
+    .blog-grid {
+        gap: 30px 22px;
+    }
+
+    .blog-card h2 {
+        font-size: 18px;
+    }
+}
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+@media (max-width: 760px) {
+    .navbar {
+        height: auto;
+        min-height: 64px;
+        padding: 11px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand-logo {
+        width: 120px;
+        height: 36px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        display: none;
+        order: 3;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0 4px;
+        border-top: 1px solid #e9e6df;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 3px;
+        border-bottom: 1px solid #efede8;
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a.active {
+        color: #98700d;
+        font-weight: 700;
+    }
+
+    .blog-main {
+        padding: 34px 20px 50px;
+    }
+
+    .blog-header {
+        margin-bottom: 25px;
+    }
+
+    .blog-heading {
+        font-size: 34px;
+    }
+
+    .blog-description {
+        font-size: 13px;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 18px;
+    }
+
+    .blog-card h2 {
+        font-size: 17px;
+    }
+
+    .blog-excerpt {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 22px 20px;
+    }
+}
+
+/* =========================
+   HP KECIL
+========================= */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 14px;
+    }
+
+    .brand-logo {
+        width: 112px;
+        height: 36px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+    }
+
+    .blog-main {
+        padding: 28px 17px 42px;
+    }
+
+    .blog-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+    }
+
+    .blog-heading {
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    .blog-description {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .heading-line {
+        margin-top: 17px;
+    }
+
+    .blog-grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 32px;
+    }
+
+    .blog-image-link {
+        aspect-ratio: 1.55 / 1;
+    }
+
+    .blog-content {
+        padding-top: 13px;
+    }
+
+    .blog-card h2 {
+        margin-bottom: 9px;
+        font-size: 19px;
+        line-height: 1.45;
+    }
+
+    .blog-date {
+        margin-bottom: 10px;
+    }
+
+    .blog-excerpt {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .read-more {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+    .footer {
+        min-height: 70px;
+        padding: 18px 17px;
+        flex-wrap: wrap;
+        gap: 8px 15px;
+    }
+
+    .footer p,
+    .footer a {
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   AKSESIBILITAS
+========================= */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html"
+           class="brand"
+           aria-label="Beranda LAYERAPRINTING Indonesia">
+
+            <img
+                src="assets/images/Logo.png"
+                alt="LAYERAPRINTING Indonesia"
+                class="brand-logo"
+            >
+        </a>
+
+        <nav
+            class="nav-links"
+            id="main-navigation"
+            aria-label="Navigasi utama">
+
+            <a href="index.html">Beranda</a>
+            <a href="produk.html">Produk</a>
+            <a href="contact.html">Hubungi Kami</a>
+            <a href="about.html">Perusahaan</a>
+            <a href="join.html">Bergabung dengan Kami</a>
+            <a href="blog.html" class="active" aria-current="page">Artikel</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="account.html" class="nav-icon" aria-label="Akun">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+
+        </div>
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+            aria-controls="main-navigation"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+    <!-- KONTEN ARTIKEL -->
+    <main class="blog-main">
+
+        <div class="blog-header">
+
+            <p class="blog-eyebrow">Wawasan &amp; Informasi</p>
+
+            <h1 class="blog-heading">Artikel</h1>
+
+            <p class="blog-description">
+                Temukan wawasan seputar teknologi pencetakan 3D,
+                kualitas filamen, pemilihan material, dan inovasi manufaktur.
+            </p>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+        <section class="blog-grid" aria-label="Artikel terbaru">
+
+            <!-- ARTIKEL 1 -->
+            <article class="blog-card">
+
+                <a href="artikel1.html"
+                   class="blog-image-link"
+                   aria-label="Baca artikel Mengapa Akurasi Diameter Filamen Sangat Penting">
+
+                    <img
+                        src="assets/images/artikel1.png"
+                        alt="Peralatan pengukur diameter filamen berpresisi tinggi"
+                        loading="eager"
+                        onerror="this.style.display='none'"
+                    >
+
+                </a>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">Kualitas Filamen</span>
+
+                    <h2>
+                        <a href="artikel1.html">
+                            Mengapa Akurasi Diameter Filamen Sangat Penting
+                        </a>
+                    </h2>
+
+                    <p class="blog-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <time datetime="2026-07-26">26 Juli 2026</time>
+                    </p>
+
+                    <p class="blog-excerpt">
+                        Banyak pengguna printer 3D lebih berfokus pada pengaturan 
+                        mesin dan parameter pencetakan. Namun, terdapat satu 
+                        faktor penting yang sering kali kurang diperhatikan, yaitu:...
+                    </p>
+
+                    <a href="artikel1.html" class="read-more">
+                        Baca selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </article>
+
+            <!-- ARTIKEL 2 -->
+            <article class="blog-card">
+
+                <a href="artikel2.html"
+                   class="blog-image-link"
+                   aria-label="Baca artikel Produksi Filamen Berkelanjutan">
+
+                    <img
+                        src="assets/images/artikel2.png"
+                        alt="Potongan plastik daur ulang dan limbah pencetakan 3D"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                    >
+
+                </a>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">Keberlanjutan</span>
+
+                    <h2>
+                        <a href="artikel2.html">
+                            Bagaimana Produksi Filamen dengan Sistem Tertutup
+                            Mendukung Manufaktur Berkelanjutan
+                        </a>
+                    </h2>
+
+                    <p class="blog-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <time datetime="2026-07-26">26 Juli 2026</time>
+                    </p>
+
+                    <p class="blog-excerpt">
+                        Keberlanjutan kini menjadi salah satu tujuan utama dalam perkembangan industri manufaktur modern. Berbagai sektor mulai menerapkan proses produksi yang lebih efisien untuk mengurangi limbah dan memaksimalkan pemanfaatan material.
+                    </p>
+
+                    <a href="artikel2.html" class="read-more">
+                        Baca selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </article>
+
+            <!-- ARTIKEL 3 -->
+            <article class="blog-card">
+
+                <a href="artikel3.html"
+                   class="blog-image-link"
+                   aria-label="Baca artikel Perbandingan Material Filamen">
+
+                    <img
+                        src="assets/images/artikel3.png"
+                        alt="Berbagai jenis material filamen pencetakan 3D, termasuk PLA, ABS, PETG, dan TPU"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                    >
+
+                </a>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">Panduan Material</span>
+
+                    <h2>
+                        <a href="artikel3.html">
+                            PLA vs PETG vs ABS vs TPU: Memilih Material yang Tepat
+                        </a>
+                    </h2>
+
+                    <p class="blog-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <time datetime="2026-07-26">26 Juli 2026</time>
+                    </p>
+
+                    <p class="blog-excerpt">
+                        Memilih jenis filamen yang tepat sama pentingnya dengan menentukan printer 3D yang akan digunakan. Setiap material memiliki karakteristik dan keunggulan tersendiri yang memengaruhi hasil cetak.
+
+                        Perbedaan tersebut meliputi kekuatan, fleksibilitas, ketahanan terhadap panas, kemudahan pencetakan, hingga kesesuaian material dengan kebutuhan aplikasi.
+                    </p>
+
+                    <a href="artikel3.html" class="read-more">
+                        Baca selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </article>
+
+            <!-- ARTIKEL 4 -->
+            <article class="blog-card">
+
+                <a href="artikel4.html"
+                   class="blog-image-link"
+                   aria-label="Baca artikel Produksi Filamen untuk Laboratorium">
+
+                    <img
+                        src="assets/images/artikel4.webp"
+                        alt="Laboratorium pencetakan 3D dengan printer dan peralatan produksi filamen"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                    >
+
+                </a>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">Teknologi Manufaktur</span>
+
+                    <h2>
+                        <a href="artikel4.html">
+                            Mengapa Setiap Laboratorium Pencetakan 3D
+                            Sebaiknya Memproduksi Filamennya Sendiri
+                        </a>
+                    </h2>
+
+                    <p class="blog-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <time datetime="2026-07-26">26 Juli 2026</time>
+                    </p>
+
+                    <p class="blog-excerpt">
+                        Seiring perkembangan teknologi manufaktur aditif,
+                        laboratorium, universitas, dan perusahaan teknik
+                        membutuhkan kendali yang lebih baik terhadap kualitas
+                        material dan biaya produksi. Salah satu solusi yang
+                        dapat dipertimbangkan adalah memproduksi filamen sendiri
+                        di dalam fasilitas untuk meningkatkan kendali atas
+                        proses produksi...
+                    </p>
+
+                    <a href="artikel4.html" class="read-more">
+                        Baca selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>© 2026 LAYERAPRINTING Indonesia</p>
+
+        <a href="terms.html">Syarat dan Kebijakan</a>
+
+    </footer>
+
+    <!-- JAVASCRIPT MENU -->
+    <script>
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuToggle = document.getElementById("menu-toggle");
+            const navigation = document.getElementById("main-navigation");
+            const menuIcon = menuToggle.querySelector("i");
+
+            // Buka dan tutup menu mobile
+            menuToggle.addEventListener("click", function () {
+
+                const isOpen = navigation.classList.toggle("is-open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+                );
+
+                menuIcon.classList.toggle("fa-bars", !isOpen);
+                menuIcon.classList.toggle("fa-xmark", isOpen);
+
+            });
+
+            // Tutup menu setelah memilih halaman
+            navigation.querySelectorAll("a").forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    navigation.classList.remove("is-open");
+
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Buka menu navigasi"
+                    );
+
+                    menuIcon.classList.remove("fa-xmark");
+                    menuIcon.classList.add("fa-bars");
+
+                });
+
+            });
+
+            // Tutup menu saat kembali ke layar desktop
+            window.addEventListener("resize", function () {
+
+                if (window.innerWidth > 760) {
+
+                    navigation.classList.remove("is-open");
+
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Buka menu navigasi"
+                    );
+
+                    menuIcon.classList.remove("fa-xmark");
+                    menuIcon.classList.add("fa-bars");
+
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mesin Ekstruder | LAYERAPRINTING</title>
+<meta name="description" content="Temukan mesin ekstruder, pembuat filamen 3D, dan mesin daur ulang material dari LAYERAPRINTING.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+:root {
+    --black: #111111;
+    --text: #292929;
+    --muted: #777777;
+    --background: #f8f7f4;
+    --white: #ffffff;
+    --yellow: #ffb400;
+    --border: #eeebe5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Inter", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 76px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: rgba(250, 249, 247, .97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand img {
+    display: block;
+    width: 150px;
+    max-height: 46px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.8vw, 28px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 28px 0;
+    color: #292929;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a87900;
+}
+
+.nav-links a::after {
+    position: absolute;
+    left: 0;
+    bottom: 18px;
+    width: 0;
+    height: 2px;
+    background: var(--yellow);
+    content: "";
+    transition: width .2s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #171717;
+    font-size: 17px;
+    transition: color .2s, background .2s;
+}
+
+.nav-icon:hover {
+    color: #a87900;
+    background: #f1eee7;
+}
+
+.menu-toggle {
+    display: none;
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #ffffff;
+    color: #171717;
+    cursor: pointer;
+}
+
+/* =========================
+   PRODUCT SECTION
+========================= */
+.product-section {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 88px 5% 75px;
+    flex: 1;
+}
+
+/* =========================
+   PAGE HEADING
+========================= */
+.page-heading {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: end;
+    gap: 45px;
+    margin-bottom: 48px;
+}
+
+.breadcrumb {
+    display: none;
+}
+
+.page-heading h1 {
+    color: #111111;
+    font-size: clamp(42px, 4.3vw, 58px);
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1.12;
+}
+
+.page-heading h1::before {
+    display: block;
+    width: 33px;
+    height: 3px;
+    margin-bottom: 22px;
+    background: var(--yellow);
+    content: "";
+}
+
+.page-heading p {
+    max-width: 440px;
+    justify-self: end;
+    padding-bottom: 4px;
+    color: #777777;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 25px;
+}
+
+.product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 21px;
+    background: #ffffff;
+    transition: border-color .25s, box-shadow .25s;
+}
+
+.product-card:hover {
+    border-color: #e5ddca;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .035);
+}
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+.product-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / .86;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.product-image::before {
+    display: none;
+}
+
+.product-image img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.025);
+}
+
+/* =========================
+   PRODUCT INFO
+========================= */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    margin: 0 25px;
+    padding: 20px 0 23px;
+    border-top: 1px solid #f0eee9;
+}
+
+.product-name {
+    margin-bottom: 7px;
+    color: #171717;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.product-price {
+    color: #292929;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.product-price span {
+    font-weight: 500;
+}
+
+.product-description {
+    margin-top: 7px;
+    color: #858585;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.product-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    margin-top: auto;
+    padding-top: 16px;
+    color: #292929;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+.product-action i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f7f5f0;
+    color: #171717;
+    font-size: 12px;
+    transition: background .2s, color .2s, transform .2s;
+}
+
+.product-action:hover {
+    color: #a87900;
+}
+
+.product-action:hover i {
+    transform: translateX(3px);
+    background: #ffbd16;
+    color: #111111;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    padding: 48px 5% 0;
+    background: #111111;
+    color: #ffffff;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr .8fr 1.4fr;
+    gap: 55px;
+    padding-bottom: 40px;
+}
+
+.footer-brand {
+    min-width: 0;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.footer-logo img {
+    display: block;
+    width: 150px;
+    max-height: 46px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.footer-description {
+    max-width: 275px;
+    margin-bottom: 22px;
+    color: #a7a7a7;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #303030;
+    border-radius: 50%;
+    color: #eeeeee;
+    font-size: 14px;
+    transition: color .2s, background .2s, border-color .2s;
+}
+
+.social-links a:hover {
+    border-color: var(--yellow);
+    background: var(--yellow);
+    color: #111111;
+}
+
+.footer h2 {
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-menu a {
+    color: #c5c5c5;
+    font-size: 12px;
+    transition: color .2s;
+}
+
+.footer-menu a:hover,
+.footer-bottom a:hover {
+    color: var(--yellow);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+    min-width: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+.contact-item > i {
+    width: 16px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    color: var(--yellow);
+    font-size: 13px;
+    text-align: center;
+}
+
+.contact-item div {
+    min-width: 0;
+}
+
+.contact-item span {
+    display: block;
+    margin-bottom: 7px;
+    color: #aaaaaa;
+    font-size: 12px;
+}
+
+.contact-item a,
+.contact-item p {
+    color: #f0f0f0;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.footer-bottom {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #2b2b2b;
+    color: #929292;
+    font-size: 11px;
+}
+
+.footer-bottom a {
+    transition: color .2s;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1050px) {
+    .navbar {
+        padding-right: 3%;
+        padding-left: 3%;
+        gap: 18px;
+    }
+
+    .brand img {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+    }
+
+    .product-section {
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .footer {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .footer-main {
+        gap: 30px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 760px) {
+    .navbar {
+        min-height: 66px;
+        padding: 0 18px;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 125px;
+        max-height: 40px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 3px;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100dvh - 66px);
+        padding: 10px 22px 18px;
+        overflow-y: auto;
+        background: #faf9f7;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, .06);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-7px);
+        transition: opacity .2s, transform .2s, visibility .2s;
+    }
+
+    .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid #eeebe5;
+        font-size: 13px;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .product-section {
+        padding: 48px 20px 55px;
+    }
+
+    .page-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+
+    .page-heading h1 {
+        font-size: 42px;
+        letter-spacing: -1.8px;
+    }
+
+    .page-heading h1::before {
+        margin-bottom: 18px;
+    }
+
+    .page-heading p {
+        max-width: 500px;
+        padding-bottom: 0;
+        font-size: 13px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .product-card {
+        border-radius: 14px;
+    }
+
+    .product-image {
+        aspect-ratio: 1 / .9;
+    }
+
+    .product-image img {
+        padding: 12px;
+    }
+
+    .product-info {
+        margin-right: 13px;
+        margin-left: 13px;
+        padding: 15px 0 18px;
+    }
+
+    .product-name {
+        font-size: 13px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .product-description {
+        font-size: 11px;
+    }
+
+    .product-action {
+        gap: 7px;
+        font-size: 11px;
+    }
+
+    .product-action i {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer {
+        padding: 36px 22px 0;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 22px;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+
+    .footer h2 {
+        font-size: 17px;
+    }
+}
+
+/* =========================
+   HP KECIL
+========================= */
+@media (max-width: 420px) {
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .brand img {
+        width: 108px;
+    }
+
+    .nav-icon {
+        width: 29px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .product-section {
+        padding: 38px 16px 45px;
+    }
+
+    .page-heading h1 {
+        font-size: 36px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .product-image {
+        aspect-ratio: 1 / .85;
+    }
+
+    .product-image img {
+        padding: 20px;
+    }
+
+    .product-info {
+        margin-right: 18px;
+        margin-left: 18px;
+        padding: 17px 0 20px;
+    }
+
+    .product-name {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 13px;
+    }
+
+    .product-description {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .footer-main {
+        gap: 28px 15px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 18px 0;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+
+    <a href="index.html" class="brand" aria-label="Beranda LAYERAPRINTING">
+        <img src="assets/images/Logo.png" alt="LAYERAPRINTING">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" class="active" aria-current="page">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="join.html">Bergabung dengan Kami</a>
+        <a href="blog.html">Artikel</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="account.html" class="nav-icon" aria-label="Akun">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Buka navigasi"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+<!-- DAFTAR PRODUK EKSTRUDER -->
+<main class="product-section">
+
+    <section class="page-heading">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="produk.html">Produk</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Mesin Pencacah</span>
+        </nav>
+
+        <h1>Mesin Pencacah</h1>
+        <p>3D printing waste recycling shredder</p>
+    </section>
+
+    <section class="product-grid" aria-label="Daftar mesin pencacah">
+
+        <!-- PRODUK 1 -->
+        <article class="product-card">
+
+            <a
+                href="hargashadder1.html">
+
+                <div class="product-image">
+                    <img
+                        src="assets/images/shaddder.png"
+                        alt="Mesin 3DPANY-BLE dan Plastic Crusher"
+                        loading="eager">
+                </div>
+            </a>
+
+            <div class="product-info">
+
+                <h2 class="product-name">        
+                    BLE-Plastic Crusher
+                </h2>
+
+                <p class="product-price">
+                    <span>Rp</span> 2.756.000,00
+                </p>
+
+                <p class="product-description">
+                    Plastic Crusher
+                    Core Specifications
+                </p>
+
+                <a
+                    class="product-action"
+                    href="https://wa.me/8618837101422?text=Halo%20LAYERAPRINTING%2C%20saya%20ingin%20menanyakan%20produk%203DPANY-BLE%20%2B%20Plastic%20Crusher."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Tanyakan Produk
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </article>
+
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="footer-logo" aria-label="Beranda LAYERAPRINTING">
+                <img src="assets/images/Logo.png" alt="LAYERAPRINTING">
+            </a>
+
+            <p class="footer-description">
+                Solusi material dan teknologi pencetakan 3D
+                untuk mendukung kebutuhan industri dan manufaktur.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <div>
+            <h2>MENU</h2>
+
+            <nav class="footer-menu" aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="contact.html">Hubungi Kami</a>
+                <a href="about.html">Tentang Kami</a>
+                <a href="join.html">Bergabung dengan Kami</a>
+                <a href="blog.html">Artikel</a>
+            </nav>
+        </div>
+
+        <div class="footer-contact">
+
+            <h2>HUBUNGI KAMI</h2>
+
+            <div class="contact-item">
+                <i class="fa-regular fa-envelope"></i>
+
+                <div>
+                    <span>Email Perusahaan</span>
+                    <a href="mailto:LAYERAPRINTING@gmail.com">
+                        LAYERAPRINTING@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-headset"></i>
+
+                <div>
+                    <span>Layanan Teknis</span>
+                    <a href="mailto:weil94170@gmail.com">
+                        weil94170@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <div>
+                    <span>WhatsApp</span>
+                    <a
+                        href="https://wa.me/8618837101422"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        +86-18837101422
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+
+                <div>
+                    <span>Telepon</span>
+                    <a href="tel:+8618538509168">
+                        +86-18538509168
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            &copy; 2026 LAYERAPRINTING Indonesia. Hak cipta dilindungi.
+        </p>
+
+        <a href="policies.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const menuIcon = menuToggle.querySelector("i");
+
+    function closeMenu() {
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka navigasi");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+    }
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Tutup navigasi" : "Buka navigasi"
+        );
+
+        menuIcon.classList.toggle("fa-bars", !isOpen);
+        menuIcon.classList.toggle("fa-xmark", isOpen);
+
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
+    document.addEventListener("click", function (event) {
+
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+
+    });
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 760) {
+            closeMenu();
+        }
+
+    });
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            closeMenu();
+            menuToggle.focus();
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

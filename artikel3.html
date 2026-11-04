@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PLA vs PETG vs ABS vs TPU | LAYERAPRINTING Indonesia</title>
+
+<meta name="description" content="Panduan memilih material filamen 3D printing PLA, PETG, ABS, dan TPU berdasarkan karakteristik, keunggulan, serta kebutuhan aplikasi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --yellow: #EFA900;
+    --yellow-light: #FFC72C;
+    --navy: #082B5B;
+    --black: #101010;
+    --cream: #FAF8F2;
+    --white: #FFFFFF;
+    --text: #393939;
+    --muted: #777777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eeeeee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+    width: 210px;
+    max-width: 100%;
+    height: 48px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 23px;
+}
+
+.nav-links a {
+    color: #444444;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.language {
+    padding: 7px 9px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    background: white;
+    color: #333333;
+    font-family: inherit;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.nav-icon {
+    color: #333333;
+    font-size: 19px;
+    transition: .3s;
+}
+
+.nav-icon:hover {
+    color: var(--yellow);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #222222;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* =========================
+   ARTICLE HEADER
+========================= */
+
+.article-header {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+.article-label {
+    display: inline-block;
+    color: var(--navy);
+    background: #F2E6C8;
+    padding: 7px 13px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.article-header h1 {
+    max-width: 900px;
+    margin: auto;
+    font-size: clamp(28px, 4vw, 45px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: var(--black);
+}
+
+.article-header h1 span {
+    color: var(--navy);
+}
+
+.article-date {
+    margin-top: 17px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    margin: auto;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 680px;
+    overflow: hidden;
+    background: #e8e8e8;
+    border-radius: 4px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.015);
+}
+
+/* =========================
+   ARTICLE CONTENT
+========================= */
+
+.article-content {
+    max-width: 760px;
+    margin: 35px auto 70px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #555555;
+}
+
+.intro {
+    padding-bottom: 22px;
+    border-bottom: 1px solid #D5D1C8;
+}
+
+.intro p {
+    margin-bottom: 12px;
+}
+
+.intro p:last-child {
+    margin-bottom: 0;
+}
+
+.intro strong {
+    color: var(--navy);
+}
+
+/* =========================
+   MATERIAL SECTIONS
+========================= */
+
+.material-section {
+    padding: 27px 0;
+    border-bottom: 1px solid #D5D1C8;
+}
+
+.material-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.material-number {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: var(--yellow);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 3px;
+}
+
+.material-section h2 {
+    font-size: 25px;
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.material-section h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 15px 0 7px;
+}
+
+.material-section ul {
+    padding-left: 20px;
+}
+
+.material-section li {
+    margin-bottom: 5px;
+}
+
+.material-section li::marker {
+    color: var(--yellow);
+}
+
+/* =========================
+   MATERIAL NOTE
+========================= */
+
+.material-note {
+    margin-top: 15px;
+    padding: 14px 17px;
+    background: #F0EBDD;
+    border-left: 3px solid var(--yellow);
+    color: #555555;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.material-note strong {
+    color: var(--navy);
+}
+
+/* =========================
+   CONCLUSION
+========================= */
+
+.final-note {
+    margin-top: 28px;
+    padding: 22px;
+    background: var(--navy);
+    color: white;
+    border-left: 4px solid var(--yellow);
+    font-size: 13px;
+    line-height: 1.9;
+    border-radius: 2px;
+}
+
+.final-note strong {
+    color: var(--yellow-light);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    min-height: 230px;
+    background: var(--black);
+    padding: 45px 5% 25px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    color: #999999;
+    font-size: 11px;
+}
+
+.footer-brand {
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.footer-brand span {
+    color: var(--yellow);
+}
+
+.footer p {
+    line-height: 1.8;
+}
+
+.footer a {
+    color: #999999;
+    transition: .3s;
+}
+
+.footer a:hover {
+    color: var(--yellow);
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.material-section,
+.intro {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.material-section.visible,
+.intro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 170px;
+        height: 42px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .nav-right {
+        gap: 9px;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height: 65px;
+        padding: 0 18px;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 165px;
+        height: 40px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 8px 15px rgba(0,0,0,.08);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        color: #333333;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .language {
+        font-size: 9px;
+        padding: 6px;
+    }
+
+    .nav-icon {
+        font-size: 16px;
+    }
+
+    .article-header {
+        padding: 38px 18px 28px;
+    }
+
+    .article-header h1 {
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    .article-label {
+        font-size: 9px;
+    }
+
+    .container {
+        padding: 0 14px;
+    }
+
+    .hero-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .article-content {
+        padding: 0 5px;
+        margin-top: 25px;
+        font-size: 13px;
+    }
+
+    .material-section {
+        padding: 22px 0;
+    }
+
+    .material-section h2 {
+        font-size: 21px;
+    }
+
+    .material-number {
+        width: 32px;
+        height: 32px;
+    }
+
+    .material-note {
+        padding: 13px;
+    }
+
+    .final-note {
+        padding: 17px;
+    }
+
+    .footer {
+        min-height: 180px;
+        padding: 30px 20px 22px;
+        font-size: 10px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .footer-brand {
+        font-size: 16px;
+    }
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    .logo img {
+        width: 135px;
+    }
+
+    .nav-right {
+        gap: 7px;
+    }
+
+    .nav-icon {
+        font-size: 15px;
+    }
+
+    .article-header h1 {
+        font-size: 25px;
+    }
+
+    .material-section h2 {
+        font-size: 18px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .material-section,
+    .intro {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <img src="assets/images/Logo.png"
+             alt="LAYERAPRINTING Indonesia">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">BERANDA</a>
+
+        <a href="produk.html">PRODUK</a>
+
+        <a href="contact.html">HUBUNGI KAMI</a>
+
+        <a href="about.html">PERUSAHAAN</a>
+
+        <a href="join-us.html">BERGABUNG DENGAN KAMI</a>
+
+        <a href="artikel.html" class="active">ARTIKEL</a>
+
+    </nav>
+
+    <div class="nav-right">
+
+        <select class="language" id="language" aria-label="Pilih bahasa">
+            <option value="id">🇮🇩 ID</option>
+            <option value="en">🇬🇧 EN</option>
+        </select>
+
+        <a href="#" class="nav-icon" aria-label="Akun">♙</a>
+
+        <a href="#" class="nav-icon" aria-label="Keranjang">♧</a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Buka menu"
+                aria-expanded="false">☰</button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     ARTICLE TITLE
+========================= -->
+
+<section class="article-header">
+
+    <span class="article-label">
+        Panduan Material 3D Printing
+    </span>
+
+    <h1>
+        PLA vs PETG vs ABS vs TPU:
+        <span>Memilih Material yang Tepat</span>
+    </h1>
+
+    <p class="article-date">
+        26 Juli 2026
+    </p>
+
+</section>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="container">
+
+    <div class="hero-image">
+
+        <img
+            src="assets/images/artikel3.png"
+            alt="Perbandingan material filamen 3D printing PLA, PETG, ABS, dan TPU"
+            loading="eager"
+            onerror="this.style.display='none'; this.parentElement.style.background='#e8e8e8';"
+        >
+
+    </div>
+
+
+    <article class="article-content">
+
+        <!-- INTRODUCTION -->
+
+        <div class="intro">
+
+            <p>
+                Memilih jenis filamen yang tepat sama pentingnya
+                dengan menentukan printer 3D yang akan digunakan.
+                Setiap material memiliki karakteristik dan keunggulan
+                tersendiri yang memengaruhi hasil cetak.
+            </p>
+
+            <p>
+                Perbedaan tersebut meliputi kekuatan, fleksibilitas,
+                ketahanan terhadap panas, kemudahan pencetakan,
+                hingga kesesuaian material dengan kebutuhan aplikasi.
+            </p>
+
+            <p>
+                Berikut adalah perbandingan empat material yang umum
+                digunakan dalam teknologi 3D printing.
+            </p>
+
+        </div>
+
+
+        <!-- PLA -->
+
+        <section class="material-section">
+
+            <div class="material-heading">
+
+                <span class="material-number">01</span>
+
+                <h2>PLA (Polylactic Acid)</h2>
+
+            </div>
+
+            <p>
+                PLA merupakan salah satu material filamen yang paling
+                populer, terutama untuk pemula dan kebutuhan pencetakan
+                model dekoratif maupun prototipe.
+            </p>
+
+            <h4>Cocok untuk:</h4>
+
+            <ul>
+                <li>Keperluan pendidikan dan pembelajaran.</li>
+                <li>Pembuatan prototipe awal.</li>
+                <li>Model dekoratif dan miniatur.</li>
+                <li>Produk dengan detail permukaan yang baik.</li>
+            </ul>
+
+            <h4>Keunggulan:</h4>
+
+            <ul>
+                <li>Mudah dicetak dan relatif mudah digunakan.</li>
+                <li>Risiko penyusutan dan warping relatif rendah.</li>
+                <li>Menghasilkan permukaan cetak yang halus.</li>
+                <li>Tersedia dalam berbagai pilihan warna.</li>
+            </ul>
+
+            <div class="material-note">
+
+                <strong>Catatan:</strong>
+                PLA berasal dari sumber terbarukan seperti pati
+                tanaman, tetapi sifat ramah lingkungannya tetap
+                bergantung pada proses produksi dan fasilitas
+                pengolahan limbah yang tersedia. PLA juga memiliki
+                ketahanan panas yang terbatas.
+
+            </div>
+
+        </section>
+
+
+        <!-- PETG -->
+
+        <section class="material-section">
+
+            <div class="material-heading">
+
+                <span class="material-number">02</span>
+
+                <h2>PETG (Polyethylene Terephthalate Glycol)</h2>
+
+            </div>
+
+            <p>
+                PETG menawarkan kombinasi antara kekuatan, ketangguhan,
+                dan kemudahan pencetakan. Material ini sering digunakan
+                untuk komponen fungsional yang membutuhkan daya tahan
+                lebih baik dibandingkan PLA.
+            </p>
+
+            <h4>Cocok untuk:</h4>
+
+            <ul>
+                <li>Komponen mekanis dan fungsional.</li>
+                <li>Wadah dan produk konsumen.</li>
+                <li>Komponen untuk penggunaan luar ruangan sesuai kebutuhan.</li>
+                <li>Prototipe yang membutuhkan ketangguhan.</li>
+            </ul>
+
+            <h4>Keunggulan:</h4>
+
+            <ul>
+                <li>Memiliki ketangguhan dan daya tahan yang baik.</li>
+                <li>Adhesi antarlapisan umumnya kuat.</li>
+                <li>Lebih tahan terhadap kelembapan dibandingkan PLA.</li>
+                <li>Memiliki ketahanan kimia yang cukup baik untuk banyak aplikasi.</li>
+            </ul>
+
+            <div class="material-note">
+
+                <strong>Catatan:</strong>
+                PETG dapat menghasilkan stringing jika pengaturan
+                suhu dan retraksi belum sesuai. Pengeringan filamen
+                tetap diperlukan apabila material menyerap
+                kelembapan selama penyimpanan.
+
+            </div>
+
+        </section>
+
+
+        <!-- ABS -->
+
+        <section class="material-section">
+
+            <div class="material-heading">
+
+                <span class="material-number">03</span>
+
+                <h2>ABS (Acrylonitrile Butadiene Styrene)</h2>
+
+            </div>
+
+            <p>
+                ABS merupakan material termoplastik yang banyak
+                digunakan untuk komponen teknik dan produk yang
+                membutuhkan ketahanan benturan serta ketahanan panas
+                lebih tinggi dibandingkan PLA.
+            </p>
+
+            <h4>Cocok untuk:</h4>
+
+            <ul>
+                <li>Komponen mekanis.</li>
+                <li>Prototipe teknik dan industri.</li>
+                <li>Housing perangkat elektronik.</li>
+                <li>Komponen fungsional yang membutuhkan daya tahan.</li>
+            </ul>
+
+            <h4>Keunggulan:</h4>
+
+            <ul>
+                <li>Memiliki ketahanan panas yang relatif baik.</li>
+                <li>Tangguh dan tahan terhadap benturan.</li>
+                <li>Dapat diproses lebih lanjut dengan teknik tertentu.</li>
+                <li>Cocok untuk berbagai kebutuhan komponen teknik.</li>
+            </ul>
+
+            <div class="material-note">
+
+                <strong>Catatan:</strong>
+                ABS memiliki kecenderungan mengalami warping.
+                Proses pencetakan umumnya membutuhkan pengaturan
+                suhu yang tepat dan enclosure. Ventilasi yang
+                memadai juga penting karena proses pencetakannya
+                dapat menghasilkan emisi dan bau.
+
+            </div>
+
+        </section>
+
+
+        <!-- TPU -->
+
+        <section class="material-section">
+
+            <div class="material-heading">
+
+                <span class="material-number">04</span>
+
+                <h2>TPU (Thermoplastic Polyurethane)</h2>
+
+            </div>
+
+            <p>
+                TPU merupakan material fleksibel yang dapat mengalami
+                deformasi dan kembali mendekati bentuk semula.
+                Karakteristik ini membuatnya cocok untuk produk
+                yang membutuhkan elastisitas.
+            </p>
+
+            <h4>Cocok untuk:</h4>
+
+            <ul>
+                <li>Produk fleksibel dan elastis.</li>
+                <li>Pelindung dan casing perangkat.</li>
+                <li>Komponen wearable.</li>
+                <li>Bantalan, pelindung, dan komponen peredam benturan.</li>
+            </ul>
+
+            <h4>Keunggulan:</h4>
+
+            <ul>
+                <li>Fleksibel dan memiliki elastisitas tinggi.</li>
+                <li>Memiliki ketahanan abrasi yang baik.</li>
+                <li>Mampu menyerap sebagian energi benturan.</li>
+                <li>Tersedia dalam berbagai tingkat kekerasan.</li>
+            </ul>
+
+            <div class="material-note">
+
+                <strong>Catatan:</strong>
+                TPU umumnya membutuhkan kecepatan cetak yang
+                lebih rendah. Pengaturan jalur filamen dan
+                kompatibilitas extruder perlu diperhatikan,
+                terutama untuk material dengan tingkat
+                fleksibilitas tinggi.
+
+            </div>
+
+        </section>
+
+
+        <!-- CONCLUSION -->
+
+        <section class="final-note">
+
+            <strong>Kesimpulan</strong>
+
+            <br><br>
+
+            Tidak ada satu material yang paling unggul untuk semua
+            kebutuhan. PLA cocok untuk model dan prototipe sederhana,
+            PETG untuk komponen yang membutuhkan ketangguhan,
+            ABS untuk aplikasi teknik yang membutuhkan ketahanan panas,
+            sedangkan TPU untuk produk fleksibel.
+
+            <br><br>
+
+            Pemilihan material dan pengaturan proses ekstrusi yang tepat
+            menjadi faktor penting dalam menghasilkan filamen berkualitas.
+
+            <br><br>
+
+            <strong>LAYERAPRINTING Indonesia</strong> mendukung kebutuhan
+            teknologi ekstrusi dan pengolahan material untuk berbagai
+            aplikasi manufaktur berbasis 3D printing.
+
+        </section>
+
+    </article>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div>
+
+        <div class="footer-brand">
+            LAYER<span>APRINTING</span>
+        </div>
+
+        <p>
+            Solusi teknologi ekstrusi dan material 3D printing.
+            <br>
+            © 2026 LAYERAPRINTING Indonesia.
+        </p>
+
+    </div>
+
+    <a href="terms.html">
+        Syarat dan Kebijakan
+    </a>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+"use strict";
+
+// MOBILE MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    const isOpen = navLinks.classList.toggle("show");
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+});
+
+// CLOSE MENU AFTER CLICK
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("show");
+
+        menuToggle.textContent = "☰";
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+// LANGUAGE SELECTOR
+
+const language = document.getElementById("language");
+
+language.addEventListener("change", function() {
+
+    if (this.value === "en") {
+
+        alert("The English version is currently being prepared.");
+
+        this.value = "id";
+
+    }
+
+});
+
+// SCROLL ANIMATION
+
+const animatedSections = document.querySelectorAll(
+    ".intro, .material-section"
+);
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.08
+        }
+    );
+
+    animatedSections.forEach(function(section) {
+
+        observer.observe(section);
+
+    });
+
+} else {
+
+    animatedSections.forEach(function(section) {
+
+        section.classList.add("visible");
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | LAYERAPRINTING</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#101010;
+  color:#fff;
+  font-family:'Manrope',sans-serif;
+  min-height:100vh;
+}
+
+.topbar{
+  min-height:75px;
+  padding:12px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #292929;
+  gap:20px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-decoration:none;
+  color:#fff;
+}
+
+.logo span{color:#efa900}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.user-info{
+  color:#aaa;
+  font-size:12px;
+}
+
+.user-info strong{color:#efa900}
+
+.logout{
+  padding:10px 17px;
+  background:transparent;
+  border:1px solid #efa900;
+  border-radius:5px;
+  color:#efa900;
+  font-family:inherit;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.logout:hover{
+  background:#efa900;
+  color:#101010;
+}
+
+.close{
+  color:#fff;
+  text-decoration:none;
+  font-size:30px;
+  font-weight:300;
+  line-height:1;
+}
+
+.close:hover{color:#efa900}
+
+.cart-content{
+  max-width:1100px;
+  width:90%;
+  margin:65px auto;
+}
+
+.cart-heading{
+  margin-bottom:35px;
+}
+
+.cart-heading h1{
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:9px;
+}
+
+.cart-heading p{
+  color:#999;
+  font-size:13px;
+}
+
+.cart-layout{
+  display:grid;
+  grid-template-columns:1fr 330px;
+  gap:35px;
+  align-items:start;
+}
+
+.cart-items{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:120px 1fr auto;
+  gap:22px;
+  align-items:center;
+  padding:20px;
+  background:#181818;
+  border:1px solid #292929;
+  border-radius:7px;
+}
+
+.product-image{
+  width:120px;
+  height:110px;
+  background:#222;
+  border-radius:5px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.product-info h3{
+  font-size:15px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.product-info p{
+  font-size:11px;
+  color:#999;
+  margin-bottom:7px;
+}
+
+.product-price{
+  color:#efa900;
+  font-size:14px;
+  font-weight:800;
+}
+
+.item-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:15px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  border:1px solid #393939;
+  border-radius:4px;
+  overflow:hidden;
+}
+
+.quantity button{
+  width:30px;
+  height:30px;
+  background:#222;
+  border:0;
+  color:#fff;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.quantity button:hover{
+  background:#efa900;
+  color:#101010;
+}
+
+.quantity span{
+  min-width:35px;
+  text-align:center;
+  font-size:12px;
+}
+
+.remove{
+  border:0;
+  background:transparent;
+  color:#999;
+  font-family:inherit;
+  font-size:10px;
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+.remove:hover{color:#efa900}
+
+.summary{
+  padding:25px;
+  background:#181818;
+  border:1px solid #292929;
+  border-radius:7px;
+  position:sticky;
+  top:25px;
+}
+
+.summary h2{
+  font-size:17px;
+  margin-bottom:25px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:#aaa;
+  font-size:12px;
+  margin-bottom:17px;
+}
+
+.summary-row strong{
+  color:#fff;
+  text-align:right;
+}
+
+.summary-total{
+  border-top:1px solid #333;
+  padding-top:20px;
+  margin-top:20px;
+}
+
+.summary-total strong{
+  color:#efa900;
+  font-size:17px;
+}
+
+.checkout{
+  width:100%;
+  padding:15px;
+  margin-top:15px;
+  background:#efa900;
+  color:#101010;
+  border:0;
+  border-radius:4px;
+  font-family:inherit;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.checkout:hover{background:#ffc02e}
+
+.continue-link{
+  display:block;
+  text-align:center;
+  margin-top:18px;
+  color:#aaa;
+  text-decoration:none;
+  font-size:11px;
+}
+
+.continue-link:hover{color:#efa900}
+
+.empty{
+  max-width:460px;
+  margin:100px auto;
+  text-align:center;
+}
+
+.empty h1{
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:17px;
+}
+
+.empty p{
+  font-size:13px;
+  color:#aaa;
+  line-height:1.8;
+  margin-bottom:28px;
+}
+
+.continue{
+  display:inline-block;
+  background:#efa900;
+  color:#101010;
+  padding:15px 35px;
+  border-radius:4px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.continue:hover{background:#ffc02e}
+
+.hidden{display:none!important}
+
+@media(max-width:800px){
+  .cart-layout{grid-template-columns:1fr}
+  .summary{position:static}
+}
+
+@media(max-width:600px){
+  .topbar{
+    min-height:65px;
+    padding:12px 5%;
+    flex-wrap:wrap;
+  }
+
+  .logo{font-size:17px}
+  .nav-right{gap:12px}
+  .user-info{font-size:10px}
+  .logout{padding:9px 11px;font-size:10px}
+  .close{font-size:25px}
+
+  .cart-content{
+    width:90%;
+    margin:40px auto;
+  }
+
+  .cart-heading h1{font-size:26px}
+
+  .cart-item{
+    grid-template-columns:85px 1fr;
+    gap:13px;
+    padding:13px;
+  }
+
+  .product-image{
+    width:85px;
+    height:90px;
+  }
+
+  .product-info h3{font-size:12px}
+  .product-info p{font-size:10px}
+  .product-price{font-size:12px}
+
+  .item-actions{
+    grid-column:2;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .empty h1{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <a href="index.html" class="logo">
+    LAYER<span>APRINTING</span>
+  </a>
+
+  <div class="nav-right">
+
+    <div class="user-info">
+      Welcome, <strong id="userName">User</strong>
+    </div>
+
+    <button type="button" class="logout" onclick="logout()">
+      LOGOUT
+    </button>
+
+    <a href="index.html" class="close" aria-label="Close">×</a>
+
+  </div>
+
+</header>
+
+<main class="cart-content">
+
+  <section class="cart-heading">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your selected products before proceeding.</p>
+  </section>
+
+  <div id="cartArea">
+
+    <div class="cart-layout">
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <aside class="summary">
+
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Items</span>
+          <strong id="totalItems">0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="subtotal">Rp 0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong>Calculated later</strong>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong id="grandTotal">Rp 0</strong>
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+          PROCEED TO CHECKOUT
+        </button>
+
+        <a href="index.html" class="continue-link">
+          Continue Shopping
+        </a>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <section class="empty hidden" id="emptyCart">
+
+    <h1>Your cart is empty</h1>
+
+    <p>
+      You are logged in and ready to shop.
+      Browse our products and add your favorite items to your cart.
+    </p>
+
+    <a href="produk.html" class="continue">
+      CONTINUE SHOPPING
+    </a>
+
+  </section>
+
+</main>
+
+<script>
+
+// ========================================
+// SESSION LOGIN
+// ========================================
+
+function getSession(){
+
+  try{
+
+    const savedSession = localStorage.getItem("layera_session");
+
+    if(!savedSession) return null;
+
+    const session = JSON.parse(savedSession);
+
+    if(session && session.email){
+      return session;
+    }
+
+    return null;
+
+  }catch(error){
+
+    return null;
+
+  }
+
+}
+
+const currentUser = getSession();
+
+if(!currentUser){
+
+  localStorage.removeItem("layera_session");
+  localStorage.removeItem("layera_user");
+
+  window.location.replace("login.html");
+
+}else{
+
+  document.getElementById("userName").textContent =
+    currentUser.name || currentUser.email;
+
+}
+
+
+// ========================================
+// CART DATA
+// ========================================
+
+const CART_KEY = "layeraprinting_cart";
+
+function getCart(){
+
+  try{
+
+    const savedCart = JSON.parse(
+      localStorage.getItem(CART_KEY) || "[]"
+    );
+
+    if(Array.isArray(savedCart)) return savedCart;
+
+    if(savedCart && Array.isArray(savedCart.items)){
+      return savedCart.items;
+    }
+
+    return [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+function saveCart(cart){
+
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+
+}
+
+
+// ========================================
+// PRODUCT HELPERS
+// ========================================
+
+function getProductName(item){
+
+  return item.name ||
+         item.title ||
+         item.productName ||
+         item.product ||
+         "Product";
+
+}
+
+function getProductPrice(item){
+
+  const rawPrice =
+    item.price ??
+    item.productPrice ??
+    item.unitPrice ??
+    0;
+
+  if(typeof rawPrice === "number"){
+    return rawPrice;
+  }
+
+  const cleaned = String(rawPrice).replace(/[^\d]/g,"");
+
+  return Number(cleaned) || 0;
+
+}
+
+function getProductImage(item){
+
+  return item.image ||
+         item.img ||
+         item.imageUrl ||
+         item.productImage ||
+         "";
+
+}
+
+function getProductQuantity(item){
+
+  return Math.max(1, Number(item.quantity || item.qty || 1));
+
+}
+
+function formatRupiah(number){
+
+  return new Intl.NumberFormat("id-ID",{
+    style:"currency",
+    currency:"IDR",
+    maximumFractionDigits:0
+  }).format(number);
+
+}
+
+
+// ========================================
+// RENDER CART
+// ========================================
+
+function renderCart(){
+
+  const cart = getCart();
+
+  const cartItems = document.getElementById("cartItems");
+  const cartArea = document.getElementById("cartArea");
+  const emptyCart = document.getElementById("emptyCart");
+
+  cartItems.innerHTML = "";
+
+  if(cart.length === 0){
+
+    cartArea.classList.add("hidden");
+    emptyCart.classList.remove("hidden");
+
+    document.getElementById("totalItems").textContent = "0";
+    document.getElementById("subtotal").textContent = "Rp 0";
+    document.getElementById("grandTotal").textContent = "Rp 0";
+
+    return;
+
+  }
+
+  cartArea.classList.remove("hidden");
+  emptyCart.classList.add("hidden");
+
+  let subtotal = 0;
+  let totalQuantity = 0;
+
+  cart.forEach((item,index)=>{
+
+    const name = getProductName(item);
+    const price = getProductPrice(item);
+    const quantity = getProductQuantity(item);
+    const image = getProductImage(item);
+
+    subtotal += price * quantity;
+    totalQuantity += quantity;
+
+    const product = document.createElement("article");
+
+    product.className = "cart-item";
+
+    const imageBox = document.createElement("div");
+    imageBox.className = "product-image";
+
+    if(image){
+
+      const img = document.createElement("img");
+      img.src = image;
+      img.alt = name;
+
+      img.onerror = function(){
+        this.style.display = "none";
+      };
+
+      imageBox.appendChild(img);
+
+    }else{
+
+      imageBox.textContent = "No Image";
+      imageBox.style.color = "#777";
+      imageBox.style.fontSize = "11px";
+
+    }
+
+    const info = document.createElement("div");
+    info.className = "product-info";
+
+    const title = document.createElement("h3");
+    title.textContent = name;
+
+    const details = document.createElement("p");
+
+    const voltage = item.voltage || item.variant || "";
+
+    details.textContent = voltage ? "Variant: " + voltage : "LAYERAPRINTING Product";
+
+    const priceElement = document.createElement("div");
+    priceElement.className = "product-price";
+    priceElement.textContent = formatRupiah(price);
+
+    info.append(title,details,priceElement);
+
+    const actions = document.createElement("div");
+    actions.className = "item-actions";
+
+    const quantityBox = document.createElement("div");
+    quantityBox.className = "quantity";
+
+    const minus = document.createElement("button");
+    minus.type = "button";
+    minus.textContent = "−";
+    minus.setAttribute("aria-label","Kurangi jumlah");
+    minus.onclick = ()=>changeQuantity(index,-1);
+
+    const quantityText = document.createElement("span");
+    quantityText.textContent = quantity;
+
+    const plus = document.createElement("button");
+    plus.type = "button";
+    plus.textContent = "+";
+    plus.setAttribute("aria-label","Tambah jumlah");
+    plus.onclick = ()=>changeQuantity(index,1);
+
+    quantityBox.append(minus,quantityText,plus);
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove";
+    remove.textContent = "Remove";
+    remove.onclick = ()=>removeItem(index);
+
+    actions.append(quantityBox,remove);
+
+    product.append(imageBox,info,actions);
+
+    cartItems.appendChild(product);
+
+  });
+
+  document.getElementById("totalItems").textContent =
+    totalQuantity;
+
+  document.getElementById("subtotal").textContent =
+    formatRupiah(subtotal);
+
+  document.getElementById("grandTotal").textContent =
+    formatRupiah(subtotal);
+
+}
+
+
+// ========================================
+// CHANGE QUANTITY
+// ========================================
+
+function changeQuantity(index,change){
+
+  const cart = getCart();
+
+  if(!cart[index]) return;
+
+  const currentQuantity = getProductQuantity(cart[index]);
+
+  const newQuantity = currentQuantity + change;
+
+  if(newQuantity < 1) return;
+
+  if(cart[index].quantity !== undefined){
+    cart[index].quantity = newQuantity;
+  }else if(cart[index].qty !== undefined){
+    cart[index].qty = newQuantity;
+  }else{
+    cart[index].quantity = newQuantity;
+  }
+
+  saveCart(cart);
+  renderCart();
+
+}
+
+
+// ========================================
+// REMOVE ITEM
+// ========================================
+
+function removeItem(index){
+
+  const cart = getCart();
+
+  if(!cart[index]) return;
+
+  const confirmation = confirm(
+    "Apakah kamu yakin ingin menghapus produk ini dari keranjang?"
+  );
+
+  if(!confirmation) return;
+
+  cart.splice(index,1);
+
+  saveCart(cart);
+  renderCart();
+
+}
+
+
+// ========================================
+// CHECKOUT VIA WHATSAPP
+// ========================================
+
+function checkout(){
+
+  const cart = getCart();
+
+  if(cart.length === 0){
+    alert("Keranjang belanja kamu masih kosong.");
+    return;
+  }
+
+  // Nomor WhatsApp tujuan checkout
+  const whatsappNumber = "6285281029801";
+
+  // Buat nomor pesanan unik
+  const now = new Date();
+
+  const orderId = "LPA-" +
+    now.getFullYear() +
+    String(now.getMonth() + 1).padStart(2, "0") +
+    String(now.getDate()).padStart(2, "0") + "-" +
+    String(now.getHours()).padStart(2, "0") +
+    String(now.getMinutes()).padStart(2, "0") +
+    String(now.getSeconds()).padStart(2, "0");
+
+  const customerName = currentUser.name || "Customer";
+  const customerEmail = currentUser.email || "-";
+
+  let subtotal = 0;
+  let totalQuantity = 0;
+  let productDetails = "";
+
+  cart.forEach((item, index) => {
+
+    const name = getProductName(item);
+    const price = getProductPrice(item);
+    const quantity = getProductQuantity(item);
+    const variant = item.voltage || item.variant || "-";
+    const lineTotal = price * quantity;
+
+    subtotal += lineTotal;
+    totalQuantity += quantity;
+
+    productDetails +=
+      "\n" + (index + 1) + ". " + name +
+      "\n   Variant: " + variant +
+      "\n   Harga: " + formatRupiah(price) +
+      "\n   Jumlah: " + quantity +
+      "\n   Subtotal: " + formatRupiah(lineTotal) +
+      "\n";
+
+  });
+
+  // Isi pesan WhatsApp
+  const message =
+    "*LAYERAPRINTING INDONESIA*\n" +
+    "*RINGKASAN CHECKOUT PESANAN*\n\n" +
+
+    "Halo, saya ingin melakukan pemesanan produk.\n\n" +
+
+    "*INFORMASI PELANGGAN*\n" +
+    "Nama: " + customerName + "\n" +
+    "Email: " + customerEmail + "\n\n" +
+
+    "*DETAIL PESANAN*\n" +
+    "Nomor Pesanan: " + orderId + "\n" +
+    productDetails + "\n" +
+
+    "*RINGKASAN PEMBELIAN*\n" +
+    "Total Items: " + totalQuantity + "\n" +
+    "Subtotal: " + formatRupiah(subtotal) + "\n" +
+    "Ongkir: Dihitung kemudian\n" +
+    "*TOTAL SEMENTARA: " + formatRupiah(subtotal) + "*\n\n" +
+
+    "*STATUS PESANAN: Menunggu Konfirmasi Penjual*\n" +
+    "*STATUS PEMBAYARAN: Belum Melakukan Pembayaran*\n\n" +
+
+    "Mohon konfirmasi ketersediaan produk dan informasi biaya pengiriman.\n" +
+    "Saya menunggu informasi selanjutnya mengenai proses pembayaran.\n\n" +
+
+    "Terima kasih.";
+
+  // Simpan checkout sementara di browser
+  const checkoutData = {
+    orderId: orderId,
+    customer: customerName,
+    email: customerEmail,
+    items: cart,
+    subtotal: subtotal,
+    status: "Pending Confirmation",
+    paymentStatus: "Unpaid",
+    createdAt: now.toISOString()
+  };
+
+  localStorage.setItem(
+    "layeraprinting_last_checkout",
+    JSON.stringify(checkoutData)
+  );
+
+  // Arahkan ke WhatsApp penjual
+  const whatsappURL =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+
+}
+
+
+// ========================================
+// LOGOUT
+// ========================================
+
+function logout(){
+
+  const confirmation = confirm(
+    "Apakah kamu yakin ingin logout dari akun LAYERAPRINTING?"
+  );
+
+  if(!confirmation) return;
+
+  localStorage.removeItem("layera_session");
+  localStorage.removeItem("layera_user");
+
+  window.location.replace("login.html?logout=1");
+
+}
+
+
+// ========================================
+// PAGE CACHE PROTECTION
+// ========================================
+
+window.addEventListener("pageshow",function(){
+
+  if(!getSession()){
+
+    window.location.replace("login.html");
+
+  }else{
+
+    renderCart();
+
+  }
+
+});
+
+
+// Initial render
+if(currentUser){
+  renderCart();
+}
+
+</script>
+
+</body>
+</html>

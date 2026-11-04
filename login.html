@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | LAYERAPRINTING</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Manrope',sans-serif;
+    background:#101010;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:440px;
+}
+
+.logo{
+    text-align:center;
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:35px;
+}
+
+.logo span{
+    color:#efa900;
+}
+
+.card{
+    background:#181818;
+    border:1px solid #303030;
+    border-radius:14px;
+    padding:35px;
+}
+
+h1{
+    font-size:28px;
+    margin-bottom:9px;
+}
+
+.subtitle{
+    color:#999;
+    font-size:13px;
+    margin-bottom:28px;
+    line-height:1.7;
+}
+
+.form-group{
+    margin-bottom:21px;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:9px;
+}
+
+input{
+    width:100%;
+    padding:14px 15px;
+    background:#101010;
+    border:1px solid #383838;
+    border-radius:7px;
+    color:#fff;
+    font-family:inherit;
+    font-size:13px;
+    outline:none;
+    transition:.2s;
+}
+
+input:focus{
+    border-color:#efa900;
+}
+
+.password-wrap{
+    position:relative;
+}
+
+.password-wrap input{
+    padding-right:65px;
+}
+
+.toggle{
+    position:absolute;
+    right:13px;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:0;
+    color:#efa900;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:700;
+}
+
+.submit{
+    width:100%;
+    padding:15px;
+    background:#efa900;
+    border:0;
+    border-radius:7px;
+    color:#101010;
+    font-family:inherit;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:8px;
+    transition:.2s;
+}
+
+.submit:hover{
+    background:#ffc02e;
+}
+
+.submit:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.message{
+    font-size:12px;
+    margin-top:15px;
+    line-height:1.6;
+    min-height:18px;
+}
+
+.register-link{
+    text-align:center;
+    color:#999;
+    font-size:12px;
+    margin-top:25px;
+}
+
+a{
+    color:#efa900;
+    text-decoration:underline;
+    font-weight:700;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    color:#888;
+    font-size:12px;
+    text-decoration:none;
+}
+
+.back:hover{
+    color:#efa900;
+}
+
+@media(max-width:480px){
+    .card{
+        padding:25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        LAYER<span>APRINTING</span>
+    </div>
+
+    <div class="card">
+
+        <h1>Welcome Back</h1>
+
+        <p class="subtitle">
+            Login ke akun LAYERAPRINTING untuk melanjutkan.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="nama@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <div class="password-wrap">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle"
+                        id="togglePassword"
+                    >
+                        SHOW
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="submit"
+                id="loginButton"
+            >
+                LOGIN
+            </button>
+
+            <p
+                class="message"
+                id="message"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+        <p class="register-link">
+            Don't have an account?
+            <a href="register.html">Create account</a>
+        </p>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to Homepage
+    </a>
+
+</div>
+
+<script>
+
+// =====================================
+// ELEMENTS
+// =====================================
+
+const loginForm = document.getElementById("loginForm");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const loginButton = document.getElementById("loginButton");
+const message = document.getElementById("message");
+const togglePassword = document.getElementById("togglePassword");
+
+
+// =====================================
+// MESSAGE
+// =====================================
+
+function showMessage(text, color = "#efa900") {
+
+    message.textContent = text;
+    message.style.color = color;
+
+}
+
+
+// =====================================
+// PASSWORD VISIBILITY
+// =====================================
+
+togglePassword.addEventListener("click", function(){
+
+    const showing = passwordInput.type === "text";
+
+    passwordInput.type = showing ? "password" : "text";
+
+    togglePassword.textContent = showing ? "SHOW" : "HIDE";
+
+});
+
+
+// =====================================
+// SAFE REDIRECT
+// =====================================
+
+function getRedirectPage(){
+
+    const target = sessionStorage.getItem("layera_redirect");
+
+    if(!target){
+        return "cart.html";
+    }
+
+    try{
+
+        const url = new URL(target, window.location.href);
+
+        // Hanya izinkan halaman dari website yang sama
+        if(url.origin !== window.location.origin){
+            return "cart.html";
+        }
+
+        // Hindari redirect kembali ke halaman login/register
+        const blockedPages = [
+            "login.html",
+            "register.html"
+        ];
+
+        const page = url.pathname.split("/").pop().toLowerCase();
+
+        if(blockedPages.includes(page)){
+            return "cart.html";
+        }
+
+        return url.pathname + url.search + url.hash;
+
+    }catch(error){
+
+        return "cart.html";
+
+    }
+
+}
+
+
+// =====================================
+// CHECK ACTIVE SESSION
+// =====================================
+
+function getActiveSession(){
+
+    try{
+
+        const rawSession = localStorage.getItem("layera_session");
+
+        if(!rawSession){
+            return null;
+        }
+
+        const session = JSON.parse(rawSession);
+
+        if(
+            !session ||
+            typeof session !== "object" ||
+            !session.email
+        ){
+
+            localStorage.removeItem("layera_session");
+
+            return null;
+
+        }
+
+        return session;
+
+    }catch(error){
+
+        localStorage.removeItem("layera_session");
+
+        return null;
+
+    }
+
+}
+
+
+// =====================================
+// AUTO REDIRECT IF LOGGED IN
+// =====================================
+
+(function checkLogin(){
+
+    const session = getActiveSession();
+
+    if(session){
+
+        const destination = getRedirectPage();
+
+        sessionStorage.removeItem("layera_redirect");
+
+        window.location.replace(destination);
+
+    }
+
+})();
+
+
+// =====================================
+// REGISTRATION SUCCESS MESSAGE
+// =====================================
+
+const params = new URLSearchParams(window.location.search);
+
+if(params.get("registered") === "1"){
+
+    showMessage(
+        "Registrasi berhasil! Silakan login menggunakan akun kamu."
+    );
+
+}
+
+
+// =====================================
+// GET REGISTERED USERS
+// =====================================
+
+function getRegisteredUsers(){
+
+    try{
+
+        const rawUsers = localStorage.getItem("layera_users");
+
+        const users = JSON.parse(rawUsers || "[]");
+
+        if(!Array.isArray(users)){
+            return null;
+        }
+
+        return users;
+
+    }catch(error){
+
+        return null;
+
+    }
+
+}
+
+
+// =====================================
+// LOGIN PROCESS
+// =====================================
+
+loginForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // Mencegah submit berulang
+    if(loginButton.disabled){
+        return;
+    }
+
+    const email = emailInput.value.trim().toLowerCase();
+
+    const password = passwordInput.value;
+
+    if(!email || !password){
+
+        showMessage(
+            "Email dan password wajib diisi.",
+            "#ff7777"
+        );
+
+        return;
+
+    }
+
+    // Ambil data akun dari localStorage
+    const users = getRegisteredUsers();
+
+    if(users === null){
+
+        showMessage(
+            "Data akun tidak dapat dibaca. Silakan periksa data registrasi.",
+            "#ff7777"
+        );
+
+        return;
+
+    }
+
+    // Cari akun berdasarkan email dan password
+    const account = users.find(user => {
+
+        if(!user || typeof user !== "object"){
+            return false;
+        }
+
+        const registeredEmail = String(user.email || "")
+            .trim()
+            .toLowerCase();
+
+        return (
+            registeredEmail === email &&
+            user.password === password
+        );
+
+    });
+
+
+    // Jika akun tidak ditemukan
+    if(!account){
+
+        showMessage(
+            "Email atau password salah. Periksa kembali akun kamu.",
+            "#ff7777"
+        );
+
+        return;
+
+    }
+
+
+    // =================================
+    // CREATE LOGIN SESSION
+    // =================================
+
+    const session = {
+
+        name: account.name || account.fullName || account.nama || "",
+
+        email: String(account.email).trim().toLowerCase(),
+
+        loginAt: Date.now()
+
+    };
+
+
+    try{
+
+        // Simpan sesi utama
+        localStorage.setItem(
+            "layera_session",
+            JSON.stringify(session)
+        );
+
+        // Sinkronisasi data pengguna
+        localStorage.setItem(
+            "layera_user",
+            JSON.stringify(session)
+        );
+
+        // Verifikasi penyimpanan
+        const savedSession = JSON.parse(
+            localStorage.getItem("layera_session")
+        );
+
+        if(
+            !savedSession ||
+            savedSession.email !== session.email
+        ){
+
+            throw new Error("Session verification failed");
+
+        }
+
+    }catch(error){
+
+        localStorage.removeItem("layera_session");
+        localStorage.removeItem("layera_user");
+
+        showMessage(
+            "Gagal menyimpan sesi login. Periksa pengaturan browser.",
+            "#ff7777"
+        );
+
+        return;
+
+    }
+
+
+    // =================================
+    // SUCCESS
+    // =================================
+
+    showMessage(
+        "Login berhasil! Mengarahkan ke halaman tujuan..."
+    );
+
+    loginButton.disabled = true;
+
+    loginButton.textContent = "LOGIN BERHASIL...";
+
+
+    // Ambil halaman tujuan
+    const destination = getRedirectPage();
+
+    // Bersihkan redirect setelah dibaca
+    sessionStorage.removeItem("layera_redirect");
+
+
+    // Redirect
+    setTimeout(function(){
+
+        window.location.replace(destination);
+
+    }, 700);
+
+});
+
+</script>
+
+</body>
+</html>

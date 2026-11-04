@@ -1,0 +1,1136 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mengapa Laboratorium 3D Printing Perlu Memproduksi Filamennya Sendiri? | LAYERAPRINTING Indonesia</title>
+
+<meta name="description" content="Pelajari manfaat produksi filamen mandiri untuk laboratorium 3D printing, mulai dari efisiensi biaya, pengembangan material, daur ulang, hingga kontrol kualitas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --yellow: #EFA900;
+    --navy: #082B5B;
+    --black: #101010;
+    --cream: #FAF8F2;
+    --white: #FFFFFF;
+    --text: #393939;
+    --muted: #777777;
+    --line: #E3DED3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 76px;
+    width: 100%;
+    padding: 0 7%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #E8E2D6;
+    box-shadow: 0 3px 15px rgba(0,0,0,.04);
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 190px;
+    height: 48px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(13px, 1.7vw, 25px);
+}
+
+.nav-links a {
+    position: relative;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background: var(--yellow);
+    transition: width .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* NAV RIGHT */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    flex-shrink: 0;
+}
+
+.language {
+    padding: 8px 10px;
+    border: 1px solid #E5E0D5;
+    border-radius: 5px;
+    background: var(--white);
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.nav-icon {
+    color: var(--navy);
+    font-size: 20px;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.nav-icon:hover {
+    color: var(--yellow);
+}
+
+/* CTA BUTTON */
+
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 13px 20px;
+    background: var(--yellow);
+    color: var(--black);
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: .25s ease;
+}
+
+.nav-cta:hover {
+    background: #D99700;
+    transform: translateY(-2px);
+}
+
+/* MOBILE BUTTON */
+
+.menu-toggle {
+    display: none;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--navy);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* =========================
+   ARTICLE HEADER
+========================= */
+
+.article-header {
+    max-width: 1050px;
+    margin: auto;
+    padding: 58px 24px 35px;
+    text-align: center;
+}
+
+.article-label {
+    display: inline-block;
+    margin-bottom: 19px;
+    padding: 8px 14px;
+    background: #F0E7D2;
+    border: 1px solid #E7D9B9;
+    border-radius: 3px;
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.article-header h1 {
+    max-width: 900px;
+    margin: auto;
+    color: var(--black);
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.23;
+    letter-spacing: -1.6px;
+}
+
+.article-header h1 span {
+    color: var(--navy);
+}
+
+.article-date {
+    margin-top: 17px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 25px;
+    margin: auto;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 610px;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #D8D5CE;
+    box-shadow: 0 12px 35px rgba(0,0,0,.09);
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    transition: transform .6s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.015);
+}
+
+/* =========================
+   ARTICLE CONTENT
+========================= */
+
+.article-content {
+    max-width: 760px;
+    margin: 45px auto 80px;
+    padding: 0 8px;
+    color: #505050;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.article-content h2 {
+    margin-bottom: 15px;
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -.5px;
+}
+
+.article-content p {
+    margin-bottom: 14px;
+}
+
+.article-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* INTRODUCTION */
+
+.introduction {
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* ARTICLE SECTION */
+
+.article-section {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.article-section ul {
+    margin: 15px 0 18px;
+    padding-left: 23px;
+}
+
+.article-section li {
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+.article-section li::marker {
+    color: var(--yellow);
+}
+
+/* HIGHLIGHT */
+
+.article-highlight {
+    margin-top: 19px;
+    padding: 16px 19px;
+    background: #F0EBDD;
+    border-left: 4px solid var(--yellow);
+    border-radius: 0 4px 4px 0;
+    color: #555;
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+/* CONCLUSION */
+
+.conclusion {
+    padding-top: 30px;
+}
+
+.conclusion-box {
+    padding: 29px;
+    background: var(--navy);
+    border-left: 5px solid var(--yellow);
+    border-radius: 4px;
+    color: white;
+    font-size: 13px;
+    line-height: 1.9;
+    box-shadow: 0 8px 24px rgba(8,43,91,.12);
+}
+
+.conclusion-box h2 {
+    margin-bottom: 15px;
+    color: var(--yellow);
+    font-size: 23px;
+}
+
+.conclusion-box p {
+    margin-bottom: 13px;
+}
+
+.conclusion-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    min-height: 210px;
+    padding: 42px 5% 28px;
+    background: var(--black);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    color: #999;
+    font-size: 11px;
+}
+
+.footer-brand {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.footer-brand span {
+    color: var(--yellow);
+}
+
+.footer p {
+    line-height: 1.8;
+}
+
+.footer a {
+    color: #999;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.footer a:hover {
+    color: var(--yellow);
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.article-section,
+.introduction,
+.conclusion {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .65s ease, transform .65s ease;
+}
+
+.article-section.visible,
+.introduction.visible,
+.conclusion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1150px) {
+
+    .navbar {
+        padding: 0 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 155px;
+        height: 43px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .nav-cta {
+        padding: 11px 13px;
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        height: 68px;
+        padding: 0 20px;
+    }
+
+    .logo img {
+        width: 165px;
+        height: 43px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 23px 25px 27px;
+        background: var(--cream);
+        border-top: 1px solid #E8E2D6;
+        box-shadow: 0 10px 20px rgba(0,0,0,.06);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .nav-right {
+        margin-left: auto;
+        gap: 13px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .article-header {
+        padding: 45px 20px 30px;
+    }
+
+    .article-header h1 {
+        font-size: clamp(28px, 5vw, 36px);
+    }
+
+    .container {
+        padding: 0 18px;
+    }
+
+    .article-content {
+        margin-top: 35px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 64px;
+        padding: 0 15px;
+    }
+
+    .logo img {
+        width: 145px;
+        height: 40px;
+    }
+
+    .nav-links {
+        top: 64px;
+    }
+
+    .nav-right {
+        gap: 9px;
+    }
+
+    .language {
+        padding: 6px;
+        font-size: 9px;
+    }
+
+    .nav-icon {
+        font-size: 16px;
+    }
+
+    .article-header {
+        padding: 36px 17px 25px;
+    }
+
+    .article-label {
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+
+    .article-header h1 {
+        font-size: 27px;
+        letter-spacing: -1px;
+    }
+
+    .article-date {
+        font-size: 11px;
+    }
+
+    .container {
+        padding: 0 13px;
+    }
+
+    .hero-image {
+        aspect-ratio: 4 / 3;
+        border-radius: 5px;
+    }
+
+    .article-content {
+        margin: 28px auto 55px;
+        padding: 0 5px;
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    .article-content h2 {
+        font-size: 21px;
+    }
+
+    .article-section {
+        padding: 24px 0;
+    }
+
+    .article-highlight {
+        padding: 13px 14px;
+        font-size: 11px;
+    }
+
+    .conclusion-box {
+        padding: 21px 18px;
+        font-size: 12px;
+    }
+
+    .conclusion-box h2 {
+        font-size: 21px;
+    }
+
+    .footer {
+        min-height: 175px;
+        padding: 28px 20px 23px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 18px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+
+    .article-section,
+    .introduction,
+    .conclusion {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <!-- LOGO -->
+    <a href="index.html" class="logo">
+        <img
+            src="assets/images/Logo.png"
+            alt="LAYERAPRINTING Indonesia"
+        >
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">Beranda</a>
+
+        <a href="produk.html">Produk</a>
+
+        <a href="contact.html">Hubungi Kami</a>
+
+        <a href="about.html">Perusahaan</a>
+
+        <a href="join-us.html">Bergabung dengan Kami</a>
+
+        <a href="artikel.html" class="active">Artikel</a>
+
+    </nav>
+
+    <!-- RIGHT MENU -->
+    <div class="nav-right">
+
+        <select class="language" id="language" aria-label="Pilih bahasa">
+            <option value="id">🇮🇩 ID</option>
+            <option value="en">🇬🇧 EN</option>
+        </select>
+
+        <a href="account.html" class="nav-icon" aria-label="Akun">
+            ♙
+        </a>
+
+        <a href="cart.html" class="nav-icon" aria-label="Keranjang">
+            ♧
+        </a>
+        
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            type="button"
+        >☰</button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     ARTICLE HEADER
+========================= -->
+
+<section class="article-header">
+
+    <span class="article-label">
+        Teknologi dan Inovasi 3D Printing
+    </span>
+
+    <h1>
+        Mengapa Setiap Laboratorium 3D Printing
+        <span>Perlu Memproduksi Filamennya Sendiri?</span>
+    </h1>
+
+    <p class="article-date">26 Juli 2026</p>
+
+</section>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="container">
+
+    <!-- HERO IMAGE -->
+
+    <div class="hero-image">
+
+        <img
+            src="assets/images/artikel4.webp"
+            alt="Suasana laboratorium dengan berbagai mesin 3D printing dan gulungan filamen"
+            fetchpriority="high"
+        >
+
+    </div>
+
+
+    <!-- ARTICLE -->
+
+    <article class="article-content">
+
+        <!-- INTRODUCTION -->
+
+        <section class="introduction">
+
+            <h2>Pendahuluan</h2>
+
+            <p>
+                Seiring berkembangnya teknologi manufaktur aditif,
+                laboratorium, universitas, dan perusahaan teknik
+                semakin membutuhkan kendali yang lebih baik terhadap
+                kualitas material serta biaya produksi.
+            </p>
+
+            <p>
+                Salah satu solusi yang mulai banyak dipertimbangkan
+                adalah memproduksi filamen secara mandiri menggunakan
+                sistem ekstrusi filamen desktop.
+            </p>
+
+            <p>
+                Dengan pendekatan ini, organisasi tidak harus
+                sepenuhnya bergantung pada pemasok filamen komersial.
+                Mereka dapat mengembangkan material sesuai kebutuhan
+                penelitian, pengujian, dan proses produksi masing-masing.
+            </p>
+
+        </section>
+
+
+        <!-- SECTION 1 -->
+
+        <section class="article-section">
+
+            <h2>1. Mengoptimalkan Biaya Material</h2>
+
+            <p>
+                Pengadaan filamen komersial dapat menjadi salah satu
+                komponen biaya yang cukup besar, terutama bagi
+                laboratorium yang mengoperasikan beberapa printer 3D
+                secara rutin.
+            </p>
+
+            <p>
+                Dengan sistem ekstrusi mandiri, organisasi memiliki
+                pilihan untuk memproduksi filamen menggunakan pelet
+                plastik baru maupun bahan daur ulang yang telah
+                dipilah dan diproses dengan benar.
+            </p>
+
+            <p>
+                Pendekatan ini berpotensi membantu mengoptimalkan biaya
+                material dalam jangka panjang. Namun, perhitungan
+                penghematan perlu mempertimbangkan biaya bahan baku,
+                energi, tenaga kerja, perawatan mesin, dan pengendalian
+                kualitas.
+            </p>
+
+            <div class="article-highlight">
+
+                <strong>Poin utama:</strong> Produksi mandiri memberikan
+                kesempatan untuk mengelola kebutuhan material secara
+                lebih fleksibel dan mengevaluasi biaya produksi sendiri.
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 2 -->
+
+        <section class="article-section">
+
+            <h2>2. Kebebasan Mengembangkan Material</h2>
+
+            <p>
+                Setiap proyek 3D printing memiliki kebutuhan karakteristik
+                material yang berbeda. Ada proyek yang membutuhkan
+                kekakuan, fleksibilitas, ketahanan panas, atau karakteristik
+                mekanis tertentu.
+            </p>
+
+            <p>
+                Dengan dukungan sistem ekstrusi dan formulasi material
+                yang sesuai, laboratorium dapat mengeksplorasi berbagai
+                jenis filamen, seperti:
+            </p>
+
+            <ul>
+                <li>Filamen dengan variasi warna khusus.</li>
+                <li>Material komposit berbasis serat karbon.</li>
+                <li>Material komposit berbasis serat kaca.</li>
+                <li>Material fleksibel seperti TPU.</li>
+                <li>Plastik teknik dengan ketahanan panas lebih tinggi.</li>
+            </ul>
+
+            <p>
+                Pengembangan tersebut membuka peluang bagi peneliti
+                dan tim teknik untuk melakukan eksperimen material
+                yang lebih spesifik, tanpa hanya bergantung pada
+                pilihan produk yang tersedia di pasaran.
+            </p>
+
+            <div class="article-highlight">
+
+                <strong>Perlu diperhatikan:</strong> Setiap formulasi
+                material membutuhkan pengujian, pengaturan suhu,
+                kompatibilitas mesin, dan evaluasi kualitas sebelum
+                digunakan dalam aplikasi tertentu.
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 3 -->
+
+        <section class="article-section">
+
+            <h2>3. Mendukung Manufaktur Berkelanjutan</h2>
+
+            <p>
+                Kegiatan 3D printing dapat menghasilkan sisa material,
+                seperti hasil cetak yang gagal, struktur pendukung,
+                dan potongan filamen yang tidak terpakai.
+            </p>
+
+            <p>
+                Sebagian limbah tersebut berpotensi diproses kembali
+                menjadi bahan baku filamen melalui tahapan pemilahan,
+                pencacahan, pengeringan, dan ekstrusi.
+            </p>
+
+            <p>
+                Pendekatan ini dikenal sebagai sistem produksi
+                sirkular atau <em>closed-loop manufacturing</em>.
+                Material yang sebelumnya tidak terpakai dapat
+                dimanfaatkan kembali apabila jenis polimer dan
+                kualitasnya memenuhi persyaratan proses.
+            </p>
+
+            <p>
+                Selain membantu mengurangi limbah, pendekatan tersebut
+                juga memberikan kesempatan bagi laboratorium untuk
+                mempelajari proses daur ulang plastik secara langsung.
+            </p>
+
+        </section>
+
+
+        <!-- SECTION 4 -->
+
+        <section class="article-section">
+
+            <h2>4. Presisi dan Konsistensi Diameter Filamen</h2>
+
+            <p>
+                Kualitas filamen tidak hanya ditentukan oleh jenis
+                bahan bakunya, tetapi juga oleh konsistensi diameter
+                sepanjang material yang diproduksi.
+            </p>
+
+            <p>
+                Sistem ekstrusi yang dilengkapi perangkat pengukuran
+                diameter, seperti sensor laser, dapat membantu
+                memantau ukuran filamen selama proses produksi.
+            </p>
+
+            <p>
+                Data pengukuran dapat digunakan sebagai dasar untuk
+                mengevaluasi dan menyesuaikan parameter proses,
+                seperti kecepatan penarikan dan kondisi ekstrusi.
+                Sistem kontrol otomatis dapat diterapkan sesuai
+                kemampuan dan konfigurasi mesin.
+            </p>
+
+            <p>
+                Diameter filamen yang konsisten dapat membantu menghasilkan:
+            </p>
+
+            <ul>
+                <li>Aliran material yang lebih stabil pada printer 3D.</li>
+                <li>Kualitas hasil cetak yang lebih konsisten.</li>
+                <li>Penggunaan material yang lebih terkontrol.</li>
+                <li>Hasil produksi filamen yang lebih seragam.</li>
+            </ul>
+
+            <div class="article-highlight">
+
+                <strong>Poin utama:</strong> Pengukuran dan pengendalian
+                diameter merupakan bagian penting dari pengawasan
+                kualitas produksi filamen.
+
+            </div>
+
+        </section>
+
+
+        <!-- CONCLUSION -->
+
+        <section class="conclusion">
+
+            <div class="conclusion-box">
+
+                <h2>Kesimpulan</h2>
+
+                <p>
+                    Memiliki sistem ekstrusi filamen desktop memberikan
+                    peluang bagi laboratorium 3D printing untuk berkembang
+                    dari sekadar pengguna material menjadi pengembang
+                    dan produsen material secara mandiri.
+                </p>
+
+                <p>
+                    Mulai dari pengelolaan biaya, eksplorasi material,
+                    pemanfaatan kembali limbah plastik, hingga pengawasan
+                    kualitas, produksi filamen mandiri dapat menjadi
+                    bagian dari strategi pengembangan teknologi
+                    manufaktur aditif.
+                </p>
+
+                <p>
+                    Bagi organisasi yang mengutamakan fleksibilitas,
+                    inovasi, dan efisiensi proses, sistem ekstrusi filamen
+                    merupakan salah satu teknologi yang layak
+                    dipertimbangkan.
+                </p>
+
+                <p>
+                    <strong>LAYERAPRINTING Indonesia</strong> mendukung
+                    kebutuhan teknologi ekstrusi dan pengolahan material
+                    untuk pengembangan ekosistem 3D printing dan
+                    manufaktur berkelanjutan.
+                </p>
+
+            </div>
+
+        </section>
+
+    </article>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div>
+
+        <div class="footer-brand">
+            LAYER<span>APRINTING</span>
+        </div>
+
+        <p>
+            Solusi teknologi ekstrusi dan material 3D printing.<br>
+            © 2026 LAYERAPRINTING Indonesia.
+        </p>
+
+    </div>
+
+    <a href="terms.html">Syarat dan Kebijakan</a>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+// MOBILE MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    const isOpen = navLinks.classList.toggle("show");
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu" : "Buka menu"
+    );
+
+});
+
+
+// CLOSE MENU AFTER CLICK
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("show");
+
+        menuToggle.textContent = "☰";
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.setAttribute("aria-label", "Buka menu");
+
+    });
+
+});
+
+
+// LANGUAGE SELECTOR
+
+document.getElementById("language").addEventListener("change", function() {
+
+    if (this.value === "en") {
+
+        alert("The English version is currently being prepared.");
+
+        this.value = "id";
+
+    }
+
+});
+
+
+// SCROLL ANIMATION
+
+const animatedSections = document.querySelectorAll(
+    ".introduction, .article-section, .conclusion"
+);
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.08
+    });
+
+    animatedSections.forEach(section => {
+        observer.observe(section);
+    });
+
+} else {
+
+    animatedSections.forEach(section => {
+        section.classList.add("visible");
+    });
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bergabung dengan Kami | LAYERAPRINTING Indonesia</title>
+<meta name="description" content="Jelajahi peluang kemitraan dan distribusi produk LAYERAPRINTING untuk solusi pencetakan 3D dan manufaktur filamen.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #242520;
+    --muted: #686961;
+    --accent: #e9ad19;
+    --accent-dark: #98700d;
+    --line: #e9e6df;
+    --dark: #151613;
+    --max-width: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    width: 100%;
+    height: 76px;
+    min-height: 76px;
+    padding: 0 36px;
+    background: #faf9f8;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.brand img {
+    width: 145px;
+    height: 42px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: clamp(12px, 1.35vw, 21px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    color: #171717;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-dark);
+}
+
+.nav-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 13px;
+    margin-left: 5px;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #171717;
+    font-size: 17px;
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav-icon:hover {
+    color: var(--accent-dark);
+    background: #f3ecd9;
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.join-page {
+    padding: 48px 24px 90px;
+    background: var(--bg);
+}
+
+.join-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.page-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: var(--accent-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    width: 25px;
+    height: 2px;
+    background: var(--accent);
+    content: "";
+}
+
+.join-title {
+    margin: 0;
+    font-size: clamp(31px, 4vw, 44px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1.6px;
+}
+
+.heading-description {
+    max-width: 610px;
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* =========================
+   PRODUCT SLIDER
+========================= */
+
+.join-slider {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 42px;
+}
+
+.join-slides {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 7.5;
+    overflow: hidden;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.join-slide {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.join-slide.active {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+}
+
+.join-slide img {
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.join-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 50%;
+    background: rgba(255,255,255,.94);
+    color: var(--text);
+    font-size: 15px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background .2s ease, transform .2s ease;
+}
+
+.join-arrow:hover {
+    background: #fff0c5;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.join-prev {
+    left: 16px;
+}
+
+.join-next {
+    right: 16px;
+}
+
+.join-slider-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.join-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.join-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background: #ceccc5;
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+}
+
+.join-dot.active {
+    width: 22px;
+    background: var(--accent-dark);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.join-intro {
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--line);
+}
+
+.join-intro h2,
+.join-section h2 {
+    margin: 0 0 13px;
+    font-size: clamp(21px, 3vw, 27px);
+    line-height: 1.4;
+    font-weight: 750;
+    letter-spacing: -.65px;
+}
+
+.join-intro h3,
+.join-section h3 {
+    margin: 20px 0 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 700;
+}
+
+.join-intro h3 {
+    margin-top: 0;
+}
+
+.join-page p {
+    margin: 0 0 14px;
+    color: #62635d;
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+.join-page p:last-child {
+    margin-bottom: 0;
+}
+
+.join-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    margin-top: 14px;
+    padding: 13px 18px;
+    border: 1px solid #d9a116;
+    border-radius: 7px;
+    background: #f0bd3e;
+    color: #272315;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.join-cta:hover {
+    background: #f5ca61;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CONTENT SECTIONS
+========================= */
+
+.join-divider {
+    height: 1px;
+    margin: 32px 0;
+    border: 0;
+    background: var(--line);
+}
+
+.join-section {
+    margin: 32px 0;
+}
+
+.join-section h3 {
+    margin-top: 20px;
+}
+
+.join-page ul {
+    margin: 12px 0 20px;
+    padding-left: 22px;
+}
+
+.join-page li {
+    margin: 5px 0;
+    padding-left: 3px;
+    color: #62635d;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.join-page li::marker {
+    color: #bd8a12;
+}
+
+.join-checklist {
+    padding: 0 !important;
+    list-style: none;
+}
+
+.join-checklist li {
+    position: relative;
+    padding-left: 27px;
+}
+
+.join-checklist li::before {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #e5f2e8;
+    color: #2f8555;
+    content: "✓";
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.join-product {
+    margin: 25px 0;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+.join-product:hover {
+    border-color: #e5c66f;
+    transform: translateY(-2px);
+}
+
+.join-product h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.join-product p:last-child,
+.join-product ul:last-child {
+    margin-bottom: 0;
+}
+
+.join-product ul {
+    margin-bottom: 10px;
+}
+
+.join-contact {
+    margin-bottom: 0;
+    padding: 26px;
+    border: 1px solid #e9dfc7;
+    border-radius: 13px;
+    background: #fffdf7;
+}
+
+.join-contact h2 {
+    margin-bottom: 18px;
+}
+
+.join-contact p {
+    margin-bottom: 11px;
+}
+
+.join-contact a {
+    color: #805d08;
+    text-decoration: underline;
+    text-decoration-color: #d8bb70;
+    text-underline-offset: 4px;
+    overflow-wrap: anywhere;
+}
+
+.join-contact a:hover {
+    color: #b37f00;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 48px 5% 20px;
+    background: var(--dark);
+    color: #f4f4f0;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: .9fr .9fr 1.3fr;
+    gap: 42px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 38px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.footer-brand p {
+    max-width: 230px;
+    margin: 0;
+    color: #aaa99f;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #393a34;
+    border-radius: 50%;
+    color: #f4f4f0;
+    font-size: 14px;
+    transition: background .2s ease, color .2s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: #171713;
+}
+
+.footer h2 {
+    margin: 0 0 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+}
+
+.footer-menu a,
+.footer-contact a {
+    color: #bdbdb5;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    transition: color .2s ease;
+}
+
+.footer-menu a:hover,
+.footer-contact a:hover,
+.footer-bottom a:hover {
+    color: var(--accent);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+}
+
+.footer-contact h2 {
+    margin-bottom: 12px;
+}
+
+.footer-contact p {
+    margin: 8px 0 0;
+    color: #888980;
+    font-size: 11px;
+}
+
+.footer-contact p:first-of-type {
+    margin-top: 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 18px;
+    border-top: 1px solid #34352f;
+    color: #909188;
+    font-size: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: #bdbdb5;
+    transition: color .2s ease;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 0 22px;
+        gap: 15px;
+    }
+
+    .brand img {
+        width: 125px;
+        height: 36px;
+    }
+
+    .nav-links {
+        gap: 11px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 7px;
+    }
+}
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+@media (max-width: 760px) {
+    .navbar {
+        height: auto;
+        min-height: 64px;
+        padding: 11px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 120px;
+        height: 36px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        display: none;
+        order: 3;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0 4px;
+        border-top: 1px solid var(--line);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 3px;
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a.active {
+        color: var(--accent-dark);
+        font-weight: 700;
+    }
+
+    .join-page {
+        padding: 34px 20px 60px;
+    }
+
+    .join-container {
+        max-width: 650px;
+    }
+
+    .join-title {
+        font-size: 34px;
+    }
+
+    .join-slides {
+        aspect-ratio: 1.55 / 1;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 24px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 14px;
+    }
+
+    .brand img {
+        width: 112px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+    }
+
+    .join-page {
+        padding: 27px 17px 45px;
+    }
+
+    .join-title {
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+    }
+
+    .heading-description {
+        font-size: 12px;
+    }
+
+    .join-slides {
+        aspect-ratio: 1.25 / 1;
+        border-radius: 11px;
+    }
+
+    .join-slide img {
+        padding: 12px;
+    }
+
+    .join-arrow {
+        width: 33px;
+        height: 33px;
+        font-size: 12px;
+    }
+
+    .join-prev {
+        left: 8px;
+    }
+
+    .join-next {
+        right: 8px;
+    }
+
+    .join-intro h2,
+    .join-section h2 {
+        font-size: 21px;
+    }
+
+    .join-page p,
+    .join-page li {
+        font-size: 12px;
+    }
+
+    .join-product {
+        padding: 18px;
+    }
+
+    .join-contact {
+        padding: 20px 17px;
+    }
+
+    .join-cta {
+        width: 100%;
+        padding: 13px;
+        text-align: center;
+    }
+
+    .footer {
+        padding: 34px 19px 18px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <a href="index.html" class="brand" aria-label="Beranda LAYERAPRINTING">
+        <img src="assets/images/Logo.png" alt="LAYERAPRINTING Indonesia">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="about.html">Perusahaan</a>
+        <a href="join.html" class="active" aria-current="page">Bergabung dengan Kami</a>
+        <a href="blog.html">Artikel</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="account.html" class="nav-icon" aria-label="Akun">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+</header>
+
+<!-- BERGABUNG DENGAN KAMI -->
+<main class="join-page">
+<div class="join-container">
+
+    <section class="page-heading">
+        <p class="eyebrow">Peluang Kemitraan</p>
+        <h1 class="join-title">Bergabung dengan Kami</h1>
+        <p class="heading-description">
+            Bangun peluang bisnis bersama LAYERAPRINTING melalui
+            kemitraan distribusi, teknologi manufaktur filamen,
+            dan solusi pencetakan 3D.
+        </p>
+    </section>
+
+    <!-- GALERI PRODUK -->
+    <section class="join-slider" aria-label="Galeri produk">
+
+        <div class="join-slides">
+            <div class="join-slide active">
+                <img src="assets/images/perusahaan1.png" alt="Mesin ekstrusi filamen" fetchpriority="high">
+            </div>
+
+            <div class="join-slide">
+                <img src="assets/images/perusahaan3.png" alt="Mesin manufaktur filamen cerdas" loading="lazy">
+            </div>
+
+            <div class="join-slide">
+                <img src="assets/images/perusahaan2.png" alt="Produk filamen pencetakan 3D" loading="lazy">
+            </div>
+        </div>
+
+        <button class="join-arrow join-prev" type="button" aria-label="Gambar sebelumnya">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button class="join-arrow join-next" type="button" aria-label="Gambar berikutnya">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="join-slider-meta">
+            <span id="slideCounter">01 / 03</span>
+            <div class="join-dots" aria-label="Pilih gambar">
+                <button class="join-dot active" type="button" aria-label="Gambar 1" aria-pressed="true"></button>
+                <button class="join-dot" type="button" aria-label="Gambar 2" aria-pressed="false"></button>
+                <button class="join-dot" type="button" aria-label="Gambar 3" aria-pressed="false"></button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INTRO -->
+    <section class="join-intro">
+        <h2>Jadilah Distributor LAYERAPRINTING</h2>
+        <h3>Berkembang Bersama Masa Depan Manufaktur Filamen Cerdas</h3>
+
+        <p>
+            LAYERAPRINTING berkomitmen menyediakan solusi filamen
+            pencetakan 3D yang andal serta teknologi manufaktur canggih
+            untuk bisnis di seluruh dunia.
+        </p>
+
+        <p>
+            Kami mencari distributor, penjual kembali, dan mitra industri
+            yang antusias untuk menghadirkan produk pencetakan 3D inovatif
+            ke lebih banyak pasar.
+        </p>
+
+        <p>
+            Baik Anda merupakan distributor yang sudah mapan maupun bisnis
+            yang sedang berkembang, kami menyambut baik kesempatan untuk
+            menjajaki kemitraan dengan Anda.
+        </p>
+
+        <p>Bergabunglah dengan jaringan distribusi global kami.</p>
+
+        <a class="join-cta" href="#join-contact">
+            Ajukan Permohonan Menjadi Distributor
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- ALASAN KEMITRAAN -->
+    <section class="join-section">
+        <h2>Mengapa Bermitra dengan LAYERAPRINTING?</h2>
+
+        <h3>Merek Global yang Terus Berkembang</h3>
+
+        <p>
+            LAYERAPRINTING menyediakan rangkaian produk pencetakan 3D
+            yang terus berkembang untuk memenuhi beragam kebutuhan pelanggan.
+        </p>
+
+        <ul>
+            <li>Peluang pasar global</li>
+            <li>Kualitas produk yang andal</li>
+            <li>Teknologi manufaktur canggih</li>
+            <li>Solusi bisnis yang fleksibel</li>
+            <li>Penelitian dan pengembangan</li>
+            <li>Peluang kemitraan jangka panjang</li>
+        </ul>
+
+        <p>Permintaan pasar mencakup berbagai bidang, seperti:</p>
+
+        <ul>
+            <li>Pencetakan 3D</li>
+            <li>Penelitian dan pendidikan</li>
+            <li>Aplikasi industri</li>
+            <li>Pembuatan prototipe cepat</li>
+            <li>Teknik dan desain</li>
+            <li>Manufaktur untuk usaha kecil</li>
+        </ul>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- KEUNTUNGAN -->
+    <section class="join-section">
+        <h2>Potensi Keuntungan yang Kompetitif</h2>
+
+        <p>Program distributor kami dapat mencakup:</p>
+
+        <ul>
+            <li>Peluang harga yang kompetitif</li>
+            <li>Fleksibilitas pemilihan produk</li>
+            <li>Jumlah pemesanan yang fleksibel</li>
+            <li>Dukungan pemasaran</li>
+            <li>Pelatihan produk</li>
+            <li>Bantuan teknis</li>
+        </ul>
+
+        <p>
+            Bangun bisnis berkelanjutan dengan peluang kemitraan
+            jangka panjang.
+        </p>
+    </section>
+
+    <!-- INOVASI -->
+    <section class="join-section">
+        <h2>Inovasi Produk Berkelanjutan</h2>
+
+        <p>
+            Tim kami terus mengembangkan produk inovatif dan solusi
+            manufaktur untuk mendukung kebutuhan industri.
+        </p>
+
+        <ul>
+            <li>Sistem ekstrusi cerdas</li>
+            <li>Teknologi presisi laser</li>
+            <li>Solusi daur ulang</li>
+            <li>Aksesori produksi filamen</li>
+            <li>Solusi filamen fleksibel</li>
+        </ul>
+
+        <p>
+            Berkembanglah bersama mitra yang berkomitmen memperluas
+            kemungkinan teknologi manufaktur.
+        </p>
+    </section>
+
+    <!-- PORTOFOLIO PRODUK -->
+    <section class="join-section">
+        <h2>Portofolio Produk Kami</h2>
+
+        <div class="join-product">
+            <h3>Sistem Ekstrusi Filamen Cerdas</h3>
+            <ul>
+                <li>Ekstruder desktop</li>
+                <li>Sistem ekstrusi industri</li>
+                <li>Sistem kontrol</li>
+                <li>Aksesori ekstrusi</li>
+            </ul>
+        </div>
+
+        <div class="join-product">
+            <h3>Solusi Daur Ulang Plastik</h3>
+            <p>
+                Mengolah material plastik yang sesuai menjadi sumber daya
+                yang dapat digunakan kembali untuk produksi filamen.
+            </p>
+        </div>
+
+        <div class="join-product">
+            <h3>Aksesori Produksi Filamen</h3>
+            <ul>
+                <li>Sistem pengukuran diameter laser</li>
+                <li>Sistem pendingin</li>
+                <li>Mesin penarik filamen</li>
+                <li>Peralatan pengering</li>
+                <li>Sistem penggulungan filamen</li>
+                <li>Paket filamen</li>
+            </ul>
+        </div>
+
+        <div class="join-product">
+            <h3>Bahan Baku &amp; Masterbatch</h3>
+            <p>Material yang dapat mendukung proses manufaktur filamen, meliputi:</p>
+            <ul>
+                <li>PLA</li>
+                <li>ABS</li>
+                <li>PETG</li>
+                <li>TPU</li>
+                <li>Masterbatch warna</li>
+                <li>Material filamen lainnya</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- MANFAAT DISTRIBUTOR -->
+    <section class="join-section">
+        <h2>Manfaat Menjadi Distributor</h2>
+
+        <p>
+            Sebagai mitra distribusi, manfaat yang berpotensi diperoleh
+            meliputi:
+        </p>
+
+        <ul class="join-checklist">
+            <li>Harga grosir yang kompetitif</li>
+            <li>Peluang penjualan di wilayah tertentu</li>
+            <li>Pelatihan produk dan teknis</li>
+            <li>Foto dan video produk</li>
+            <li>Dokumentasi teknis</li>
+            <li>Dukungan pemasaran produk</li>
+            <li>Bantuan penjualan</li>
+            <li>Koordinasi layanan purnajual</li>
+            <li>Informasi produk baru</li>
+            <li>Promosi merek secara global</li>
+        </ul>
+    </section>
+
+    <!-- MITRA -->
+    <section class="join-section">
+        <h2>Mitra yang Kami Cari</h2>
+
+        <p>
+            Kami menyambut pertanyaan dan penawaran kerja sama dari
+            berbagai jenis bisnis, seperti:
+        </p>
+
+        <ul>
+            <li>Distributor peralatan pencetakan 3D</li>
+            <li>Pemasok peralatan industri</li>
+            <li>Penjual filamen</li>
+            <li>Perusahaan teknik</li>
+            <li>Institusi pendidikan</li>
+            <li>Pemasok peralatan laboratorium</li>
+            <li>Bisnis pengolahan plastik</li>
+            <li>Bisnis e-commerce</li>
+            <li>Mitra bisnis berkualifikasi lainnya</li>
+        </ul>
+
+        <p>
+            Baik Anda merupakan bisnis yang sudah mapan maupun perusahaan
+            yang sedang berkembang, kami menyambut pertanyaan dan
+            penawaran kerja sama Anda.
+        </p>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- KUALIFIKASI MITRA -->
+    <section class="join-section">
+        <h2>Hal yang Kami Harapkan</h2>
+
+        <p>Mitra yang sesuai umumnya memiliki:</p>
+
+        <ul>
+            <li>Pendekatan penjualan yang profesional</li>
+            <li>Pemahaman terhadap pasar lokal</li>
+            <li>Pengalaman teknis atau komersial</li>
+            <li>Kemampuan mengelola inventaris</li>
+            <li>Komitmen terhadap layanan pelanggan</li>
+            <li>Pola pikir untuk kerja sama jangka panjang</li>
+        </ul>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- DUKUNGAN PEMASARAN -->
+    <section class="join-section">
+        <h2>Dukungan Pemasaran</h2>
+
+        <p>
+            LAYERAPRINTING menyediakan sumber daya pemasaran untuk
+            mendukung mitra distribusi.
+        </p>
+
+        <ul>
+            <li>Katalog produk</li>
+            <li>Gambar produk</li>
+            <li>Materi visual</li>
+            <li>Dokumentasi teknis</li>
+            <li>Konten media sosial</li>
+            <li>Informasi produk</li>
+            <li>Materi edukasi</li>
+            <li>Pelatihan produk</li>
+        </ul>
+
+        <p>
+            Sumber daya tersebut dapat membantu Anda memperkenalkan
+            produk kepada pelanggan.
+        </p>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- DUKUNGAN TEKNIS -->
+    <section class="join-section">
+        <h2>Dukungan Teknis</h2>
+
+        <p>Dukungan teknis dapat mencakup:</p>
+
+        <ul>
+            <li>Panduan instalasi</li>
+            <li>Dukungan teknis produk</li>
+            <li>Pembaruan firmware</li>
+            <li>Bantuan pemecahan masalah</li>
+            <li>Pelatihan produk</li>
+            <li>Konsultasi teknik</li>
+        </ul>
+
+        <p>
+            Kami berkomitmen membantu mitra distribusi dalam memberikan
+            dukungan kepada pelanggan mereka.
+        </p>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- PENUTUP -->
+    <section class="join-section">
+        <h2>Jadilah Bagian dari Jaringan Global Kami</h2>
+
+        <p>
+            Bersama-sama, kita dapat membangun jaringan yang lebih kuat
+            untuk solusi filamen inovatif dan pencetakan 3D.
+        </p>
+
+        <p>
+            Jika Anda tertarik menjadi perwakilan LAYERAPRINTING di
+            wilayah Anda, kami ingin mendiskusikan peluang tersebut
+            lebih lanjut.
+        </p>
+
+        <p>
+            Bergabunglah dengan kami dan berkembang bersama tim yang
+            berfokus pada peningkatan berkelanjutan dan manufaktur canggih.
+        </p>
+    </section>
+
+    <hr class="join-divider">
+
+    <!-- KONTAK KEMITRAAN -->
+    <section class="join-section join-contact" id="join-contact">
+        <h2>Hubungi Kami</h2>
+
+        <p>Perusahaan: LAYERAPRINTING Indonesia</p>
+
+        <p>
+            Layanan teknis:
+            <a href="mailto:technical@example.com">technical@example.com</a>
+        </p>
+
+        <p>
+            WhatsApp:
+            <a href="https://wa.me/6280000000000" target="_blank" rel="noopener noreferrer">
+                Hubungi tim kami
+            </a>
+        </p>
+
+        <p>
+            Situs web:
+            <a href="index.html">LAYERAPRINTING Indonesia</a>
+        </p>
+
+        <p>
+            Kerja sama bisnis:
+            <a href="mailto:business@example.com">business@example.com</a>
+        </p>
+    </section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <p>
+                Solusi manufaktur filamen dan teknologi pencetakan 3D
+                untuk mendukung kebutuhan industri modern.
+            </p>
+        </div>
+
+        <div>
+            <h2>Menu</h2>
+
+            <nav class="footer-menu" aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="contact.html">Hubungi Kami</a>
+                <a href="about.html">Perusahaan</a>
+                <a href="join.html" aria-current="page">Bergabung dengan Kami</a>
+                <a href="blog.html">Artikel</a>
+            </nav>
+        </div>
+
+        <div class="footer-contact">
+            <h2>Hubungi Kami</h2>
+
+            <p>Perusahaan</p>
+            <a href="mailto:LAYERAPRINTING@gmail.com">LAYERAPRINTING@gmail.com</a>
+
+            <p>Layanan teknis</p>
+            <a href="mailto:weil94170@gmail.com">weil94170@gmail.com</a>
+
+            <p>WhatsApp: +86-18837101422</p>
+            <p>Telepon: +86-18538509168</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 LAYERAPRINTING Indonesia</p>
+        <a href="terms.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<script>
+/* =========================
+   NAVBAR MOBILE
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const menuIcon = menuToggle.querySelector("i");
+
+function closeMenu() {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+    menuIcon.className = "fa-solid fa-bars";
+}
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+    );
+
+    menuIcon.className = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+});
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeMenu();
+    }
+});
+
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 760) {
+        closeMenu();
+    }
+});
+
+/* =========================
+   SLIDER PRODUK
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".join-slider");
+
+    if (!slider) return;
+
+    const slides = Array.from(slider.querySelectorAll(".join-slide"));
+    const dots = Array.from(slider.querySelectorAll(".join-dot"));
+    const prevButton = slider.querySelector(".join-prev");
+    const nextButton = slider.querySelector(".join-next");
+    const counter = document.getElementById("slideCounter");
+
+    if (slides.length === 0 || slides.length !== dots.length) {
+        return;
+    }
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+            const active = i === currentIndex;
+
+            slide.classList.toggle("active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+        });
+
+        dots.forEach(function (dot, i) {
+            const active = i === currentIndex;
+
+            dot.classList.toggle("active", active);
+            dot.setAttribute("aria-pressed", String(active));
+        });
+
+        if (counter) {
+            counter.textContent =
+                String(currentIndex + 1).padStart(2, "0") +
+                " / " +
+                String(slides.length).padStart(2, "0");
+        }
+    }
+
+    prevButton.addEventListener("click", function () {
+        showSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+        showSlide(currentIndex + 1);
+    });
+
+    dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+            showSlide(index);
+        });
+    });
+
+    showSlide(0);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1397 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BLE Extruder + Plastic Crusher | LAYERAPRINTING</title>
+<meta name="description" content="BLE Extruder dan Plastic Crusher dari LAYERAPRINTING Indonesia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --black: #101010;
+    --yellow: #efa900;
+    --yellow-light: #ffb900;
+    --cream: #faf8f2;
+    --white: #ffffff;
+    --text: #252525;
+    --secondary: #777777;
+    --border: #eae6dc;
+    --soft-yellow: #fff8e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button, select {
+    font-family: inherit;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5%;
+    background: #faf9f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eae6dc;
+    gap: 25px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 145px;
+    max-height: 48px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 55px;
+}
+
+.nav-links a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 76px;
+    color: #292929;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #bd8700;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: #222;
+    background: transparent;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+.nav-icon:hover {
+    color: #bd8700;
+    background: #fff1cc;
+}
+
+.cart-count {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    background: var(--yellow);
+    color: #171717;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #222;
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    background: var(--cream);
+    padding: 19px 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #888;
+}
+
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.breadcrumb a:hover {
+    color: #bd8700;
+}
+
+.breadcrumb span {
+    margin: 0 10px;
+    color: #bbb;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 45px auto 75px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(350px, .95fr);
+    gap: 40px;
+    align-items: start;
+}
+
+/* PRODUCT GALLERY */
+
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    background: white;
+}
+
+.banner {
+    aspect-ratio: 16 / 8.8;
+    object-fit: cover;
+}
+
+.poster {
+    aspect-ratio: 9 / 16;
+    height: auto;
+    object-fit: contain;
+    background: white;
+}
+
+/* PRODUCT DETAILS */
+
+.product-details {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 27px;
+    position: sticky;
+    top: 95px;
+    min-width: 0;
+}
+
+.product-heading {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #171717;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 29px;
+    font-weight: 800;
+    color: #171717;
+    margin-bottom: 27px;
+}
+
+.option-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.voltage-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.voltage-options button {
+    padding: 14px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: white;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.voltage-options button:hover {
+    border-color: var(--yellow);
+}
+
+.voltage-options button.active {
+    background: var(--soft-yellow);
+    color: #805c00;
+    border-color: var(--yellow);
+}
+
+/* QUANTITY & PURCHASE */
+
+.purchase-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    flex: .8;
+    height: 52px;
+    min-width: 105px;
+}
+
+.quantity button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 19px;
+    color: #333;
+}
+
+.quantity button:hover {
+    color: #bd8700;
+}
+
+.quantity span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.add-cart {
+    flex: 1.5;
+    border: none;
+    background: var(--yellow);
+    color: #171717;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .25s;
+    min-height: 52px;
+    padding: 10px;
+}
+
+.add-cart:hover {
+    background: var(--yellow-light);
+}
+
+.buy-now {
+    width: 100%;
+    height: 51px;
+    background: #171717;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.buy-now:hover {
+    background: #333;
+}
+
+/* PROMOTION */
+
+.promotion {
+    width: 100%;
+    margin: 25px 0;
+    padding: 17px;
+    background: var(--soft-yellow);
+    border-left: 3px solid var(--yellow);
+    border-radius: 5px;
+}
+
+.promo-text {
+    color: #765500;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.promo-text:last-child {
+    margin-bottom: 0;
+}
+
+/* SPECIFICATIONS */
+
+.product-title {
+    font-size: 21px;
+    font-weight: 800;
+    margin: 32px 0 17px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0e2bd;
+    color: #1b1b1b;
+}
+
+.product-title:first-of-type {
+    margin-top: 35px;
+}
+
+.spec-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 20px 0 12px;
+    color: #292929;
+}
+
+.spec-item {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 7px;
+}
+
+.spec-item strong {
+    color: #333;
+    font-weight: 700;
+}
+
+/* SHIPPING */
+
+.shipping-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 30px 0 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.shipping-image {
+    width: 100%;
+    display: block;
+    margin-top: 12px;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+
+.footer {
+    min-height: 175px;
+    background: #101010;
+    color: #aaa;
+    padding: 40px 5%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.footer a:hover {
+    color: var(--yellow);
+}
+
+.footer-brand {
+    color: white;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.footer-brand span {
+    color: var(--yellow);
+}
+
+/* FLOATING CART */
+
+.floating-cart {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 120px);
+    width: min(650px, calc(100% - 35px));
+    background: white;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 8px 35px rgba(0,0,0,.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s ease;
+}
+
+.floating-cart.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-info {
+    min-width: 0;
+}
+
+.floating-info strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.floating-info span {
+    font-size: 11px;
+    color: #777;
+}
+
+.floating-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.floating-price {
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.floating-cart button {
+    background: var(--yellow);
+    color: #171717;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.floating-cart button:hover {
+    background: var(--yellow-light);
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    background: #171717;
+    color: white;
+    padding: 14px 21px;
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: .3s;
+    z-index: 2000;
+    pointer-events: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TABLET */
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 0 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
+
+    .nav-links {
+        margin-left: 25px;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-right {
+        gap: 15px;
+    }
+
+    .container {
+        padding: 0 3%;
+        gap: 25px;
+        grid-template-columns: minmax(0, 1.35fr) minmax(310px, 1fr);
+    }
+
+    .product-details {
+        padding: 22px;
+    }
+
+    .product-heading {
+        font-size: 21px;
+    }
+
+    .price {
+        font-size: 25px;
+    }
+}
+
+/* SMALL TABLET */
+
+@media (max-width: 900px) {
+    .navbar {
+        min-height: 72px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .nav-links {
+        margin-left: 15px;
+        gap: 11px;
+    }
+
+    .nav-links a {
+        min-height: 72px;
+        font-size: 10px;
+    }
+
+    .nav-links a.active::after {
+        bottom: 17px;
+    }
+
+    .nav-right {
+        gap: 12px;
+    }
+
+    .container {
+        grid-template-columns: 1fr .9fr;
+        gap: 18px;
+    }
+
+    .product-details {
+        padding: 17px;
+        top: 85px;
+    }
+
+    .product-heading {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .purchase-row {
+        flex-direction: column;
+    }
+
+    .quantity {
+        width: 100%;
+        flex: none;
+    }
+
+    .add-cart {
+        width: 100%;
+        min-height: 47px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 68px;
+        padding: 0 18px;
+    }
+
+    .logo img {
+        width: 130px;
+        max-height: 43px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 12px 20px 20px;
+        background: #faf9f5;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        min-height: 43px;
+        font-size: 13px;
+    }
+
+    .nav-links a.active::after {
+        display: none;
+    }
+
+    .nav-right {
+        margin-left: auto;
+        gap: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .page-header {
+        padding: 15px 18px;
+    }
+
+    .breadcrumb {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        gap: 25px;
+        margin-top: 22px;
+        margin-bottom: 50px;
+    }
+
+    .gallery {
+        gap: 13px;
+    }
+
+    .banner {
+        aspect-ratio: 16 / 9;
+    }
+
+    .poster {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        object-fit: contain;
+    }
+
+    .product-details {
+        position: static;
+        padding: 22px;
+    }
+
+    .product-heading {
+        font-size: 21px;
+    }
+
+    .price {
+        font-size: 26px;
+    }
+
+    .purchase-row {
+        flex-direction: row;
+    }
+
+    .quantity {
+        flex: .8;
+    }
+
+    .add-cart {
+        flex: 1.5;
+    }
+
+    .product-title {
+        font-size: 20px;
+    }
+
+    .footer {
+        min-height: 145px;
+        padding: 28px 18px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .floating-cart {
+        bottom: 12px;
+        padding: 11px;
+        gap: 8px;
+    }
+
+    .floating-info strong {
+        font-size: 10px;
+    }
+
+    .floating-info span {
+        font-size: 10px;
+    }
+
+    .floating-price {
+        display: none;
+    }
+
+    .floating-cart button {
+        padding: 11px 13px;
+        font-size: 10px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 120px;
+    }
+
+    .nav-right {
+        gap: 13px;
+    }
+
+    .product-details {
+        padding: 18px;
+    }
+
+    .product-heading {
+        font-size: 19px;
+    }
+
+    .price {
+        font-size: 23px;
+    }
+
+    .voltage-options button {
+        padding: 13px 7px;
+        font-size: 12px;
+    }
+
+    .purchase-row {
+        gap: 8px;
+    }
+
+    .quantity {
+        min-width: 95px;
+    }
+
+    .quantity button {
+        padding: 8px;
+    }
+
+    .add-cart {
+        font-size: 10px;
+    }
+
+    .product-title {
+        font-size: 19px;
+    }
+
+    .spec-item {
+        font-size: 11px;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 85px;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="nav-left">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="LAYERAPRINTING Indonesia">
+        </a>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Beranda</a>
+        <a href="product.html" class="active">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="company.html">Perusahaan</a>
+        <a href="join-us.html">Bergabung</a>
+        <a href="blog.html">Blog</a>
+        <a href="track-order.html">Lacak Pesanan</a>
+    </nav>
+
+    <div class="nav-right">
+
+        <a href="account.html"
+           class="nav-icon"
+           aria-label="Login atau Akun"
+           title="Akun">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <!-- Keranjang tidak lagi memerlukan login -->
+        <a href="cart.html"
+           class="nav-icon"
+           aria-label="Keranjang Belanja"
+           title="Keranjang">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </a>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka menu">
+            ☰
+        </button>
+
+    </div>
+</header>
+
+<!-- BREADCRUMB -->
+
+<section class="page-header">
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a>
+        <span>/</span>
+        <a href="produk.html">Produk</a>
+        <span>/</span>
+        BLE Extruder + Plastic Crusher
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+
+<main class="container">
+
+    <section class="gallery">
+
+        <img class="banner"
+             src="assets/images/ekstruder1.png"
+             alt="BLE Extruder dan Plastic Crusher LAYERAPRINTING">
+
+        <img class="poster"
+             src="assets/images/poster1.png"
+             alt="Poster BLE Desktop Filament Extruder">
+
+        <img class="poster"
+             src="assets/images/poster2.png"
+             alt="Poster BLE Desktop Plastic Crusher">
+
+    </section>
+
+    <aside class="product-details">
+
+        <h1 class="product-heading">
+            LAYERAPRINTING - BLE Extruder + Plastic Crusher
+        </h1>
+
+        <div class="price">
+            Rp 12.743.000,00
+        </div>
+
+        <p class="option-label">Pilihan Tegangan</p>
+
+        <div class="voltage-options">
+            <button class="active"
+                    onclick="selectVoltage(this)"
+                    type="button">
+                110V
+            </button>
+
+            <button onclick="selectVoltage(this)" type="button">
+                220-230V
+            </button>
+        </div>
+
+        <div class="purchase-row" id="purchaseRow">
+
+            <div class="quantity">
+                <button onclick="changeQuantity(-1)"
+                        aria-label="Kurangi jumlah"
+                        type="button">−</button>
+
+                <span id="quantity">1</span>
+
+                <button onclick="changeQuantity(1)"
+                        aria-label="Tambah jumlah"
+                        type="button">+</button>
+            </div>
+
+            <button class="add-cart"
+                    onclick="addToCart()"
+                    type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                Tambah ke Keranjang
+            </button>
+
+        </div>
+
+        <button class="buy-now"
+                onclick="buyNow()"
+                type="button">
+            Beli Sekarang
+        </button>
+
+        <!-- EXTRUDER SPECIFICATIONS -->
+
+        <h2 class="product-title">BLE Extruder</h2>
+
+        <h4 class="spec-title">Spesifikasi Utama</h4>
+
+        <p class="spec-item"><strong>Material Bodi:</strong> Baja struktural berkekuatan tinggi dan plastik.</p>
+        <p class="spec-item"><strong>Dimensi:</strong> 410 × 120 × 120 mm + 350 × 130 × 100 mm.</p>
+        <p class="spec-item"><strong>Berat:</strong> 13 kg.</p>
+        <p class="spec-item"><strong>Kapasitas Produksi:</strong> 300 g/jam.</p>
+        <p class="spec-item"><strong>Rentang Suhu:</strong> Suhu lingkungan hingga 300°C.</p>
+        <p class="spec-item"><strong>Daya Maksimal:</strong> 300 W.</p>
+        <p class="spec-item"><strong>Daya Operasional:</strong> 200 W.</p>
+        <p class="spec-item"><strong>Konsumsi Energi:</strong> 0,5 kWh/kg filamen.</p>
+        <p class="spec-item"><strong>Material Sekrup:</strong> Baja paduan nitridasi (HRC 58-65).</p>
+
+        <h4 class="spec-title">Informasi Tambahan</h4>
+
+        <p class="spec-item"><strong>Catu Daya:</strong> AC 110V/220V (50/60Hz), mendukung penggunaan di berbagai negara.</p>
+        <p class="spec-item"><strong>Diameter Filamen:</strong> 1,75 mm (opsional 2,85/3,0 mm).</p>
+        <p class="spec-item"><strong>Material yang Didukung:</strong> PLA, ABS, PETG, TPU, PET, PP, PS, PA, Nylon, PC, PVA, dan lainnya.</p>
+        <p class="spec-item"><strong>Layar Sentuh 2,4 Inci:</strong> Pemantauan suhu dan kecepatan secara langsung.</p>
+        <p class="spec-item"><strong>Sistem Penggulung:</strong> Penyesuaian kecepatan otomatis, kompatibel dengan spool lebar maksimal 110 mm dan diameter maksimal 280 mm.</p>
+
+        <h4 class="spec-title">Informasi Desain</h4>
+
+        <p class="spec-item"><strong>Presisi Diameter:</strong> ≤0,05 mm untuk material baru dan ≤0,07 mm untuk material daur ulang.</p>
+
+        <!-- CRUSHER SPECIFICATIONS -->
+
+        <h2 class="product-title">Plastic Crusher</h2>
+
+        <h4 class="spec-title">Spesifikasi Utama</h4>
+
+        <p class="spec-item"><strong>Material Bodi:</strong> Baja struktural berkekuatan tinggi.</p>
+        <p class="spec-item"><strong>Dimensi:</strong> 105 × 105 × 230 mm.</p>
+        <p class="spec-item"><strong>Ukuran Maksimal Material:</strong> 90 × 90 × 100 mm.</p>
+        <p class="spec-item"><strong>Daya Maksimal:</strong> 150 W.</p>
+
+        <h4 class="spec-title">Informasi Tambahan</h4>
+
+        <p class="spec-item"><strong>Catu Daya:</strong> AC 110V/220V (50/60Hz).</p>
+        <p class="spec-item"><strong>Material yang Didukung:</strong> PLA, ABS, PETG, dan lainnya.</p>
+        <p class="spec-item"><strong>Penggunaan:</strong> Cocok untuk menghancurkan material plastik yang relatif keras.</p>
+
+        <!-- SHIPPING -->
+
+        <h3 class="shipping-title">Informasi Pengiriman</h3>
+
+        <p class="spec-item">
+            LAYERAPRINTING menyediakan layanan pengiriman ke berbagai negara untuk memenuhi kebutuhan pelanggan.
+        </p>
+
+    </aside>
+
+</main>
+
+<!-- FLOATING CART -->
+
+<div class="floating-cart" id="floatingCart">
+
+    <div class="floating-info">
+        <strong>BLE Extruder + Plastic Crusher</strong>
+        <span id="floatingVariant">110V · 1 Produk</span>
+    </div>
+
+    <div class="floating-action">
+        <span class="floating-price">Rp 12.743.000</span>
+
+        <button onclick="addToCart()" type="button">
+            <i class="fa-solid fa-cart-plus"></i>
+            Tambah
+        </button>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div>
+        <div class="footer-brand">
+            LAYER<span>APRINTING</span>
+        </div>
+
+        <p>© 2026 LAYERAPRINTING. Hak cipta dilindungi.</p>
+    </div>
+
+    <a href="terms.html">Syarat dan Kebijakan</a>
+
+</footer>
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast"
+     role="status"
+     aria-live="polite"></div>
+
+<script>
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+const product = {
+    id: "ble-extruder-plastic-crusher",
+    name: "LAYERAPRINTING - BLE Extruder + Plastic Crusher",
+    price: 12743000,
+    image: "assets/images/ekstruder1.png"
+};
+
+let quantity = 1;
+let selectedVoltage = "110V";
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("show");
+
+    menuToggle.textContent =
+        navLinks.classList.contains("show") ? "✕" : "☰";
+});
+
+/* =========================
+   FORMAT RUPIAH
+========================= */
+
+function formatRupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(number);
+}
+
+/* =========================
+   QUANTITY
+========================= */
+
+function changeQuantity(value) {
+    quantity = Math.max(1, quantity + value);
+
+    document.getElementById("quantity").textContent = quantity;
+
+    updateFloatingCart();
+}
+
+/* =========================
+   VOLTAGE
+========================= */
+
+function selectVoltage(button) {
+    document.querySelectorAll(".voltage-options button")
+        .forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+
+    selectedVoltage = button.textContent.trim();
+
+    updateFloatingCart();
+}
+
+/* =========================
+   FLOATING CART
+========================= */
+
+const purchaseRow = document.getElementById("purchaseRow");
+const floatingCart = document.getElementById("floatingCart");
+
+function updateFloatingCart() {
+    document.getElementById("floatingVariant").textContent =
+        selectedVoltage + " · " + quantity + " Produk";
+
+    document.querySelector(".floating-price").textContent =
+        formatRupiah(product.price * quantity);
+}
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                floatingCart.classList.remove("show");
+            } else {
+                floatingCart.classList.add("show");
+            }
+        });
+    }, { threshold: 0 });
+
+    observer.observe(purchaseRow);
+}
+
+/* =========================
+   NOTIFICATION
+========================= */
+
+let toastTimer;
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+
+/* =========================
+   LOCAL STORAGE CART
+========================= */
+
+function getCart() {
+    try {
+        const cart = JSON.parse(
+            localStorage.getItem("layeraprinting_cart") || "[]"
+        );
+
+        return Array.isArray(cart) ? cart : [];
+    } catch (error) {
+        console.error("Gagal membaca keranjang:", error);
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    try {
+        localStorage.setItem(
+            "layeraprinting_cart",
+            JSON.stringify(cart)
+        );
+
+        return true;
+    } catch (error) {
+        console.error("Gagal menyimpan keranjang:", error);
+        showToast("Gagal menyimpan keranjang. Periksa penyimpanan browser.");
+        return false;
+    }
+}
+
+/* =========================
+   UPDATE CART COUNT
+========================= */
+
+function updateCartCount() {
+    const cart = getCart();
+
+    const total = cart.reduce((sum, item) => {
+        return sum + Math.max(0, Number(item.quantity) || 0);
+    }, 0);
+
+    const cartCount = document.getElementById("cartCount");
+
+    if (cartCount) {
+        cartCount.textContent = total;
+    }
+}
+
+/* =========================
+   ADD PRODUCT TO CART
+========================= */
+
+function addProductToCart() {
+    const cart = getCart();
+
+    const existingProduct = cart.find(item =>
+        (
+            item.id === product.id ||
+            item.name === product.name
+        ) &&
+        item.voltage === selectedVoltage
+    );
+
+    if (existingProduct) {
+        existingProduct.quantity =
+            (Number(existingProduct.quantity) || 0) + quantity;
+
+        // Pastikan data produk tetap lengkap
+        existingProduct.price = product.price;
+        existingProduct.image = product.image;
+        existingProduct.id = product.id;
+
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            voltage: selectedVoltage,
+            quantity: quantity,
+            image: product.image
+        });
+    }
+
+    return saveCart(cart);
+}
+
+/* =========================
+   ADD TO CART
+   TANPA LOGIN
+========================= */
+
+function addToCart() {
+
+    if (!addProductToCart()) {
+        return;
+    }
+
+    updateCartCount();
+
+    showToast(
+        quantity + " produk berhasil ditambahkan ke keranjang!"
+    );
+}
+
+/* =========================
+   BUY NOW
+   TANPA LOGIN
+========================= */
+
+function buyNow() {
+
+    if (!addProductToCart()) {
+        return;
+    }
+
+    updateCartCount();
+
+    showToast("Produk berhasil ditambahkan. Membuka keranjang...");
+
+    setTimeout(() => {
+        window.location.href = "cart.html";
+    }, 400);
+}
+
+/* =========================
+   INITIALIZATION
+========================= */
+
+updateCartCount();
+updateFloatingCart();
+
+/* Sinkronisasi jumlah jika keranjang berubah
+   dari tab browser lainnya. */
+window.addEventListener("storage", function(event) {
+    if (event.key === "layeraprinting_cart") {
+        updateCartCount();
+    }
+});
+
+</script>
+
+</body>
+</html>

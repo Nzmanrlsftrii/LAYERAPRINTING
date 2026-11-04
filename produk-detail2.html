@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Parts | LAYERAPRINTING Indonesia</title>
+<meta name="description" content="Temukan suku cadang mesin ekstruder dan mesin pencacah LAYERAPRINTING Indonesia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --yellow: #efa900;
+    --navy: #082b5b;
+    --text: #202126;
+    --muted: #727b8a;
+    --cream: #faf8f2;
+    --footer: #101010;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Inter", Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    width: 100%;
+    height: 62px;
+    padding: 0 5.35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #eae7df;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.navbar .brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+}
+
+.brand-symbol {
+    width: 33px;
+    height: 35px;
+    color: var(--navy);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.brand-text strong {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.brand-text span {
+    color: #586274;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* Logo navbar */
+.navbar .brand img {
+    display: block;
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(17px, 2vw, 30px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-menu a {
+    position: relative;
+    padding: 22px 0 20px;
+    color: #353946;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #d99a00;
+}
+
+.nav-menu a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.icon-link {
+    width: 23px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    color: #17191b;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icon-link:hover {
+    color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+.icon-link svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.menu-toggle svg {
+    width: 27px;
+    height: 27px;
+}
+
+/* =========================
+   MAIN / PARTS
+========================= */
+.parts-section {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    min-height: 525px;
+    overflow: hidden;
+    padding: 39px 5.35% 40px;
+    background: radial-gradient(
+        ellipse at 50% 45%,
+        #fffdf8 0%,
+        #faf8f2 58%,
+        #f8f5ed 100%
+    );
+}
+
+.parts-section::before,
+.parts-section::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    background: rgba(238, 185, 44, 0.10);
+    pointer-events: none;
+}
+
+.parts-section::before {
+    top: -172px;
+    right: -125px;
+    width: 315px;
+    height: 315px;
+}
+
+.parts-section::after {
+    bottom: -158px;
+    left: -177px;
+    width: 355px;
+    height: 355px;
+}
+
+.parts-heading {
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 11px;
+    color: #d99a00;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: var(--yellow);
+    flex-shrink: 0;
+}
+
+.parts-heading h1 {
+    margin-bottom: 3px;
+    color: #202126;
+    font-size: clamp(42px, 4.2vw, 67px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+}
+
+.parts-heading p {
+    color: var(--muted);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.empty-state {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -7px;
+    padding-top: 0;
+}
+
+.empty-illustration {
+    position: relative;
+    width: 158px;
+    height: 158px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 13px;
+}
+
+.illustration-circle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(241, 192, 56, 0.075);
+}
+
+.empty-illustration svg {
+    position: relative;
+    width: 142px;
+    height: 142px;
+    overflow: visible;
+}
+
+.empty-state h2 {
+    margin-bottom: 20px;
+    color: #202126;
+    font-size: clamp(27px, 2.65vw, 42px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.clear-filters {
+    padding: 0;
+    color: #d99a00;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d99a00;
+    cursor: pointer;
+    font-size: inherit;
+    transition: color 0.2s ease;
+}
+
+.clear-filters:hover {
+    color: #a97900;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 42px 5.35% 0;
+    color: #e8eaf0;
+    background: #101010;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(130px, 0.65fr)
+        minmax(260px, 1fr);
+    align-items: start;
+    gap: clamp(30px, 5vw, 80px);
+    padding-bottom: 30px;
+}
+
+.footer-brand {
+    min-width: 0;
+}
+
+.footer-brand .brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom: 24px;
+}
+
+.footer-brand .brand svg.brand-symbol {
+    display: none;
+}
+
+.footer-brand .brand img {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-brand .brand-text {
+    display: none;
+}
+
+.footer-description {
+    max-width: 360px;
+    margin-bottom: 20px;
+    color: #e0e3eb;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid #606168;
+    border-radius: 50%;
+    color: #f5f5f5;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #101010;
+    background: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.social-links svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-links .filled-icon {
+    fill: currentColor;
+    stroke: none;
+}
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer-column h3 {
+    margin: 3px 0 20px;
+    color: #f7f7f7;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-menu a {
+    color: #e1e4eb;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    transition: color 0.2s ease;
+}
+
+.footer-menu a:hover,
+.footer-bottom a:hover,
+.contact-item a:hover {
+    color: var(--yellow);
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    min-width: 0;
+}
+
+.contact-item > svg {
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    fill: none;
+    stroke: #ffc400;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.contact-item small {
+    color: #aab0bb;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.contact-item a {
+    color: #e5e7ed;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 14px 0;
+    border-top: 1px solid #303030;
+    color: #9ca3af;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: #9ca3af;
+    white-space: normal;
+    transition: color 0.2s ease;
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 1100px) {
+    .navbar {
+        padding-right: 4%;
+        padding-left: 4%;
+        gap: 18px;
+    }
+
+    .navbar .brand img {
+        width: 175px;
+    }
+
+    .nav-menu {
+        gap: 14px;
+    }
+
+    .nav-menu a {
+        font-size: 11px;
+    }
+
+    .nav-icons {
+        gap: 16px;
+    }
+
+    .parts-section {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .footer {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .footer-main {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar .brand img {
+        width: 155px;
+    }
+
+    .navbar {
+        gap: 13px;
+    }
+
+    .nav-menu {
+        gap: 11px;
+    }
+
+    .nav-menu a {
+        font-size: 10px;
+    }
+
+    .nav-icons {
+        gap: 12px;
+    }
+
+    .footer-main {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(130px, 0.7fr);
+        gap: 35px 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand .brand img {
+        max-width: 320px;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 760px) {
+    .navbar {
+        height: 60px;
+        padding: 0 5%;
+        gap: 15px;
+    }
+
+    .navbar .brand img {
+        width: 190px;
+        max-width: min(48vw, 190px);
+    }
+
+    .brand-symbol {
+        width: 30px;
+        height: 32px;
+    }
+
+    .brand-text strong {
+        font-size: 12px;
+    }
+
+    .brand-text span {
+        font-size: 7px;
+    }
+
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 59px;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 12px 5% 20px;
+        background: #fffefa;
+        border-bottom: 1px solid #ece8df;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu a {
+        padding: 13px 0;
+        border-bottom: 1px solid #f0ede6;
+        font-size: 14px;
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a.active::after {
+        bottom: 5px;
+        width: 30px;
+    }
+
+    .nav-icons {
+        gap: 13px;
+    }
+
+    .icon-link,
+    .icon-link svg {
+        width: 22px;
+        height: 25px;
+    }
+
+    .parts-section {
+        min-height: 520px;
+        padding: 36px 5% 45px;
+    }
+
+    .eyebrow {
+        gap: 12px;
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .eyebrow::before {
+        width: 29px;
+    }
+
+    .parts-heading h1 {
+        font-size: 49px;
+        letter-spacing: -1.8px;
+    }
+
+    .parts-heading p {
+        max-width: 340px;
+        font-size: 15px;
+    }
+
+    .empty-state {
+        margin-top: 23px;
+    }
+
+    .empty-illustration {
+        width: 125px;
+        height: 125px;
+        margin-bottom: 16px;
+    }
+
+    .empty-illustration svg {
+        width: 115px;
+        height: 115px;
+    }
+
+    .empty-state h2 {
+        margin-bottom: 13px;
+        font-size: 28px;
+        letter-spacing: -0.7px;
+    }
+
+    .empty-state p {
+        max-width: 320px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 34px 5% 0;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 25px;
+        padding-bottom: 28px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand .brand img {
+        max-width: 320px;
+    }
+
+    .footer-description {
+        max-width: 350px;
+        font-size: 13px;
+    }
+
+    .footer-column h3 {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .footer-menu a {
+        font-size: 13px;
+    }
+
+    .contact-item {
+        grid-template-columns: 23px minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .contact-item > svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .contact-item a {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 560px) {
+    .footer {
+        padding: 32px 5% 0;
+    }
+
+    .footer-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding-bottom: 26px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-brand .brand img {
+        max-width: 280px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 15px;
+    }
+
+    .footer-menu {
+        gap: 10px;
+    }
+
+    .contact-list {
+        gap: 17px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        gap: 10px;
+    }
+
+    .navbar .brand img {
+        width: 165px;
+        max-width: 43vw;
+    }
+
+    .brand {
+        gap: 7px;
+    }
+
+    .brand-text strong {
+        font-size: 11px;
+    }
+
+    .nav-icons {
+        gap: 9px;
+    }
+
+    .parts-heading h1 {
+        font-size: 43px;
+    }
+
+    .parts-heading p {
+        font-size: 14px;
+    }
+
+    .empty-state h2 {
+        font-size: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 29px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-description {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+        <img src="assets/images/Logo.png" alt="LAYERAPRINTING">
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="navMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" class="active">Produk</a>
+        <a href="kontak.html">Hubungi Kami</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="join-us.html">Bergabung dengan Kami</a>
+        <a href="artikel.html">Artikel</a>
+    </nav>
+
+    <div class="nav-icons">
+        <a href="akun.html" class="icon-link" aria-label="Akun">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="7.5" r="4"/>
+                <path d="M4 21v-2.5A5.5 5.5 0 0 1 9.5 13h5a5.5 5.5 0 0 1 5.5 5.5V21Z"/>
+            </svg>
+        </a>
+
+        <a href="keranjang.html" class="icon-link" aria-label="Keranjang">
+            <svg viewBox="0 0 24 24">
+                <path d="M5 8h14l1 13H4L5 8Z"/>
+                <path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+            </svg>
+        </a>
+    </div>
+
+</header>
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+<main>
+    <section class="parts-section">
+
+        <div class="parts-heading">
+            <div class="eyebrow">Parts</div>
+            <h1>Parts</h1>
+            <p>3D printing filament extruder/shredder Parts</p>
+        </div>
+
+        <div class="empty-state">
+
+            <div class="empty-illustration">
+                <div class="illustration-circle"></div>
+
+                <svg viewBox="0 0 160 160" fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+
+                    <g stroke="#E9A600" stroke-width="3.5"
+                       stroke-linecap="round">
+                        <path d="M80 8V25"/>
+                        <path d="M52 19L62 30"/>
+                        <path d="M108 19L98 30"/>
+                    </g>
+
+                    <g stroke="#E9A600" stroke-width="4"
+                       stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M28 57L76 41L126 57L79 76L28 57Z"/>
+                        <path d="M28 57L17 82L65 98L79 76"/>
+                        <path d="M126 57L137 82L111 91"/>
+                        <path d="M17 82V124L76 144L76 92"/>
+                        <path d="M76 144V92"/>
+                        <path d="M76 144L125 126V103"/>
+                        <path d="M28 57L28 77"/>
+                    </g>
+
+                    <circle cx="126" cy="100" r="21"
+                            fill="#FAF8F2" stroke="#E9A600"
+                            stroke-width="4"/>
+                    <g stroke="#E9A600" stroke-width="4"
+                       stroke-linecap="round">
+                        <path d="M118 92L134 108"/>
+                        <path d="M134 92L118 108"/>
+                    </g>
+                </svg>
+            </div>
+
+            <h2>No products found.</h2>
+
+            <p>
+                Try using fewer filters, or
+                <button type="button" class="clear-filters" id="clearFilters">
+                    clear all filters.
+                </button>
+            </p>
+
+        </div>
+
+    </section>
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="brand"
+               aria-label="LAYERAPRINTING Indonesia">
+                <img src="assets/images/Logo.png" alt="LAYERAPRINTING indonesia">
+            </a>
+
+            <p class="footer-description">
+                Solusi material dan teknologi pencetakan 3D
+                untuk mendukung kebutuhan industri dan manufaktur.
+            </p>
+
+            <div class="social-links">
+
+                <a href="https://www.facebook.com/" aria-label="Facebook"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" class="filled-icon">
+                        <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v1.8H7V13h2.8v8h3.7Z"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.instagram.com/" aria-label="Instagram"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r=".8"
+                                fill="currentColor" stroke="none"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.youtube.com/" aria-label="YouTube"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" class="filled-icon">
+                        <path d="M22 7.2a2.8 2.8 0 0 0-2-2C18.3 4.7 12 4.7 12 4.7s-6.3 0-8 .5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.5 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.5 8 .5 8 .5s6.3 0 8-.5a2.8 2.8 0 0 0 2-2 29 29 0 0 0 .5-4.8 29 29 0 0 0-.5-4.8ZM9.8 15.5v-7l6 3.5-6 3.5Z"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.tiktok.com/" aria-label="TikTok"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3v11.2a4.2 4.2 0 1 1-3.5-4.1"/>
+                        <path d="M14 3c.5 3 2.5 5 5.5 5.4"/>
+                    </svg>
+                </a>
+
+                <a href="https://x.com/" aria-label="X"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 4l14 16M19 4 5 20"/>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>MENU</h3>
+
+            <nav class="footer-menu">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="kontak.html">Hubungi Kami</a>
+                <a href="tentang.html">Tentang Kami</a>
+                <a href="join-us.html">Bergabung dengan Kami</a>
+                <a href="artikel.html">Artikel</a>
+                <a href="lacak-pesanan.html">Lacak Pesanan</a>
+            </nav>
+        </div>
+
+        <div class="footer-column">
+            <h3>HUBUNGI KAMI</h3>
+
+            <div class="contact-list">
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m3 6 9 7 9-7"/>
+                    </svg>
+
+                    <div>
+                        <small>Email Perusahaan</small>
+                        <a href="mailto:LAYERAPRINTING@gmail.com">
+                            LAYERAPRINTING@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 13v-2a8 8 0 0 1 16 0v2"/>
+                        <rect x="3" y="12" width="4" height="7" rx="2"/>
+                        <rect x="17" y="12" width="4" height="7" rx="2"/>
+                        <path d="M17 19a5 5 0 0 1-5 3h-2"/>
+                    </svg>
+
+                    <div>
+                        <small>Layanan Teknis</small>
+                        <a href="mailto:weil94170@gmail.com">
+                            weil94170@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.4A8.4 8.4 0 1 1 21 11.5Z"/>
+                        <path d="M8.5 8.5c.4 2.5 2.5 4.6 5 5"/>
+                    </svg>
+
+                    <div>
+                        <small>WhatsApp</small>
+                        <a href="https://wa.me/8618837101422"
+                           target="_blank" rel="noopener noreferrer">
+                            +86-18837101422
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 3h4l2 5-3 2a16 16 0 0 0 6 6l2-3 5 2v4c0 1.1-.9 2-2 2C9 21 3 15 3 5c0-1.1.9-2 2-2Z"/>
+                    </svg>
+
+                    <div>
+                        <small>Telepon</small>
+                        <a href="tel:+8618538509168">
+                            +86-18538509168
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 LAYERAPRINTING Indonesia. Hak cipta dilindungi.</p>
+        <a href="kebijakan-privasi.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<script>
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navMenu.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+    );
+});
+
+navMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+    });
+});
+
+/* =========================
+   CLEAR FILTERS
+========================= */
+document.getElementById("clearFilters").addEventListener("click", function () {
+    const url = new URL(window.location.href);
+    url.search = "";
+    window.location.href = url.pathname + url.hash;
+});
+</script>
+
+</body>
+</html>

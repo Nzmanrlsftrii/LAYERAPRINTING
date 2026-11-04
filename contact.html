@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hubungi Kami | LAYERAPRINTING</title>
+<meta name="description" content="Hubungi LAYERAPRINTING untuk informasi produk, layanan teknis, dan kerja sama bisnis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --black: #101010;
+    --white: #ffffff;
+    --background: #faf9f7;
+    --text: #343434;
+    --muted: #777777;
+    --border: #e9e7e3;
+    --accent: #f2b705;
+    --accent-hover: #dca600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--background);
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 78px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: rgba(250, 249, 247, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand img {
+    display: block;
+    width: 150px;
+    max-height: 48px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2vw, 29px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    color: #202020;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #b58a00;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #171717;
+    font-size: 17px;
+    transition: background .25s, color .25s;
+}
+
+.nav-icon:hover {
+    background: #f1ebdc;
+    color: #ad8300;
+}
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 19px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   BAGIAN KONTAK
+========================= */
+
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    padding: 76px 24px 100px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(242, 183, 5, .08), transparent 48%),
+        var(--background);
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 610px;
+    margin: 0 auto;
+}
+
+.contact-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px;
+    color: #9b7808;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.contact-title {
+    margin-bottom: 14px;
+    color: var(--black);
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.15;
+}
+
+.contact-description {
+    max-width: 440px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.contact-card {
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid #eeece7;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(20, 20, 20, .045);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 29px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0eeea;
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #fbf5df;
+    color: #927000;
+    font-size: 15px;
+}
+
+.info-content {
+    min-width: 0;
+    padding-top: 1px;
+}
+
+.info-label {
+    display: block;
+    margin-bottom: 2px;
+    color: #898989;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .3px;
+}
+
+.info-content a,
+.info-content p {
+    color: #252525;
+    font-size: 13px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+    transition: color .2s;
+}
+
+.info-content a:hover {
+    color: #a98200;
+}
+
+.form-heading {
+    margin-bottom: 18px;
+}
+
+.form-heading h2 {
+    margin-bottom: 4px;
+    color: var(--black);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+}
+
+.form-heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.required {
+    color: #bb8d00;
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 17px;
+    padding: 13px 14px;
+    border: 1px solid #e6e4df;
+    border-radius: 7px;
+    outline: none;
+    background: #fdfdfc;
+    color: #242424;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.contact-form input {
+    height: 47px;
+}
+
+.contact-form textarea {
+    min-height: 145px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #aaa7a0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #d9ad19;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(242, 183, 5, .11);
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 49px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 7px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .25s, transform .25s;
+}
+
+.submit-btn:hover {
+    background: #353535;
+    transform: translateY(-1px);
+}
+
+.submit-btn i {
+    font-size: 12px;
+    transition: transform .2s;
+}
+
+.submit-btn:hover i {
+    transform: translateX(3px);
+}
+
+.form-message {
+    display: none;
+    margin-top: 13px;
+    padding: 11px 13px;
+    border-radius: 6px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.form-message:not(:empty) {
+    display: block;
+}
+
+.form-message.error {
+    background: #fff0f0;
+    color: #b42318;
+}
+
+.form-message.success {
+    background: #f1f7ec;
+    color: #38672a;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 55px 5% 23px;
+    background: #101010;
+    color: #fff;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: .8fr 1fr 1.5fr;
+    gap: 55px;
+    padding-bottom: 44px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+}
+
+.footer-logo img {
+    width: 155px;
+    max-height: 50px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.footer-brand-description {
+    max-width: 240px;
+    color: #a8a8a8;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #353535;
+    border-radius: 50%;
+    color: #e8e8e8;
+    font-size: 14px;
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.social-links a:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #111;
+}
+
+.footer h2 {
+    margin: 5px 0 22px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.footer-menu a {
+    color: #bcbcbc;
+    font-size: 12px;
+    transition: color .2s;
+}
+
+.footer-menu a:hover,
+.footer-contact a:hover {
+    color: var(--accent);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    min-width: 0;
+}
+
+.footer-contact h2 {
+    margin-bottom: 0;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.footer-contact-item > i {
+    width: 16px;
+    margin-top: 4px;
+    color: var(--accent);
+    text-align: center;
+}
+
+.footer-contact-item div {
+    min-width: 0;
+}
+
+.footer-contact-item span {
+    display: block;
+    margin-bottom: 2px;
+    color: #8f8f8f;
+    font-size: 10px;
+}
+
+.footer-contact-item a,
+.footer-contact-item p {
+    color: #e2e2e2;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-top: 22px;
+    border-top: 1px solid #303030;
+    color: #888;
+    font-size: 11px;
+}
+
+.footer-bottom a {
+    transition: color .2s;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 0 3%;
+        gap: 18px;
+    }
+
+    .brand img {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 9px;
+    }
+
+    .footer-main {
+        gap: 30px;
+    }
+}
+
+/* =========================
+   HAMBURGER MOBILE
+========================= */
+
+@media (max-width: 760px) {
+    .navbar {
+        height: 68px;
+        padding: 0 20px;
+        gap: 12px;
+    }
+
+    .brand img {
+        width: 135px;
+        max-height: 42px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        order: 3;
+        flex-shrink: 0;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 5px;
+    }
+
+    .nav-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        max-height: calc(100vh - 68px);
+        padding: 8px 20px 20px;
+        margin: 0;
+        overflow-y: auto;
+        background: #faf9f7;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .07);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    }
+
+    .navbar.menu-active .nav-links {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 4px;
+        border-bottom: 1px solid #eeece7;
+        font-size: 13px;
+        white-space: normal;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .contact-section {
+        padding: 58px 20px 75px;
+    }
+
+    .contact-container {
+        max-width: 570px;
+    }
+
+    .contact-heading {
+        margin-bottom: 30px;
+    }
+
+    .contact-card {
+        padding: 27px;
+    }
+
+    .footer {
+        padding: 42px 25px 22px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 28px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand-description {
+        max-width: 350px;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================
+   MOBILE KECIL
+========================= */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .brand img {
+        width: 118px;
+        max-height: 38px;
+    }
+
+    .nav-actions {
+        gap: 1px;
+    }
+
+    .nav-icon {
+        width: 31px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        width: 37px;
+        height: 37px;
+        font-size: 17px;
+    }
+
+    .nav-links {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .contact-section {
+        padding: 43px 15px 55px;
+    }
+
+    .contact-title {
+        font-size: 35px;
+        letter-spacing: -1.5px;
+    }
+
+    .contact-description {
+        font-size: 12px;
+    }
+
+    .contact-card {
+        padding: 21px 17px;
+        border-radius: 11px;
+    }
+
+    .contact-info-item {
+        gap: 11px;
+        padding: 13px 0;
+    }
+
+    .info-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .info-content a,
+    .info-content p {
+        font-size: 12px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form input {
+        height: 45px;
+    }
+
+    .contact-form textarea {
+        min-height: 125px;
+    }
+
+    .footer {
+        padding: 35px 20px 20px;
+    }
+
+    .footer-main {
+        gap: 32px 17px;
+    }
+
+    .footer h2 {
+        font-size: 12px;
+        margin-bottom: 17px;
+    }
+
+    .footer-menu {
+        gap: 12px;
+    }
+
+    .footer-menu a {
+        font-size: 11px;
+    }
+
+    .footer-contact {
+        gap: 14px;
+    }
+
+    .footer-contact-item a,
+    .footer-contact-item p {
+        font-size: 11px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 9px;
+        font-size: 10px;
+    }
+}
+
+/* KURANGI ANIMASI JIKA DIPERLUKAN */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar" id="navbar">
+
+    <a href="index.html" class="brand" aria-label="Beranda LAYERAPRINTING">
+        <img src="assets/images/Logo.png"
+             alt="LAYERAPRINTING Indonesia">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="contact.html" class="active" aria-current="page">Hubungi Kami</a>
+        <a href="about.html">Perusahaan</a>
+        <a href="join.html">Bergabung dengan Kami</a>
+        <a href="blog.html">Artikel</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="account.html" class="nav-icon" aria-label="Akun">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+<!-- =========================
+     BAGIAN KONTAK
+========================= -->
+
+<main class="contact-section">
+
+    <div class="contact-container">
+
+        <div class="contact-heading">
+            <span class="eyebrow">KONTAK KAMI</span>
+
+            <h1 class="contact-title">Hubungi Kami</h1>
+
+            <p class="contact-description">
+                Punya pertanyaan mengenai produk, layanan teknis,
+                atau peluang kerja sama? Kami siap membantu Anda.
+                Silakan hubungi kami melalui informasi berikut
+                atau kirimkan pesan melalui formulir.
+            </p>
+        </div>
+
+        <div class="contact-card">
+
+            <div class="contact-info">
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span class="info-label">Email Perusahaan</span>
+                        <a href="mailto:LAYERAPRINTING@gmail.com">
+                            LAYERAPRINTING@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span class="info-label">Layanan Teknis</span>
+                        <a href="mailto:weil94170@gmail.com">
+                            weil94170@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span class="info-label">WhatsApp</span>
+                        <a href="https://wa.me/8618837101422"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            +86-18837101422
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span class="info-label">Telepon</span>
+                        <a href="tel:+8618538509168">
+                            +86-18538509168
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-heading">
+                <h2>Kirim Pesan</h2>
+                <p>Isi formulir di bawah ini untuk menghubungi tim kami.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="name">
+                            Nama <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Nama lengkap Anda"
+                            autocomplete="name"
+                            maxlength="120"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            Email <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nama@email.com"
+                            autocomplete="email"
+                            maxlength="254"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Masukkan nomor telepon"
+                        autocomplete="tel"
+                        maxlength="30">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">
+                        Pesan <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        placeholder="Tuliskan pertanyaan atau pesan Anda di sini..."
+                        maxlength="5000"
+                        required></textarea>
+                </div>
+
+                <button class="submit-btn" type="submit">
+                    <span>Kirim Pesan</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <p class="form-message"
+                   id="formMessage"
+                   role="status"
+                   aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <!-- BRAND DAN SOSIAL MEDIA -->
+
+        <div class="footer-brand">
+
+            <a href="index.html"
+               class="footer-logo"
+               aria-label="LAYERAPRINTING Beranda">
+                <img src="assets/images/Logo.png"
+                     alt="LAYERAPRINTING">
+            </a>
+
+            <p class="footer-brand-description">
+                Solusi material dan teknologi pencetakan 3D
+                untuk mendukung kebutuhan industri dan manufaktur.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- MENU -->
+
+        <div>
+            <h2>MENU</h2>
+
+            <nav class="footer-menu" aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="contact.html">Hubungi Kami</a>
+                <a href="about.html">Perusahaan</a>
+                <a href="join.html">Bergabung dengan Kami</a>
+                <a href="blog.html">Artikel</a>
+                <a href="track-order.html">Lacak Pesanan</a>
+            </nav>
+        </div>
+
+        <!-- INFORMASI KONTAK -->
+
+        <div class="footer-contact">
+
+            <h2>HUBUNGI KAMI</h2>
+
+            <div class="footer-contact-item">
+                <i class="fa-regular fa-envelope"></i>
+                <div>
+                    <span>Email Perusahaan</span>
+                    <a href="mailto:LAYERAPRINTING@gmail.com">
+                        LAYERAPRINTING@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-contact-item">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <span>Layanan Teknis</span>
+                    <a href="mailto:LAYERAPRINTING@gmail.com">
+                        LAYERAPRINTING@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                    <span>WhatsApp</span>
+                    <a href="https://wa.me/8618837101422"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        +86-18837101422
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <span>Telepon</span>
+                    <a href="tel:+8618538509168">
+                        +86-18538509168
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 LAYERAPRINTING. Hak cipta dilindungi.</p>
+        <a href="terms.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+/* HAMBURGER MENU */
+
+const navbar = document.getElementById('navbar');
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const menuIcon = menuToggle.querySelector('i');
+
+function closeMenu() {
+    navbar.classList.remove('menu-active');
+    document.body.classList.remove('menu-open');
+
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Buka menu navigasi');
+
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+menuToggle.addEventListener('click', function () {
+    const isOpen = navbar.classList.contains('menu-active');
+
+    if (isOpen) {
+        closeMenu();
+    } else {
+        navbar.classList.add('menu-active');
+        document.body.classList.add('menu-open');
+
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Tutup menu navigasi');
+
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+    }
+});
+
+/* TUTUP MENU SETELAH MEMILIH HALAMAN */
+
+navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+});
+
+/* TUTUP MENU SAAT KLIK DI LUAR NAVBAR */
+
+document.addEventListener('click', function (event) {
+    if (
+        navbar.classList.contains('menu-active') &&
+        !navbar.contains(event.target)
+    ) {
+        closeMenu();
+    }
+});
+
+/* RESET MENU KETIKA KEMBALI KE DESKTOP */
+
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 760) {
+        closeMenu();
+    }
+});
+
+/* FORMULIR KONTAK */
+
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+    }
+
+    const formData = new FormData(contactForm);
+
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const comment = String(formData.get('comment') || '').trim();
+
+    if (!name || !email || !comment) {
+        formMessage.className = 'form-message error';
+        formMessage.textContent =
+            'Silakan lengkapi semua kolom yang wajib diisi.';
+        return;
+    }
+
+    const subject = encodeURIComponent(
+        'Pesan dari Website LAYERAPRINTING'
+    );
+
+    const body = encodeURIComponent(
+        'Nama: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Nomor Telepon: ' + (phone || '-') + '\n\n' +
+        'Pesan:\n' + comment
+    );
+
+    const mailtoURL =
+        'mailto:LAYERAPRINTING@gmail.com' +
+        '?subject=' + subject +
+        '&body=' + body;
+
+    formMessage.className = 'form-message success';
+    formMessage.textContent =
+        'Membuka aplikasi email Anda. Silakan periksa kembali pesan sebelum mengirimkannya.';
+
+    window.location.href = mailtoURL;
+});
+</script>
+
+</body>
+</html>

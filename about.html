@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tentang Kami | LAYERAPRINTING</title>
+<meta name="description" content="Kenali perjalanan LAYERAPRINTING indonesia dalam mengembangkan teknologi ekstrusi filamen, manufaktur cerdas, dan solusi daur ulang plastik berkelanjutan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #20211f;
+    --muted: #686a65;
+    --accent: #e9ad19;
+    --line: #e9e7e2;
+    --dark: #151613;
+    --radius: 16px;
+    --content-width: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    background: rgba(251, 250, 248, .96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand img {
+    display: block;
+    width: 145px;
+    height: 44px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(14px, 1.8vw, 25px);
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    color: #393a36;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.nav-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #9b7100;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: var(--text);
+    font-size: 17px;
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav-icon:hover {
+    color: #9b7100;
+    background: #f4ecd8;
+}
+
+.menu-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.about-page {
+    padding: 52px 24px 100px;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-heading {
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: #96700e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    width: 25px;
+    height: 2px;
+    background: var(--accent);
+    content: "";
+}
+
+.about-title {
+    margin: 0;
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.heading-description {
+    max-width: 600px;
+    margin: 15px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* =========================
+   PRODUCT SLIDER
+========================= */
+
+.product-slider {
+    position: relative;
+    margin-bottom: 54px;
+}
+
+.slider-frame {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 42vw, 440px);
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: var(--radius);
+}
+
+.slider-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 22px;
+    object-fit: contain;
+    transition: opacity .25s ease;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    background: rgba(255,255,255,.92);
+    color: var(--text);
+    font-size: 17px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background .2s ease, transform .2s ease;
+}
+
+.slider-arrow:hover {
+    background: #fff0c5;
+    transform: translateY(-50%) scale(1.06);
+}
+
+.slider-prev {
+    left: 18px;
+}
+
+.slider-next {
+    right: 18px;
+}
+
+.slider-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.slider-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: #cfcdc6;
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+}
+
+.slider-dot.active {
+    width: 23px;
+    background: #d49b0b;
+}
+
+/* =========================
+   COMPANY INTRO
+========================= */
+
+.company-intro {
+    padding: 0 0 35px;
+    border-bottom: 1px solid var(--line);
+}
+
+.company-name {
+    display: inline-block;
+    margin: 0 0 18px;
+    padding: 7px 12px;
+    border: 1px solid #eadbb6;
+    border-radius: 6px;
+    background: #fff8e6;
+    color: #85620b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.company-intro h2 {
+    max-width: 700px;
+    margin: 0 0 18px;
+    font-size: clamp(23px, 3vw, 31px);
+    line-height: 1.35;
+    font-weight: 750;
+    letter-spacing: -.9px;
+}
+
+.about-page p {
+    margin: 0 0 15px;
+    color: #5f605b;
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+.company-intro p {
+    max-width: 800px;
+}
+
+/* =========================
+   CONTENT SECTIONS
+========================= */
+
+.about-section {
+    padding: 35px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.about-section h3,
+.timeline-heading {
+    margin: 0 0 15px;
+    font-size: 23px;
+    line-height: 1.4;
+    font-weight: 750;
+    letter-spacing: -.6px;
+}
+
+.about-section h4,
+.timeline-entry h4 {
+    margin: 20px 0 9px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.about-page ul {
+    margin: 13px 0 20px;
+    padding-left: 22px;
+}
+
+.about-page li {
+    margin: 5px 0;
+    padding-left: 4px;
+    color: #5f605b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.about-page li::marker {
+    color: #c99512;
+}
+
+.about-page strong {
+    color: #30312d;
+    font-weight: 700;
+}
+
+/* =========================
+   COMPANY TIMELINE
+========================= */
+
+.timeline {
+    padding-top: 38px;
+}
+
+.timeline-heading {
+    margin-bottom: 28px;
+}
+
+.timeline-year {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 34px 0 17px;
+    color: #96700e;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -.4px;
+}
+
+.timeline-year::after {
+    height: 1px;
+    flex: 1;
+    background: var(--line);
+    content: "";
+}
+
+.timeline-entry {
+    position: relative;
+    margin-left: 5px;
+    padding: 0 0 27px 25px;
+    border-left: 1px solid #e6d9b8;
+}
+
+.timeline-entry::before {
+    position: absolute;
+    top: 7px;
+    left: -5px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--bg);
+    border-radius: 50%;
+    background: var(--accent);
+    content: "";
+}
+
+.timeline-entry h3 {
+    margin: 0 0 13px;
+    font-size: 19px;
+    line-height: 1.5;
+    font-weight: 750;
+    letter-spacing: -.3px;
+}
+
+.timeline-entry p {
+    margin-bottom: 13px;
+}
+
+.timeline-entry ul {
+    margin-bottom: 17px;
+}
+
+.timeline-entry:last-child {
+    padding-bottom: 5px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 54px 5% 22px;
+    background: var(--dark);
+    color: #f5f4f0;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: .8fr .9fr 1.4fr;
+    gap: 55px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 44px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.footer-brand p {
+    max-width: 220px;
+    margin: 0;
+    color: #a8a8a1;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #383a34;
+    border-radius: 50%;
+    color: #f5f4f0;
+    font-size: 14px;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.social-links a:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #171713;
+}
+
+.footer h2 {
+    margin: 0 0 21px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+}
+
+.footer-menu a,
+.footer-contact a {
+    color: #b8b8b1;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    transition: color .2s ease;
+}
+
+.footer-menu a:hover,
+.footer-contact a:hover,
+.footer-bottom a:hover {
+    color: var(--accent);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+}
+
+.footer-contact h2 {
+    margin-bottom: 14px;
+}
+
+.footer-contact p {
+    margin: 9px 0 0;
+    color: #888981;
+    font-size: 11px;
+}
+
+.footer-contact p:first-of-type {
+    margin-top: 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #34352f;
+    color: #8c8d85;
+    font-size: 11px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: #b8b8b1;
+    transition: color .2s ease;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 0 3%;
+        gap: 20px;
+    }
+
+    .brand img {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .footer-main {
+        gap: 30px;
+    }
+}
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+@media (max-width: 760px) {
+    .navbar {
+        position: sticky;
+        min-height: 66px;
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 125px;
+        height: 38px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 6px;
+    }
+
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0 5px;
+        border-top: 1px solid var(--line);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 4px;
+        font-size: 13px;
+        white-space: normal;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a.active {
+        color: #9b7100;
+        font-weight: 700;
+    }
+
+    .about-page {
+        padding: 35px 20px 65px;
+    }
+
+    .about-container {
+        max-width: 100%;
+    }
+
+    .page-heading {
+        margin-bottom: 24px;
+    }
+
+    .about-title {
+        font-size: 35px;
+        letter-spacing: -1.5px;
+    }
+
+    .heading-description {
+        font-size: 13px;
+    }
+
+    .slider-frame {
+        height: 290px;
+    }
+
+    .product-slider {
+        margin-bottom: 38px;
+    }
+
+    .company-intro h2 {
+        font-size: 25px;
+    }
+
+    .about-section {
+        padding: 29px 0;
+    }
+
+    .about-section h3,
+    .timeline-heading {
+        font-size: 21px;
+    }
+
+    .timeline {
+        padding-top: 30px;
+    }
+
+    .timeline-entry h3 {
+        font-size: 17px;
+    }
+
+    .footer {
+        padding: 40px 22px 20px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 34px 22px;
+        padding-bottom: 32px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        max-width: 340px;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 420px) {
+    .navbar {
+        padding: 10px 14px;
+    }
+
+    .brand img {
+        width: 112px;
+    }
+
+    .nav-actions {
+        gap: 2px;
+    }
+
+    .about-page {
+        padding: 29px 17px 50px;
+    }
+
+    .about-title {
+        font-size: 31px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .slider-frame {
+        height: 235px;
+        border-radius: 12px;
+    }
+
+    .slider-frame img {
+        padding: 12px;
+    }
+
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+    }
+
+    .slider-prev {
+        left: 10px;
+    }
+
+    .slider-next {
+        right: 10px;
+    }
+
+    .company-intro h2 {
+        font-size: 22px;
+    }
+
+    .about-page p,
+    .about-page li {
+        font-size: 12px;
+    }
+
+    .timeline-year {
+        font-size: 17px;
+    }
+
+    .timeline-entry {
+        padding-left: 19px;
+    }
+
+    .timeline-entry h3 {
+        font-size: 16px;
+    }
+
+    .footer {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .footer-main {
+        gap: 30px 16px;
+    }
+
+    .footer h2 {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Kurangi animasi bagi pengguna yang memilih reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <a href="index.html" class="brand" aria-label="Beranda LAYERAPRINTING">
+        <img src="assets/images/Logo.png" alt="LAYERAPRINTING Indonesia">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="about.html" class="active" aria-current="page">Perusahaan</a>
+        <a href="join.html">Bergabung dengan Kami</a>
+        <a href="blog.html">Artikel</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="account.html" class="nav-icon" aria-label="Akun">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" class="nav-icon" aria-label="Keranjang belanja">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+</header>
+
+<!-- KONTEN TENTANG KAMI -->
+<main class="about-page">
+<div class="about-container">
+
+    <section class="page-heading">
+        <p class="eyebrow">Mengenal Perusahaan</p>
+        <h1 class="about-title">Tentang Kami</h1>
+        <p class="heading-description">
+            Mengenal perjalanan, inovasi, dan komitmen kami dalam
+            mengembangkan teknologi manufaktur filamen yang lebih cerdas
+            dan berkelanjutan.
+        </p>
+    </section>
+
+    <!-- GALERI PRODUK -->
+    <section class="product-slider" aria-label="Galeri produk">
+
+        <div class="slider-frame">
+            <img
+                id="productSlide"
+                src="images/product-1.png"
+                alt="Mesin ekstrusi filamen LAYERAPRINTING indonesia"
+                fetchpriority="high">
+
+            <button
+                class="slider-arrow slider-prev"
+                id="prevSlide"
+                type="button"
+                aria-label="Gambar sebelumnya">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button
+                class="slider-arrow slider-next"
+                id="nextSlide"
+                type="button"
+                aria-label="Gambar berikutnya">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="slider-caption">
+            <span id="slideCounter">01 / 03</span>
+            <div class="slider-dots" id="sliderDots" aria-label="Pilih gambar"></div>
+        </div>
+
+    </section>
+
+    <!-- PENGENALAN PERUSAHAAN -->
+    <section class="company-intro">
+
+        <div class="company-name">LAYERAPRINTING indonesia</div>
+
+        <h2>Inovasi Manufaktur Filamen yang Berkelanjutan</h2>
+
+        <p>
+            Didirikan dengan visi untuk membuat produksi filamen profesional
+            dapat diakses oleh semua orang, LAYERAPRINTING indonesia berfokus pada pengembangan
+            sistem ekstrusi filamen cerdas, solusi daur ulang plastik,
+            dan teknologi material canggih untuk para kreator,
+            peneliti, institusi pendidikan, serta produsen industri
+            di seluruh dunia.
+        </p>
+
+        <p>
+            Kami percaya bahwa manufaktur berkelanjutan tidak seharusnya
+            mengorbankan performa. Dengan menggabungkan sistem kendali
+            cerdas, rekayasa presisi, dan teknologi yang bertanggung jawab
+            terhadap lingkungan, LAYERAPRINTING indonesia memungkinkan pengguna mengolah
+            material plastik—termasuk limbah daur ulang—menjadi filamen
+            pencetakan 3D berkualitas tinggi dengan konsistensi setara
+            standar industri.
+        </p>
+
+        <p>
+            Saat ini, produk kami dipercaya oleh berbagai universitas,
+            laboratorium, tim teknik, inisiatif daur ulang, dan komunitas
+            kreator di seluruh dunia.
+        </p>
+
+    </section>
+
+    <!-- MISI -->
+    <section class="about-section">
+
+        <h3>Misi Kami</h3>
+
+        <p>
+            Memberdayakan setiap kreator dengan solusi manufaktur filamen
+            cerdas sekaligus membangun masa depan yang lebih berkelanjutan
+            melalui daur ulang plastik dalam sistem ekonomi sirkular.
+        </p>
+
+    </section>
+
+    <!-- PERJALANAN PERUSAHAAN -->
+    <section class="timeline">
+
+        <h2 class="timeline-heading">Perjalanan Kami</h2>
+
+        <!-- 2019 -->
+        <div class="timeline-year">2019</div>
+
+        <article class="timeline-entry">
+            <h3>Platform Ekstrusi Generasi Pertama</h3>
+
+            <p>
+                LAYERAPRINTING indonesia meluncurkan mesin ekstrusi filamen generasi pertama
+                dengan struktur mekanis yang dirancang ulang dan
+                sistem penggerak yang dioptimalkan.
+            </p>
+
+            <p>Pencapaian utama meliputi:</p>
+
+            <ul>
+                <li>Stabilitas produksi yang lebih baik</li>
+                <li>Kemampuan produksi berkelanjutan yang lebih tinggi</li>
+                <li>Konsistensi ekstrusi yang lebih baik</li>
+                <li>Dukungan untuk berbagai material teknik, termasuk:</li>
+            </ul>
+
+            <ul>
+                <li>PLA</li>
+                <li>ABS</li>
+                <li>PETG</li>
+                <li>TPU</li>
+                <li>Seri PA</li>
+            </ul>
+
+            <p>
+                Generasi ini menjadi fondasi teknis perusahaan dan dengan
+                cepat menjadi solusi tepercaya bagi pengguna industri
+                serta lembaga penelitian.
+            </p>
+        </article>
+
+        <!-- 2023 -->
+        <div class="timeline-year">2023</div>
+
+        <article class="timeline-entry">
+            <h3>Ekstruder Cerdas Gen2</h3>
+
+            <p>
+                Peluncuran <strong>Seri Gen2</strong> menjadi tonggak
+                penting bagi industri.
+            </p>
+
+            <p>Untuk pertama kalinya, pengguna dapat menggabungkan:</p>
+
+            <p>
+                <strong>Daur Ulang Limbah Plastik + Manufaktur Filamen</strong>
+            </p>
+
+            <p>dalam satu platform terintegrasi.</p>
+
+            <p>Gen2 dengan cepat mendapat pengakuan di kalangan:</p>
+
+            <ul>
+                <li>Laboratorium universitas</li>
+                <li>Lembaga penelitian</li>
+                <li>Pembuatan prototipe medis</li>
+                <li>Pendidikan teknik</li>
+                <li>Komunitas kreator global</li>
+            </ul>
+
+            <p>
+                Hal ini didukung oleh presisi, keandalan, dan filosofi
+                desain yang berkelanjutan.
+            </p>
+        </article>
+
+        <!-- 2024 -->
+        <div class="timeline-year">2024</div>
+
+        <article class="timeline-entry">
+            <h3>Pendirian Resmi LAYERAPRINTING indonesia</h3>
+
+            <p>
+                LAYERAPRINTING indonesia resmi menjadi perusahaan teknologi independen
+                yang menyatukan para insinyur, spesialis otomasi, dan
+                ilmuwan material polimer dari seluruh dunia.
+            </p>
+
+            <p>
+                Tim R&amp;D kami berkembang menjadi
+                <strong>17 insinyur khusus</strong>, sehingga mempercepat
+                inovasi dalam teknologi ekstrusi cerdas.
+            </p>
+
+            <p>Pada tahun yang sama, kami memperkenalkan Gen2 Pro dengan fitur:</p>
+
+            <ul>
+                <li>Pengukuran diameter laser berpresisi tinggi</li>
+                <li>Umpan balik loop tertutup secara real-time</li>
+                <li>Stabilitas ekstrusi yang lebih baik</li>
+                <li>Kemampuan produksi berkelanjutan berstandar industri</li>
+                <li>Akurasi dimensi yang lebih tinggi</li>
+            </ul>
+
+            <p>
+                Gen2 Pro menetapkan standar baru untuk manufaktur filamen
+                profesional berskala desktop.
+            </p>
+        </article>
+
+        <!-- 2025 -->
+        <div class="timeline-year">2025</div>
+
+        <article class="timeline-entry">
+            <h3>Sistem Ekstrusi Ekosistem Cerdas C1</h3>
+
+            <p>
+                Tahun 2025 menjadi tonggak terobosan berikutnya dengan
+                peluncuran <strong>Ekosistem Cerdas C1</strong>.
+            </p>
+
+            <p>
+                Didukung algoritma AI eksklusif dan teknologi visi komputer
+                cerdas, C1 menjadi salah satu sistem ekstrusi filamen
+                desktop pertama di dunia yang mampu mencapai presisi
+                sebanding dengan—dan dalam banyak aplikasi melampaui—
+                peralatan industri konvensional.
+            </p>
+
+            <p>Inovasi utama meliputi:</p>
+
+            <ul>
+                <li>Kendali loop tertutup berbasis AI</li>
+                <li>Pemantauan diameter dengan laser</li>
+                <li>Kompensasi diameter otomatis</li>
+                <li>Profil material cerdas</li>
+                <li>Presisi setara standar industri</li>
+                <li>Produksi berkecepatan tinggi dan stabil</li>
+            </ul>
+
+            <p>
+                C1 mewakili generasi berikutnya dalam manufaktur
+                filamen cerdas.
+            </p>
+        </article>
+
+        <!-- 2026 -->
+        <div class="timeline-year">2026</div>
+
+        <article class="timeline-entry">
+            <h3>Ekstruder Filamen Desktop Q0</h3>
+
+            <p>
+                Untuk membuat produksi filamen profesional semakin mudah
+                diakses, LAYERAPRINTING indonesia memperkenalkan Q0.
+            </p>
+
+            <p>
+                Dirancang dengan mengutamakan kemudahan penggunaan, Q0
+                mempertahankan kualitas ekstrusi C1 yang telah terbukti
+                sekaligus menawarkan:
+            </p>
+
+            <ul>
+                <li>Pengoperasian yang lebih sederhana</li>
+                <li>Desain desktop yang ringkas</li>
+                <li>Kompleksitas perangkat keras yang lebih rendah</li>
+                <li>Harga yang terjangkau</li>
+                <li>Konsistensi filamen yang sangat baik</li>
+            </ul>
+
+            <p>
+                Q0 menghadirkan manufaktur filamen berkelanjutan secara
+                mandiri kepada komunitas pendidik, kreator, desainer,
+                dan profesional yang lebih luas di seluruh dunia.
+            </p>
+        </article>
+
+        <!-- AGUSTUS 2026 -->
+        <div class="timeline-year">Agustus 2026</div>
+
+        <article class="timeline-entry">
+            <h3>Seri BLE</h3>
+
+            <p>
+                Babak inovasi berikutnya akan memperluas ekosistem LAYERAPRINTING indonesia
+                dengan fitur cerdas baru, efisiensi yang lebih tinggi,
+                serta pengalaman penggunaan yang semakin mudah.
+            </p>
+
+            <p>
+                Dibangun berdasarkan penelitian selama bertahun-tahun
+                dalam kendali ekstrusi berbasis AI dan manufaktur
+                berkelanjutan, Seri BLE dirancang untuk membuat produksi
+                filamen profesional menjadi lebih cepat, lebih cerdas,
+                dan lebih mudah diakses.
+            </p>
+
+            <h4>Inovasi berikutnya dalam manufaktur filamen.</h4>
+        </article>
+
+    </section>
+
+    <!-- KEBERLANJUTAN -->
+    <section class="about-section">
+
+        <h3>Inovasi untuk Mendorong Keberlanjutan</h3>
+
+        <p>
+            Di LAYERAPRINTING indonesia, inovasi tidak hanya terbatas pada mesin.
+            Kami terus mengembangkan teknologi yang mendukung proses
+            manufaktur lebih efisien sekaligus memperhatikan dampak
+            terhadap lingkungan.
+        </p>
+
+        <p>Kami terus berinvestasi dalam:</p>
+
+        <ul>
+            <li>Penelitian sirkularitas material</li>
+            <li>Sistem pengukuran laser loop tertutup</li>
+            <li>Teknologi daur ulang plastik berkelanjutan</li>
+            <li>Pemrosesan polimer tingkat lanjut</li>
+            <li>Otomasi manufaktur cerdas</li>
+        </ul>
+
+        <p>
+            Misi kami adalah mengurangi limbah plastik sekaligus
+            memberdayakan para kreator di seluruh dunia dengan solusi
+            produksi filamen berstandar profesional.
+        </p>
+
+    </section>
+
+    <!-- LANGKAH KE DEPAN -->
+    <section class="about-section" style="border-bottom:none;">
+
+        <h3>Langkah Kami ke Depan</h3>
+
+        <p>
+            Seiring manufaktur aditif terus mengubah berbagai industri,
+            LAYERAPRINTING indonesia tetap berkomitmen untuk terus mengembangkan batas
+            teknologi ekstrusi cerdas.
+        </p>
+
+        <p>
+            Dari kreator desktop hingga produsen industri, kami berupaya
+            menghadirkan peralatan yang:
+        </p>
+
+        <ul>
+            <li>Lebih akurat</li>
+            <li>Lebih cerdas</li>
+            <li>Lebih berkelanjutan</li>
+            <li>Lebih andal</li>
+        </ul>
+
+        <p>
+            Bersama-sama, kita membangun masa depan manufaktur filamen.
+        </p>
+
+    </section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <p>
+                Teknologi manufaktur filamen cerdas untuk masa depan
+                produksi yang lebih efisien dan berkelanjutan.
+            </p>
+
+        </div>
+
+        <div>
+            <h2>Menu</h2>
+
+            <nav class="footer-menu" aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="contact.html">Hubungi Kami</a>
+                <a href="about.html">Perusahaan</a>
+                <a href="join.html">Bergabung dengan Kami</a>
+                <a href="blog.html">Artikel</a>
+                <a href="track-order.html">Lacak Pesanan</a>
+            </nav>
+        </div>
+
+        <div class="footer-contact">
+            <h2>Hubungi Kami</h2>
+
+            <p>Informasi perusahaan</p>
+            <a href="mailto:LAYERAPRINTING@gmail.com">LAYERAPRINTING@gmail.com</a>
+
+            <p>Layanan teknis</p>
+            <a href="mailto:LAYERAPRINTING@gmail.com">LAYERAPRINTING@gmail.com</a>
+
+            <p>WhatsApp: +86-18837101422</p>
+            <p>Telepon: +86-18538509168</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 LAYERAPRINTING indonesia. Hak cipta dilindungi.</p>
+        <a href="terms.html">Syarat dan Kebijakan</a>
+    </div>
+
+</footer>
+
+<script>
+/* =========================
+   NAVBAR MOBILE
+========================= */
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const menuIcon = menuToggle.querySelector('i');
+
+function closeMenu() {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Buka menu navigasi');
+    menuIcon.className = 'fa-solid fa-bars';
+}
+
+menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'
+    );
+
+    menuIcon.className = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        closeMenu();
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) {
+        closeMenu();
+    }
+});
+
+/* =========================
+   GALERI PRODUK
+========================= */
+
+const productImages = [
+    {
+        src: 'assets/images/perusahaan1.png',
+        alt: 'Mesin ekstrusi filamen LAYERAPRINTING indonesia'
+    },
+    {
+        src: 'assets/images/perusahaan3.png',
+        alt: 'Ekstruder cerdas LAYERAPRINTING indonesia'
+    },
+    {
+        src: 'assets/images/perusahaan2.png',
+        alt: 'Peralatan manufaktur filamen LAYERAPRINTING indonesia'
+    }
+];
+
+const slideImage = document.getElementById('productSlide');
+const dotsContainer = document.getElementById('sliderDots');
+const slideCounter = document.getElementById('slideCounter');
+
+let currentSlide = 0;
+
+productImages.forEach((image, index) => {
+    const dot = document.createElement('button');
+
+    dot.type = 'button';
+    dot.className = 'slider-dot';
+    dot.setAttribute('aria-label', `Tampilkan gambar ${index + 1}`);
+    dot.setAttribute('aria-pressed', 'false');
+
+    dot.addEventListener('click', () => {
+        showSlide(index);
+    });
+
+    dotsContainer.appendChild(dot);
+});
+
+function showSlide(index) {
+    currentSlide = (index + productImages.length) % productImages.length;
+
+    slideImage.src = productImages[currentSlide].src;
+    slideImage.alt = productImages[currentSlide].alt;
+
+    slideCounter.textContent =
+        `${String(currentSlide + 1).padStart(2, '0')} / ${String(productImages.length).padStart(2, '0')}`;
+
+    dotsContainer.querySelectorAll('.slider-dot').forEach((dot, i) => {
+        const isActive = i === currentSlide;
+
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-pressed', String(isActive));
+    });
+}
+
+document.getElementById('prevSlide').addEventListener('click', () => {
+    showSlide(currentSlide - 1);
+});
+
+document.getElementById('nextSlide').addEventListener('click', () => {
+    showSlide(currentSlide + 1);
+});
+
+/* Peringatan jika gambar tidak ditemukan */
+slideImage.addEventListener('error', () => {
+    slideImage.alt = 'Gambar produk tidak ditemukan. Periksa folder images.';
+});
+
+showSlide(0);
+</script>
+
+</body>
+</html>

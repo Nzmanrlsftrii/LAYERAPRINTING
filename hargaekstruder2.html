@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mesin Ekstruder C1 | LAYERAPRINTING Indonesia</title>
+<meta name="description" content="Mesin Ekstruder Filamen dan Daur Ulang C1 dari LAYERAPRINTING Indonesia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --black: #101010;
+    --yellow: #efa900;
+    --yellow-light: #ffb900;
+    --cream: #faf8f2;
+    --white: #ffffff;
+    --text: #252525;
+    --secondary: #777777;
+    --border: #eae6dc;
+    --soft-yellow: #fff8e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5%;
+    background: #faf9f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+    gap: 25px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 145px;
+    max-height: 48px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 55px;
+}
+
+.nav-links a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 76px;
+    color: #292929;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #bd8700;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--yellow);
+}
+
+/* NAVIGATION ICONS */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: #222;
+    background: transparent;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+.nav-icon:hover {
+    color: #bd8700;
+    background: #fff1cc;
+}
+
+.cart-count {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    background: var(--yellow);
+    color: #171717;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #222;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    background: var(--cream);
+    padding: 19px 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #888;
+}
+
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.breadcrumb a:hover {
+    color: #bd8700;
+}
+
+.breadcrumb span {
+    margin: 0 10px;
+    color: #bbb;
+}
+
+/* =========================
+   PRODUCT CONTAINER
+========================= */
+
+.product-container {
+    max-width: 1500px;
+    margin: 45px auto 75px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(350px, .95fr);
+    gap: 40px;
+    align-items: start;
+}
+
+/* =========================
+   PRODUCT GALLERY
+========================= */
+
+.product-gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.product-image {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================
+   PRODUCT DETAILS
+========================= */
+
+.product-details {
+    position: sticky;
+    top: 95px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 27px;
+    background: white;
+    min-width: 0;
+}
+
+.product-name {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #202020;
+    margin-bottom: 13px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #171717;
+    margin-bottom: 26px;
+}
+
+/* =========================
+   VOLTAGE
+========================= */
+
+.detail-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.voltage-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 23px;
+}
+
+.voltage-btn {
+    border: 1px solid var(--border);
+    background: white;
+    color: #333;
+    padding: 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.voltage-btn:hover {
+    border-color: var(--yellow);
+}
+
+.voltage-btn.active {
+    background: var(--soft-yellow);
+    color: #805c00;
+    border-color: var(--yellow);
+}
+
+/* =========================
+   QUANTITY & CART
+========================= */
+
+.quantity-cart {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 13px;
+}
+
+.quantity {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    align-items: center;
+    justify-content: space-around;
+    flex: .7;
+    height: 52px;
+    min-width: 105px;
+}
+
+.quantity button {
+    border: none;
+    background: transparent;
+    font-size: 19px;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
+}
+
+.quantity button:hover {
+    color: #bd8700;
+}
+
+.quantity span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.add-cart {
+    flex: 1;
+    background: var(--yellow);
+    color: #171717;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .25s;
+    padding: 10px;
+}
+
+.add-cart:hover {
+    background: var(--yellow-light);
+}
+
+.buy-now {
+    width: 100%;
+    height: 51px;
+    background: #171717;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 27px;
+    transition: .25s;
+}
+
+.buy-now:hover {
+    background: #333;
+}
+
+/* =========================
+   SPECIFICATIONS
+========================= */
+
+.spec-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0e2bd;
+    color: #202020;
+}
+
+.spec-subtitle {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 21px 0 12px;
+    color: #333;
+}
+
+.spec-list {
+    list-style: none;
+}
+
+.spec-list li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 8px;
+}
+
+.spec-list li::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--yellow);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #101010;
+    color: #aaa;
+    min-height: 175px;
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    font-size: 12px;
+}
+
+.footer-brand {
+    color: white;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.footer-brand span {
+    color: var(--yellow);
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: .25s;
+}
+
+footer a:hover {
+    color: var(--yellow);
+}
+
+/* =========================
+   FLOATING CART
+========================= */
+
+.floating-cart {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translate(-50%, 120px);
+    width: min(550px, calc(100% - 35px));
+    background: white;
+    color: #171717;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.13);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .35s ease;
+    z-index: 2000;
+}
+
+.floating-cart.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.floating-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.floating-info strong {
+    font-size: 12px;
+}
+
+.floating-info span {
+    font-size: 11px;
+    color: #777;
+}
+
+.floating-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.floating-price {
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.floating-cart button {
+    border: none;
+    background: var(--yellow);
+    color: #171717;
+    padding: 12px 16px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.floating-cart button:hover {
+    background: var(--yellow-light);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+    bottom: 95px;
+    right: 25px;
+    background: #171717;
+    color: white;
+    padding: 14px 21px;
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: .3s;
+    z-index: 3000;
+    pointer-events: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width: 1200px) {
+
+    .navbar {
+        padding: 0 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
+
+    .nav-links {
+        margin-left: 25px;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-right {
+        gap: 15px;
+    }
+
+    .product-container {
+        padding: 0 3%;
+        gap: 25px;
+        grid-template-columns: minmax(0, 1.35fr) minmax(310px, 1fr);
+    }
+
+    .product-details {
+        padding: 22px;
+    }
+
+    .product-name {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 25px;
+    }
+}
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media(max-width: 900px) {
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .nav-links {
+        margin-left: 15px;
+        gap: 11px;
+    }
+
+    .nav-links a {
+        min-height: 72px;
+        font-size: 10px;
+    }
+
+    .nav-links a.active::after {
+        bottom: 17px;
+    }
+
+    .nav-right {
+        gap: 12px;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr .9fr;
+        gap: 18px;
+    }
+
+    .product-details {
+        padding: 17px;
+        top: 85px;
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .quantity-cart {
+        flex-direction: column;
+    }
+
+    .quantity {
+        width: 100%;
+        flex: none;
+    }
+
+    .add-cart {
+        min-height: 47px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 768px) {
+
+    .navbar {
+        min-height: 68px;
+        padding: 0 18px;
+    }
+
+    .logo img {
+        width: 130px;
+        max-height: 43px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 12px 20px 20px;
+        background: #faf9f5;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        min-height: 43px;
+        font-size: 13px;
+    }
+
+    .nav-links a.active::after {
+        display: none;
+    }
+
+    .nav-right {
+        margin-left: auto;
+        gap: 13px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .page-header {
+        padding: 15px 18px;
+    }
+
+    .breadcrumb {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        gap: 25px;
+        margin-top: 22px;
+        margin-bottom: 50px;
+    }
+
+    .product-gallery {
+        gap: 13px;
+    }
+
+    .product-details {
+        position: static;
+        padding: 22px;
+    }
+
+    .product-name {
+        font-size: 21px;
+    }
+
+    .price {
+        font-size: 26px;
+    }
+
+    .quantity-cart {
+        flex-direction: row;
+    }
+
+    .quantity {
+        flex: .7;
+    }
+
+    .add-cart {
+        flex: 1;
+    }
+
+    .spec-title {
+        font-size: 19px;
+    }
+
+    footer {
+        min-height: 145px;
+        padding: 28px 18px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .floating-cart {
+        bottom: 12px;
+        padding: 11px;
+        gap: 8px;
+    }
+
+    .floating-info strong {
+        font-size: 10px;
+    }
+
+    .floating-info span {
+        font-size: 10px;
+    }
+
+    .floating-price {
+        display: none;
+    }
+
+    .floating-cart button {
+        padding: 11px 13px;
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width: 480px) {
+
+    .logo img {
+        width: 120px;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .nav-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    .product-container {
+        padding: 0 12px;
+    }
+
+    .product-details {
+        padding: 18px;
+    }
+
+    .product-name {
+        font-size: 19px;
+    }
+
+    .price {
+        font-size: 23px;
+    }
+
+    .voltage-btn {
+        padding: 13px 7px;
+        font-size: 12px;
+    }
+
+    .quantity-cart {
+        gap: 8px;
+    }
+
+    .quantity {
+        min-width: 95px;
+    }
+
+    .quantity button {
+        padding: 8px;
+    }
+
+    .add-cart {
+        font-size: 10px;
+    }
+
+    .spec-list li {
+        font-size: 11px;
+    }
+
+    footer {
+        gap: 20px;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 85px;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="nav-left">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="LAYERAPRINTING Indonesia">
+        </a>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Beranda</a>
+        <a href="product.html" class="active">Produk</a>
+        <a href="contact.html">Hubungi Kami</a>
+        <a href="company.html">Perusahaan</a>
+        <a href="join-us.html">Bergabung</a>
+        <a href="blog.html">Blog</a>
+        <a href="track-order.html">Lacak Pesanan</a>
+    </nav>
+
+    <div class="nav-right">
+
+        <!-- ACCOUNT -->
+        <a href="account.html"
+           class="nav-icon"
+           id="accountLink"
+           aria-label="Akun"
+           title="Akun">
+
+            <i class="fa-regular fa-user"></i>
+
+        </a>
+
+        <!-- CART -->
+        <a href="cart.html"
+           class="nav-icon"
+           id="cartLink"
+           aria-label="Keranjang Belanja"
+           title="Keranjang">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span class="cart-count" id="cartCount">0</span>
+
+        </a>
+
+        <!-- MOBILE MENU -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<section class="page-header">
+
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a>
+        <span>/</span>
+        <a href="produk.html">Produk</a>
+        <span>/</span>
+        Mesin Ekstruder Filamen & Daur Ulang C1
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCT CONTENT
+========================= -->
+
+<main class="product-container">
+
+    <section class="product-gallery">
+
+        <div class="product-image">
+            <img src="assets/images/poster1.1.png" alt="LAYERAPRINTING C1">
+        </div>
+
+        <div class="product-image">
+            <img src="assets/images/poster1.2.png" alt="Sistem Daur Ulang">
+        </div>
+
+        <div class="product-image">
+            <img src="assets/images/poster1.3.png" alt="Laser Kontrol Tertutup">
+        </div>
+
+        <div class="product-image">
+            <img src="assets/images/1.4.png" alt="Spesifikasi Utama">
+        </div>
+
+        <div class="product-image">
+            <img src="assets/images/1.5.png" alt="Sistem Daur Ulang Tertutup">
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT DETAILS -->
+
+    <aside class="product-details">
+
+        <h1 class="product-name">
+            Mesin Ekstruder Filamen & Daur Ulang C1
+        </h1>
+
+        <div class="price">
+            Rp 16.654.000,00
+        </div>
+
+
+        <!-- VOLTAGE -->
+
+        <p class="detail-label">
+            Tegangan Listrik
+        </p>
+
+        <div class="voltage-options">
+
+            <button
+                class="voltage-btn active"
+                onclick="selectVoltage(this)"
+                type="button">
+
+                110V
+
+            </button>
+
+            <button
+                class="voltage-btn"
+                onclick="selectVoltage(this)"
+                type="button">
+
+                220-230V
+
+            </button>
+
+        </div>
+
+
+        <!-- QUANTITY -->
+
+        <div class="quantity-cart" id="purchaseRow">
+
+            <div class="quantity">
+
+                <button
+                    onclick="changeQuantity(-1)"
+                    type="button"
+                    aria-label="Kurangi jumlah">
+
+                    −
+
+                </button>
+
+                <span id="quantity">1</span>
+
+                <button
+                    onclick="changeQuantity(1)"
+                    type="button"
+                    aria-label="Tambah jumlah">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <button class="add-cart" id="mainAddCart" type="button">
+                <i class="fa-solid fa-cart-plus"></i>
+                Tambahkan ke Keranjang
+            </button>
+
+        </div>
+
+
+        <button class="buy-now" onclick="buyNow()" type="button">
+            Beli Sekarang
+        </button>
+
+
+        <!-- SPECIFICATIONS -->
+
+        <h2 class="spec-title">
+            Spesifikasi Utama
+        </h2>
+
+        <p class="spec-subtitle">
+            Parameter dan Nilai
+        </p>
+
+        <ul class="spec-list">
+            <li>Material Bodi: Baja struktural berkekuatan tinggi dan plastik.</li>
+            <li>Dimensi: 480 × 480 × 200 mm.</li>
+            <li>Berat: 18 kg.</li>
+            <li>Kapasitas Produksi Maksimal: 400 g/jam.</li>
+            <li>Rentang Suhu: Suhu ruang hingga 400°C.</li>
+            <li>Daya Maksimal: 500 W.</li>
+            <li>Daya Operasional: 200 W.</li>
+            <li>Konsumsi Energi: 0,5 kWh per kilogram filamen.</li>
+            <li>Material Sekrup: Baja paduan nitridasi (HRC 58-65).</li>
+        </ul>
+
+
+        <p class="spec-subtitle">
+            Informasi Tambahan
+        </p>
+
+        <ul class="spec-list">
+            <li>Catu Daya: AC 110V/220V (50/60Hz), kompatibel untuk penggunaan global.</li>
+            <li>Diameter Filamen: 1,75 mm (rentang penyesuaian: 0,3–2,2 mm).</li>
+            <li>Material yang Didukung: PLA, ABS, PETG, TPU, PET, PP, PA, PS, Nylon, PC, PVA, PEEK, dan lainnya.</li>
+            <li>Layar Sentuh 4,3 Inci: Pemantauan suhu, diameter, dan proses produksi secara langsung.</li>
+            <li>Sistem Penggulungan: Penyesuaian kecepatan otomatis, kompatibel dengan gulungan berlebar ≤110 mm dan diameter ≤280 mm.</li>
+            <li>Pematian Otomatis: Menghentikan pemanas, motor, dan kipas berdasarkan waktu atau panjang yang telah ditentukan.</li>
+        </ul>
+
+
+        <p class="spec-subtitle">
+            Informasi Desain
+        </p>
+
+        <ul class="spec-list">
+            <li>Presisi: ±0,03 mm untuk material murni dan ±0,04 mm untuk material daur ulang.</li>
+            <li>Sensor: Sensor Diameter Laser 3DPANY (500 pemindaian/detik).</li>
+            <li>Sistem Kontrol: Kontrol loop tertutup dengan kompensasi diameter berbasis AI.</li>
+        </ul>
+
+    </aside>
+
+</main>
+
+
+<!-- =========================
+     FLOATING CART
+========================= -->
+
+<div class="floating-cart" id="floatingCart">
+
+    <div class="floating-info">
+
+        <strong>LAYERAPRINTING - C1</strong>
+
+        <span id="floatingVariant">
+            110V · 1 Produk
+        </span>
+
+    </div>
+
+    <div class="floating-action">
+
+        <span class="floating-price" id="floatingPrice">
+            Rp 16.654.000
+        </span>
+
+        <button id="floatingAddCart" type="button">
+            <i class="fa-solid fa-cart-plus"></i>
+            Tambahkan
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+
+        <div class="footer-brand">
+            LAYER<span>APRINTING</span>
+        </div>
+
+        <p>© 2026 LAYERAPRINTING Indonesia. Hak cipta dilindungi.</p>
+
+    </div>
+
+    <a href="terms.html">
+        Syarat dan Kebijakan
+    </a>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+
+<script>
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+const product = {
+    id: "c1-extruder",
+    name: "Mesin Ekstruder Filamen & Daur Ulang C1",
+    price: 16654000,
+    image: "assets/images/poster1.1.png"
+};
+
+let quantity = 1;
+let selectedVoltage = "110V";
+
+
+/* =========================
+   AUTHENTICATION
+   KHUSUS AKUN
+========================= */
+
+function getCurrentUser() {
+    try {
+        const session = JSON.parse(
+            sessionStorage.getItem("layera_session") || "null"
+        );
+
+        return session && session.email ? session : null;
+
+    } catch (error) {
+        return null;
+    }
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    navLinks.classList.toggle("show");
+
+    menuToggle.textContent =
+        navLinks.classList.contains("show") ? "✕" : "☰";
+
+});
+
+
+/* =========================
+   RUPIAH FORMAT
+========================= */
+
+function formatRupiah(number) {
+
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(number);
+
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+function changeQuantity(value) {
+
+    quantity = Math.max(1, quantity + value);
+
+    document.getElementById("quantity").textContent = quantity;
+
+    updateFloatingCart();
+
+}
+
+
+/* =========================
+   VOLTAGE
+========================= */
+
+function selectVoltage(button) {
+
+    document.querySelectorAll(".voltage-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    selectedVoltage = button.textContent.trim();
+
+    updateFloatingCart();
+
+}
+
+
+/* =========================
+   FLOATING CART
+========================= */
+
+function updateFloatingCart() {
+
+    document.getElementById("floatingVariant").textContent =
+        selectedVoltage + " · " + quantity + " Produk";
+
+    document.getElementById("floatingPrice").textContent =
+        formatRupiah(product.price * quantity);
+
+}
+
+
+/* =========================
+   TOAST NOTIFICATION
+========================= */
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+
+}
+
+
+/* =========================
+   LOCAL STORAGE CART
+========================= */
+
+function getCart() {
+
+    try {
+
+        const cart = JSON.parse(
+            localStorage.getItem("layeraprinting_cart") || "[]"
+        );
+
+        return Array.isArray(cart) ? cart : [];
+
+    } catch (error) {
+
+        console.error("Gagal membaca keranjang:", error);
+
+        return [];
+
+    }
+
+}
+
+
+function saveCart(cart) {
+
+    try {
+
+        localStorage.setItem(
+            "layeraprinting_cart",
+            JSON.stringify(cart)
+        );
+
+        return true;
+
+    } catch (error) {
+
+        console.error("Gagal menyimpan keranjang:", error);
+
+        showToast("Gagal menyimpan keranjang. Periksa penyimpanan browser.");
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================
+   UPDATE CART COUNT
+========================= */
+
+function updateCartCount() {
+
+    const cart = getCart();
+
+    const total = cart.reduce((sum, item) => {
+
+        return sum + Math.max(
+            0,
+            Number(item.quantity) || 0
+        );
+
+    }, 0);
+
+    const cartCount = document.getElementById("cartCount");
+
+    if (cartCount) {
+        cartCount.textContent = total > 99 ? "99+" : total;
+    }
+
+}
+
+
+/* =========================
+   ADD PRODUCT TO CART
+========================= */
+
+function addProductToCart() {
+
+    const cart = getCart();
+
+    /*
+       Produk dengan tegangan berbeda
+       akan disimpan sebagai varian berbeda.
+    */
+
+    const existingProduct = cart.find(item => {
+
+        const sameProduct =
+            item.id === product.id ||
+            item.name === product.name;
+
+        return sameProduct &&
+            item.voltage === selectedVoltage;
+
+    });
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity =
+            (Number(existingProduct.quantity) || 0) + quantity;
+
+        existingProduct.id = product.id;
+        existingProduct.name = product.name;
+        existingProduct.price = product.price;
+        existingProduct.image = product.image;
+
+    } else {
+
+        cart.push({
+
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            voltage: selectedVoltage,
+            quantity: quantity,
+            image: product.image
+
+        });
+
+    }
+
+    return saveCart(cart);
+
+}
+
+
+/* =========================
+   RESET QUANTITY
+========================= */
+
+function resetQuantity() {
+
+    quantity = 1;
+
+    document.getElementById("quantity").textContent = quantity;
+
+    updateFloatingCart();
+
+}
+
+
+/* =========================
+   ADD TO CART
+   TANPA LOGIN
+========================= */
+
+function addToCart() {
+
+    if (!addProductToCart()) {
+        return;
+    }
+
+    updateCartCount();
+
+    showToast(
+        quantity + " produk C1 berhasil ditambahkan ke keranjang!"
+    );
+
+    resetQuantity();
+
+}
+
+
+/* =========================
+   BUY NOW
+   TANPA LOGIN
+========================= */
+
+function buyNow() {
+
+    if (!addProductToCart()) {
+        return;
+    }
+
+    updateCartCount();
+
+    showToast("Produk berhasil ditambahkan. Membuka keranjang...");
+
+    resetQuantity();
+
+    setTimeout(() => {
+
+        window.location.href = "cart.html";
+
+    }, 400);
+
+}
+
+
+/* =========================
+   ACCOUNT ICON
+   TETAP MEMERLUKAN LOGIN
+========================= */
+
+document.getElementById("accountLink")
+    .addEventListener("click", function(event) {
+
+        if (!getCurrentUser()) {
+
+            event.preventDefault();
+
+            sessionStorage.setItem(
+                "layera_redirect",
+                "account.html"
+            );
+
+            window.location.href = "login.html";
+
+        }
+
+    });
+
+
+/* =========================
+   CART ICON
+   TANPA LOGIN
+========================= */
+
+document.getElementById("cartLink")
+    .addEventListener("click", function(event) {
+
+        /*
+           Tidak ada pengecekan login.
+           Pengguna langsung menuju cart.html.
+        */
+
+        // Biarkan link bekerja secara normal.
+
+    });
+
+
+/* =========================
+   BUTTON EVENTS
+========================= */
+
+document.getElementById("mainAddCart")
+    .addEventListener("click", addToCart);
+
+document.getElementById("floatingAddCart")
+    .addEventListener("click", addToCart);
+
+
+/* =========================
+   FLOATING CART OBSERVER
+========================= */
+
+const mainButton = document.getElementById("purchaseRow");
+const floatingCart = document.getElementById("floatingCart");
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                floatingCart.classList.remove("show");
+
+            } else {
+
+                floatingCart.classList.add("show");
+
+            }
+
+        });
+
+    }, {
+        threshold: 0
+    });
+
+    observer.observe(mainButton);
+
+}
+
+
+/* =========================
+   STORAGE SYNC
+========================= */
+
+window.addEventListener("storage", function(event) {
+
+    if (event.key === "layeraprinting_cart") {
+        updateCartCount();
+    }
+
+});
+
+
+/* =========================
+   INITIALIZATION
+========================= */
+
+updateCartCount();
+updateFloatingCart();
+
+</script>
+
+</body>
+</html>
